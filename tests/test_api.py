@@ -34,6 +34,7 @@ SETTINGS_KEYS = {
     "skipped_version",
     "check_updates",
     "auto_profile",
+    "disabled_modules",
 }
 
 STATUS_KEYS = {
@@ -478,3 +479,9 @@ def test_teach_endpoint(api_client, dummy_service):
     assert dummy_service.test_command("mis hearing")["matched"]
     missing = api_client.post(f"{API}/commands/teach", json={"text": "x", "command_id": "nope"})
     assert missing.status_code == 404
+
+
+def test_modules_endpoint(api_client, dummy_service):
+    response = api_client.get(f"{API}/modules")
+    assert response.status_code == 200
+    assert {item["id"] for item in response.json()["modules"]} >= {"profile", "dictation", "mouse", "alias"}

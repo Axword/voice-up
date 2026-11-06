@@ -73,6 +73,12 @@ Moduły łączy typowany łańcuch: transkrypt → `Intent` → `Action` → wyn
 
 `Profile.apps` (lista nazw programów, np. `outlook.exe`) wybiera profil według okna z fokusem w tym samym języku co aktywny profil, gdy `auto_profile` jest włączone (domyślnie wyłączone). Podgląd (`/commands/test`) nie zmienia stanu dyktowania; zmianę trybu wykonuje `StateExecutor`. `app/aliases.py` przechowuje lokalne poprawki użytkownika (`aliases.json`: profil → błędnie usłyszana fraza → id komendy). `AliasRouter` działa przed `ProfileRouter`; `POST /commands/teach` przyjmuje `{text, command_id}` (404 dla nieznanej komendy aktywnego profilu). Zdarzenie `heard` zawiera też `source` i `confidence`; status zawiera `dictating`.
 
+## Moduły, edycje i polityka
+
+`app/modules.py` rejestruje moduły (`profile`, `alias`, `dictation`, `mouse`) z manifestem: `id` równe nazwie routera, `edition` (`free` / `pro` / `business`), `requires_cloud`, `core`. `GET /modules` zwraca listę z polami `enabled` i `reason` (`user`, `edition`, `policy`, `policy-cloud` albo `null`). Użytkownik wyłącza moduły przez `settings.disabled_modules`; rdzeń `profile` wyłączyć się nie da. Wyłączony moduł jest pomijany przez `Pipeline.route(exclude=...)`.
+
+Edycję wybiera `license.json` w katalogu konfiguracji (`{"edition": "pro"}`). To plik niepodpisany: wybiera funkcje, ale nie jest zabezpieczeniem przed kopiowaniem, więc przed sprzedażą płatnych edycji trzeba dodać podpisaną weryfikację. Polityka organizacji (`app/policy.py`) to `%PROGRAMDATA%\AxwordVoice\policy.json` albo ścieżka z `VOICE_CONTROL_POLICY`: `cloud_enabled: false` blokuje moduły chmurowe, `disabled_modules` blokuje wskazane moduły. Brak lub błąd pliku oznacza brak ograniczeń. Żaden z dzisiejszych modułów nie używa chmury.
+
 ## VoiceService
 
 `controller.service.get_service()` zwraca singleton. Konstruktor nie uruchamia mikrofonu ani modelu.

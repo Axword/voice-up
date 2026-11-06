@@ -27,6 +27,7 @@ class Settings(BaseModel):
     skipped_version: Optional[str] = None
     check_updates: bool = True
     auto_profile: bool = False
+    disabled_modules: list[str] = []
 
     model_config = {"extra": "ignore"}
 

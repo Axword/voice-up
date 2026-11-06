@@ -11,7 +11,7 @@ import time
 from collections.abc import Callable
 from typing import Any
 
-from app import aliases, config, engines, profiles, version
+from app import aliases, config, engines, modules, profiles, version
 from app.foreground import foreground_process
 from app.office_modules import DictationRouter, MouseExecutor, MouseRouter, TypeExecutor
 from app.pipeline import (
@@ -175,7 +175,10 @@ class VoiceService:
     def _route(self, text: str, profile: profiles.Profile, preview: bool = False) -> Intent | None:
         context = RouteContext(profile, self.settings.matching_threshold)
         # A preview must neither start dictation nor be swallowed by it.
-        return self._pipeline.route(text, context, frozenset({"dictation"}) if preview else frozenset())
+        exclude = modules.inactive_ids(self.settings.disabled_modules)
+        if preview:
+            exclude |= {"dictation"}
+        return self._pipeline.route(text, context, exclude)
 
     def _effective_profile(self) -> profiles.Profile:
         """The active profile, unless the focused program has its own profile in the same language."""
@@ -409,6 +412,9 @@ class VoiceService:
                 "update_available": self.update_available,
                 "error": self._last_error,
             }
+
+    def modules_status(self) -> list[dict]:
+        return modules.status(self.settings.disabled_modules)
 
     def mappings(self) -> list[dict]:
         with self._lock:

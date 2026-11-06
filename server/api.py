@@ -406,6 +406,10 @@ def _register_routes(application: FastAPI) -> None:
     def test_command(payload: CommandTestRequest) -> dict:
         return require_service().test_command(payload.text)
 
+    @application.get(f"{API_PREFIX}/modules")
+    def list_modules() -> dict:
+        return {"modules": require_service().modules_status()}
+
     @application.post(f"{API_PREFIX}/commands/teach")
     def teach_command(payload: TeachRequest) -> dict:
         try:
