@@ -6,7 +6,7 @@ Aplikacja działa lokalnie: Python rozpoznaje mowę i steruje wejściami systemo
 
 `app.paths` wskazuje katalogi konfiguracji, modeli, logów i danych. `LOLVOICE_HOME` przekierowuje je do jednego katalogu, m.in. w testach i wydaniu portable. Zachowanie tej zmiennej i nazwy danych zapewnia zgodność z wcześniejszym wydaniem.
 
-`app.config.Settings` zawiera: `language`, `ui_language`, `engine_id`, `matching_threshold`, `audio_device`, `start_with_windows`, `start_listening_on_launch`, `theme`, `skipped_version`, `check_updates`. Domyślny motyw to `light`. Starsze pola dotyczące bohaterów, zaklęć, liter i sekwencji są ignorowane przy migracji.
+`app.config.Settings` zawiera: `auto_profile`, `language`, `ui_language`, `engine_id`, `matching_threshold`, `audio_device`, `start_with_windows`, `start_listening_on_launch`, `theme`, `skipped_version`, `check_updates`. Domyślny motyw to `light`. Starsze pola dotyczące bohaterów, zaklęć, liter i sekwencji są ignorowane przy migracji.
 
 Profile są oddzielnym dokumentem JSON. Każdy profil identyfikuje grę i zawiera niezależne komendy:
 
@@ -66,6 +66,12 @@ Pełny katalog dostarczają cztery tablice JSON w `data/`: `profile-library-core
 `app.profiles.synchronize_library(document)` dopisuje wyłącznie brakujące profile o identyfikatorach katalogowych, których ta instalacja wcześniej nie widziała. Nie zmienia istniejących profili, komend, kolejności ani `active_profile_id`. Pierwsze rozszerzenie istniejącego dokumentu zachowuje jego dokładną kopię w `profiles.before-library.json`.
 
 Plik `profile-library-state.json` obok `profiles.json` przechowuje `schema: 1` i `seen_catalog_ids`. Aktualizuje się atomowo dopiero po udanym zapisie dokumentu profili. Pamięta również usunięte profile oraz wpisy pominięte z powodu limitu 100 profili, więc kolejne uruchomienie ich samoczynnie nie przywraca. Uszkodzony dokument, stan migracji lub katalog wywołuje błąd przed podmianą danych użytkownika. Pakiet Windows zawiera całe katalogi `data/` i `docs/`, wraz ze źródłami i licencjami profili.
+
+## Potok (`app/pipeline.py`)
+
+Moduły łączy typowany łańcuch: transkrypt → `Intent` → `Action` → wynik. `Router.route(text, RouteContext)` zwraca `Intent(action, source, confidence)` albo `None`; `Pipeline` pyta routery po kolei i pierwszy wygrywa. Akcje: `KeyAction`, `TypeTextAction`, `MouseAction`, `StateAction`; wykonawca jest wybierany po typie akcji (`Executor.execute`, `release_all`). Domyślna kolejność routerów: dyktowanie, profil (`ProfileRouter`: dokładne dopasowanie, potem podobieństwo), mysz. Nowy moduł (router lokalny, chmurowy, agent) dodaje się do `service.pipeline` bez zmian w reszcie kodu.
+
+`Profile.apps` (lista nazw programów, np. `outlook.exe`) wybiera profil według okna z fokusem w tym samym języku co aktywny profil, gdy `auto_profile` jest włączone. Zdarzenie `heard` zawiera też `source` i `confidence`; status zawiera `dictating`.
 
 ## VoiceService
 

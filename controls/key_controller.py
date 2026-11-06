@@ -180,3 +180,39 @@ class KeyController:
 
     def press_key(self, key: str) -> bool:
         return self.execute("single", [key])
+
+    def type_text(self, text: str) -> bool:
+        """Type literal text into the focused window (dictation)."""
+        with self._lock:
+            if not text or not self._ensure():
+                return False
+            try:
+                self.keyboard.type(text)
+                return True
+            except Exception as exc:
+                log.error("Typing failed: %s", exc)
+                return False
+
+    def pointer(self, kind: str, dx: int = 0, dy: int = 0, amount: int = 0) -> bool:
+        """Relative pointer move, click or scroll."""
+        with self._lock:
+            if not self._ensure():
+                return False
+            try:
+                button = self._mouse_module.Button
+                if kind == "move":
+                    self.mouse.move(dx, dy)
+                elif kind == "click":
+                    self.mouse.click(button.left)
+                elif kind == "double_click":
+                    self.mouse.click(button.left, 2)
+                elif kind == "right_click":
+                    self.mouse.click(button.right)
+                elif kind == "scroll":
+                    self.mouse.scroll(0, amount)
+                else:
+                    raise ValueError(f"Unknown pointer action: {kind}")
+                return True
+            except Exception as exc:
+                log.error("Pointer action failed: %s", exc)
+                return False

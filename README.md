@@ -2,13 +2,19 @@
 
 Lokalne sterowanie głosem dla gier i aplikacji na Windows 10/11. Każdy profil zawiera własne komendy, zapisane w JSON. Rozpoznawanie mowy działa lokalnie przez Whisper.
 
-Biblioteka startowa zawiera 56 profili i 1191 komend: 28 zestawów do gier, aplikacji i podstawowej klawiatury, każdy w wersji polskiej i angielskiej. Powstały na podstawie otwartych profili Talon, dokumentacji sterowania i autorskich mapowań klawiszy. Pełną listę, źródła i wymagane ustawienia opisuje [biblioteka profili](docs/PROFILE_LIBRARY.md).
+Biblioteka startowa zawiera 64 profile i 1385 komend: 32 zestawy do gier, aplikacji biurowych i podstawowej klawiatury, każdy w wersji polskiej i angielskiej. Powstały na podstawie otwartych profili Talon, dokumentacji sterowania i autorskich mapowań klawiszy. Pełną listę, źródła i wymagane ustawienia opisuje [biblioteka profili](docs/PROFILE_LIBRARY.md).
 
 Interfejs można przełączyć na polski, angielski, niemiecki, hiszpański, francuski lub ukraiński. Każdy profil ma osobny język rozpoznawania; wybór profilu automatycznie ustawia język komend. Edycja języka nie tłumaczy samodzielnie dodanych fraz.
 
 Listę profili można filtrować według języka. Profil podstawowej klawiatury rozpoznaje litery, cyfry i aliasy wymowy, np. polskie „wu” oraz angielskie „double you” naciskają W. Sekcja „Zaawansowane” w panelu komend pozwala ustawić podobieństwo fraz od 0 do 100%; domyślne 100% wymaga dokładnego dopasowania, a pojedyncze litery pozostają dokładne przy każdym progu.
 
 Przy aktualizacji nowe profile są dopisywane do istniejącej konfiguracji. Własne komendy, zmienione profile i wybór aktywnego profilu pozostają zachowane; usunięte wcześniej zestawy nie wracają przy kolejnym uruchomieniu.
+
+## Praca biurowa
+
+- **Dyktowanie:** „dyktuj" włącza wpisywanie wszystkiego, co powiesz; „koniec dyktowania" je wyłącza (analogicznie `dictate` / `stop dictation`, a także po niemiecku, hiszpańsku, francusku i ukraińsku). Tekst z Whispera jest bez interpunkcji, z wielką pierwszą literą. Zatrzymanie nasłuchu kończy dyktowanie.
+- **Mysz:** „mysz w prawo 200", „kursor w górę", „kliknij", „prawy klik", „podwójny klik", „przewiń w dół" (odpowiedniki angielskie: `mouse right 200`, `click`, `scroll down`). Domyślny krok to 100 px. Komenda z aktywnego profilu ma pierwszeństwo przed wbudowaną frazą myszy.
+- **Profil według okna:** profil z polem `apps` (np. `["outlook.exe"]`) jest używany, gdy to okno ma fokus, o ile ma ten sam język co aktywny profil. Wyłączysz to ustawieniem `auto_profile`. Dołączone profile biurowe: Outlook, Excel, Word i przeglądarka.
 
 ## Komendy
 

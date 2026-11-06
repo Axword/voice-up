@@ -1,6 +1,6 @@
 # Biblioteka profili Voice Control
 
-Biblioteka startowa zawiera **56 profili i 1191 komend**: 28 zestawów, każdy z osobnym wariantem polskim i angielskim. Wersje PL zawierają 591 komend, a EN 600. Obejmuje gry, aplikacje oraz podstawowy profil klawiatury, gotowe do edycji i eksportu jako JSON.
+Biblioteka startowa zawiera **64 profile i 1385 komend**: 32 zestawy, każdy z osobnym wariantem polskim i angielskim. Wersje PL zawierają 591 komend, a EN 600. Obejmuje gry, aplikacje oraz podstawowy profil klawiatury, gotowe do edycji i eksportu jako JSON.
 
 Zapisane warianty angielskie mają dopisek `· EN` w nazwie i `-en` w identyfikatorze; w panelu język oznaczono skrótem PL lub EN. W 27 zestawach do gier i aplikacji obie wersje wysyłają te same przyciski, w tym samym trybie i z tym samym czasem przytrzymania. Podstawowa klawiatura zawiera dodatkowo różne aliasy wymowy dla każdego języka, dlatego liczby fraz PL i EN są inne.
 
@@ -123,3 +123,6 @@ Przed pierwszym dopisaniem zestawów do istniejącego pliku powstaje kopia `prof
 
 Licencję aplikacji określa [LICENSE](../LICENSE), a licencje zależności opisuje [THIRD-PARTY-NOTICES.md](../THIRD-PARTY-NOTICES.md).
 
+## Zestawy biurowe
+
+Outlook, Excel, Word i przeglądarka (PL i EN) są w `data/profile-library-office.json`. Mają pole `apps` z nazwami programów (np. `outlook.exe`), więc włączają się automatycznie, gdy to okno ma fokus. Skróty to standardowe skróty tych programów.

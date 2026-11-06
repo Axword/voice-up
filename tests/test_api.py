@@ -33,9 +33,11 @@ SETTINGS_KEYS = {
     "theme",
     "skipped_version",
     "check_updates",
+    "auto_profile",
 }
 
 STATUS_KEYS = {
+    "dictating",
     "listening",
     "active_profile_id",
     "profile_name",

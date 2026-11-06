@@ -89,7 +89,7 @@ def bundle_data() -> list[tuple[str, str]]:
     """(source, destination) pairs, only for sources that exist."""
     for filename in (
         "profile-library-core.json", "profile-library-games.json", "profile-library-sim.json",
-        "profile-library-baseline.json",
+        "profile-library-baseline.json", "profile-library-office.json",
     ):
         if not (ROOT_DIR / "data" / filename).is_file():
             raise FileNotFoundError(f"Required profile library file is missing: {filename}")

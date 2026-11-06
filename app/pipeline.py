@@ -42,7 +42,14 @@ class MouseAction:
     amount: int = 0
 
 
-Action = KeyAction | TypeTextAction | MouseAction
+@dataclass(frozen=True)
+class StateAction:
+    """A mode switch handled inside the pipeline (nothing is sent to the system)."""
+
+    state: str
+
+
+Action = KeyAction | TypeTextAction | MouseAction | StateAction
 
 
 @dataclass(frozen=True)
@@ -141,6 +148,14 @@ class ProfileRouter:
     def _intent(self, command: VoiceCommand, confidence: float) -> Intent:
         action = KeyAction(command.id, tuple(command.keys), command.mode, command.duration_ms)
         return Intent(action, self.name, confidence, command, label=command.phrase)
+
+
+class StateExecutor:
+    def execute(self, action: Action) -> bool:
+        return True
+
+    def release_all(self) -> None:
+        pass
 
 
 class KeyExecutor:

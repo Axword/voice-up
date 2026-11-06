@@ -12,7 +12,12 @@ from collections.abc import Callable
 from typing import Any
 
 from app import config, engines, profiles, version
-from app.pipeline import Intent, KeyAction, KeyExecutor, Pipeline, ProfileRouter, RouteContext
+from app.foreground import foreground_process
+from app.office_modules import DictationRouter, MouseExecutor, MouseRouter, TypeExecutor
+from app.pipeline import (
+    Intent, KeyAction, KeyExecutor, MouseAction, Pipeline, ProfileRouter, RouteContext, StateAction,
+    StateExecutor, TypeTextAction,
+)
 from app.config import Settings
 from app.logging_setup import get_logger
 from controller.transcriber import clean_text
@@ -39,9 +44,15 @@ class VoiceService:
         self._last_heard: str | None = None
         self._last_error: str | None = None
         self.update_available = False
+        self._dictation = DictationRouter()
         self._pipeline = Pipeline(
-            routers=[ProfileRouter()],
-            executors={KeyAction: KeyExecutor(lambda: self.key_controller)},
+            routers=[self._dictation, ProfileRouter(), MouseRouter()],
+            executors={
+                KeyAction: KeyExecutor(lambda: self.key_controller),
+                TypeTextAction: TypeExecutor(lambda: self.key_controller),
+                MouseAction: MouseExecutor(lambda: self.key_controller),
+                StateAction: StateExecutor(),
+            },
         )
 
     @property
@@ -158,8 +169,21 @@ class VoiceService:
         return text
 
     def _route(self, text: str) -> Intent | None:
-        context = RouteContext(self.document.active_profile, self.settings.matching_threshold)
+        context = RouteContext(self._effective_profile(), self.settings.matching_threshold)
         return self._pipeline.route(text, context)
+
+    def _effective_profile(self) -> profiles.Profile:
+        """The active profile, unless the focused program has its own profile in the same language."""
+        active = self.document.active_profile
+        if not self.settings.auto_profile or self._dictation.active:
+            return active
+        program = foreground_process()
+        if not program:
+            return active
+        for profile in self.document.profiles:
+            if profile.language == active.language and program in (name.lower() for name in profile.apps):
+                return profile
+        return active
 
     def test_command(self, text: str) -> dict:
         """Match a phrase without recording audio or sending any system input."""
@@ -262,6 +286,7 @@ class VoiceService:
             with self._lock:
                 controller = self._controller
                 self._listening = False
+                self._dictation.active = False
                 if self._key_controller is not None:
                     self._key_controller.release_all()
             if controller is not None:
@@ -357,6 +382,7 @@ class VoiceService:
                 "engine_name": engine_name,
                 "version": version.get_version(),
                 "mappings_count": sum(command.enabled for command in active.commands),
+                "dictating": self._dictation.active,
                 "held_keys": keys.held_keys if keys else [],
                 "held_command_ids": keys.held_command_ids if keys else [],
                 "last_command": self._last_command,

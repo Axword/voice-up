@@ -21,6 +21,7 @@ LIBRARY_FILES = (
     "profile-library-games.json",
     "profile-library-sim.json",
     "profile-library-baseline.json",
+    "profile-library-office.json",
 )
 MAX_PROFILES = 100
 
@@ -62,6 +63,9 @@ class Profile(BaseModel):
     name: Annotated[str, Field(min_length=1, max_length=80)]
     game: Annotated[str, Field(max_length=100)] = ""
     language: Language = "pl_PL"
+    apps: Annotated[list[Annotated[str, Field(min_length=1, max_length=100)]], Field(max_length=20)] = Field(
+        default_factory=list
+    )
     commands: Annotated[list[VoiceCommand], Field(max_length=500)] = Field(default_factory=list)
 
     model_config = {"extra": "forbid", "str_strip_whitespace": True}

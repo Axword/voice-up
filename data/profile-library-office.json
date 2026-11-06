@@ -1,0 +1,2186 @@
+[
+  {
+    "id": "office-outlook",
+    "name": "Outlook · biuro",
+    "game": "Outlook",
+    "language": "pl_PL",
+    "apps": [
+      "outlook.exe",
+      "olk.exe"
+    ],
+    "commands": [
+      {
+        "id": "save",
+        "phrase": "zapisz",
+        "keys": [
+          "ctrl",
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "copy",
+        "phrase": "kopiuj",
+        "keys": [
+          "ctrl",
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "paste",
+        "phrase": "wklej",
+        "keys": [
+          "ctrl",
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "cut",
+        "phrase": "wytnij",
+        "keys": [
+          "ctrl",
+          "x"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "undo",
+        "phrase": "cofnij",
+        "keys": [
+          "ctrl",
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "redo",
+        "phrase": "ponow",
+        "keys": [
+          "ctrl",
+          "y"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "select-all",
+        "phrase": "zaznacz wszystko",
+        "keys": [
+          "ctrl",
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "enter",
+        "phrase": "enter",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "tab",
+        "phrase": "tabulator",
+        "keys": [
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "escape",
+        "phrase": "anuluj",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "delete",
+        "phrase": "usun",
+        "keys": [
+          "delete"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "backspace",
+        "phrase": "kasuj",
+        "keys": [
+          "backspace"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "new-mail",
+        "phrase": "nowa wiadomosc",
+        "keys": [
+          "ctrl",
+          "shift",
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "send",
+        "phrase": "wyslij",
+        "keys": [
+          "ctrl",
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "reply",
+        "phrase": "odpowiedz",
+        "keys": [
+          "ctrl",
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "reply-all",
+        "phrase": "odpowiedz wszystkim",
+        "keys": [
+          "ctrl",
+          "shift",
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward",
+        "phrase": "przekaz dalej",
+        "keys": [
+          "ctrl",
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "inbox",
+        "phrase": "skrzynka odbiorcza",
+        "keys": [
+          "ctrl",
+          "shift",
+          "i"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "calendar",
+        "phrase": "kalendarz",
+        "keys": [
+          "ctrl",
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mail-view",
+        "phrase": "poczta",
+        "keys": [
+          "ctrl",
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "next-message",
+        "phrase": "nastepna wiadomosc",
+        "keys": [
+          "down"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "previous-message",
+        "phrase": "poprzednia wiadomosc",
+        "keys": [
+          "up"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "delete-message",
+        "phrase": "usun wiadomosc",
+        "keys": [
+          "ctrl",
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mark-read",
+        "phrase": "oznacz jako przeczytane",
+        "keys": [
+          "ctrl",
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "office-outlook-en",
+    "name": "Outlook · office · EN",
+    "game": "Outlook",
+    "language": "en_US",
+    "apps": [
+      "outlook.exe",
+      "olk.exe"
+    ],
+    "commands": [
+      {
+        "id": "save",
+        "phrase": "save",
+        "keys": [
+          "ctrl",
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "copy",
+        "phrase": "copy",
+        "keys": [
+          "ctrl",
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "paste",
+        "phrase": "paste",
+        "keys": [
+          "ctrl",
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "cut",
+        "phrase": "cut",
+        "keys": [
+          "ctrl",
+          "x"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "undo",
+        "phrase": "undo",
+        "keys": [
+          "ctrl",
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "redo",
+        "phrase": "redo",
+        "keys": [
+          "ctrl",
+          "y"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "select-all",
+        "phrase": "select all",
+        "keys": [
+          "ctrl",
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "enter",
+        "phrase": "enter",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "tab",
+        "phrase": "tab",
+        "keys": [
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "escape",
+        "phrase": "cancel",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "delete",
+        "phrase": "delete",
+        "keys": [
+          "delete"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "backspace",
+        "phrase": "backspace",
+        "keys": [
+          "backspace"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "new-mail",
+        "phrase": "new mail",
+        "keys": [
+          "ctrl",
+          "shift",
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "send",
+        "phrase": "send",
+        "keys": [
+          "ctrl",
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "reply",
+        "phrase": "reply",
+        "keys": [
+          "ctrl",
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "reply-all",
+        "phrase": "reply all",
+        "keys": [
+          "ctrl",
+          "shift",
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward",
+        "phrase": "forward",
+        "keys": [
+          "ctrl",
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "inbox",
+        "phrase": "inbox",
+        "keys": [
+          "ctrl",
+          "shift",
+          "i"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "calendar",
+        "phrase": "calendar",
+        "keys": [
+          "ctrl",
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mail-view",
+        "phrase": "mail",
+        "keys": [
+          "ctrl",
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "next-message",
+        "phrase": "next message",
+        "keys": [
+          "down"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "previous-message",
+        "phrase": "previous message",
+        "keys": [
+          "up"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "delete-message",
+        "phrase": "delete message",
+        "keys": [
+          "ctrl",
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mark-read",
+        "phrase": "mark as read",
+        "keys": [
+          "ctrl",
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "office-excel",
+    "name": "Excel · biuro",
+    "game": "Excel",
+    "language": "pl_PL",
+    "apps": [
+      "excel.exe"
+    ],
+    "commands": [
+      {
+        "id": "save",
+        "phrase": "zapisz",
+        "keys": [
+          "ctrl",
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "copy",
+        "phrase": "kopiuj",
+        "keys": [
+          "ctrl",
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "paste",
+        "phrase": "wklej",
+        "keys": [
+          "ctrl",
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "cut",
+        "phrase": "wytnij",
+        "keys": [
+          "ctrl",
+          "x"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "undo",
+        "phrase": "cofnij",
+        "keys": [
+          "ctrl",
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "redo",
+        "phrase": "ponow",
+        "keys": [
+          "ctrl",
+          "y"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "select-all",
+        "phrase": "zaznacz wszystko",
+        "keys": [
+          "ctrl",
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "find",
+        "phrase": "szukaj",
+        "keys": [
+          "ctrl",
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "enter",
+        "phrase": "enter",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "tab",
+        "phrase": "tabulator",
+        "keys": [
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "escape",
+        "phrase": "anuluj",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "delete",
+        "phrase": "usun",
+        "keys": [
+          "delete"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "backspace",
+        "phrase": "kasuj",
+        "keys": [
+          "backspace"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "bold",
+        "phrase": "pogrub",
+        "keys": [
+          "ctrl",
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "next-sheet",
+        "phrase": "nastepny arkusz",
+        "keys": [
+          "ctrl",
+          "page_down"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "previous-sheet",
+        "phrase": "poprzedni arkusz",
+        "keys": [
+          "ctrl",
+          "page_up"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "edit-cell",
+        "phrase": "edytuj komorke",
+        "keys": [
+          "f2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "row-start",
+        "phrase": "poczatek wiersza",
+        "keys": [
+          "home"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "sheet-start",
+        "phrase": "poczatek arkusza",
+        "keys": [
+          "ctrl",
+          "home"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "sheet-end",
+        "phrase": "koniec danych",
+        "keys": [
+          "ctrl",
+          "end"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "select-column",
+        "phrase": "zaznacz kolumne",
+        "keys": [
+          "ctrl",
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "select-row",
+        "phrase": "zaznacz wiersz",
+        "keys": [
+          "shift",
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "fill-down",
+        "phrase": "wypelnij w dol",
+        "keys": [
+          "ctrl",
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "move-down",
+        "phrase": "w dol",
+        "keys": [
+          "down"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "move-up",
+        "phrase": "w gore",
+        "keys": [
+          "up"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "move-left",
+        "phrase": "w lewo",
+        "keys": [
+          "left"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "move-right",
+        "phrase": "w prawo",
+        "keys": [
+          "right"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "office-excel-en",
+    "name": "Excel · office · EN",
+    "game": "Excel",
+    "language": "en_US",
+    "apps": [
+      "excel.exe"
+    ],
+    "commands": [
+      {
+        "id": "save",
+        "phrase": "save",
+        "keys": [
+          "ctrl",
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "copy",
+        "phrase": "copy",
+        "keys": [
+          "ctrl",
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "paste",
+        "phrase": "paste",
+        "keys": [
+          "ctrl",
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "cut",
+        "phrase": "cut",
+        "keys": [
+          "ctrl",
+          "x"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "undo",
+        "phrase": "undo",
+        "keys": [
+          "ctrl",
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "redo",
+        "phrase": "redo",
+        "keys": [
+          "ctrl",
+          "y"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "select-all",
+        "phrase": "select all",
+        "keys": [
+          "ctrl",
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "find",
+        "phrase": "find",
+        "keys": [
+          "ctrl",
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "enter",
+        "phrase": "enter",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "tab",
+        "phrase": "tab",
+        "keys": [
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "escape",
+        "phrase": "cancel",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "delete",
+        "phrase": "delete",
+        "keys": [
+          "delete"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "backspace",
+        "phrase": "backspace",
+        "keys": [
+          "backspace"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "bold",
+        "phrase": "bold",
+        "keys": [
+          "ctrl",
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "next-sheet",
+        "phrase": "next sheet",
+        "keys": [
+          "ctrl",
+          "page_down"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "previous-sheet",
+        "phrase": "previous sheet",
+        "keys": [
+          "ctrl",
+          "page_up"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "edit-cell",
+        "phrase": "edit cell",
+        "keys": [
+          "f2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "row-start",
+        "phrase": "start of row",
+        "keys": [
+          "home"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "sheet-start",
+        "phrase": "start of sheet",
+        "keys": [
+          "ctrl",
+          "home"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "sheet-end",
+        "phrase": "end of data",
+        "keys": [
+          "ctrl",
+          "end"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "select-column",
+        "phrase": "select column",
+        "keys": [
+          "ctrl",
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "select-row",
+        "phrase": "select row",
+        "keys": [
+          "shift",
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "fill-down",
+        "phrase": "fill down",
+        "keys": [
+          "ctrl",
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "move-down",
+        "phrase": "down",
+        "keys": [
+          "down"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "move-up",
+        "phrase": "up",
+        "keys": [
+          "up"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "move-left",
+        "phrase": "left",
+        "keys": [
+          "left"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "move-right",
+        "phrase": "right",
+        "keys": [
+          "right"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "office-word",
+    "name": "Word · biuro",
+    "game": "Word",
+    "language": "pl_PL",
+    "apps": [
+      "winword.exe"
+    ],
+    "commands": [
+      {
+        "id": "save",
+        "phrase": "zapisz",
+        "keys": [
+          "ctrl",
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "copy",
+        "phrase": "kopiuj",
+        "keys": [
+          "ctrl",
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "paste",
+        "phrase": "wklej",
+        "keys": [
+          "ctrl",
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "cut",
+        "phrase": "wytnij",
+        "keys": [
+          "ctrl",
+          "x"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "undo",
+        "phrase": "cofnij",
+        "keys": [
+          "ctrl",
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "redo",
+        "phrase": "ponow",
+        "keys": [
+          "ctrl",
+          "y"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "select-all",
+        "phrase": "zaznacz wszystko",
+        "keys": [
+          "ctrl",
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "find",
+        "phrase": "szukaj",
+        "keys": [
+          "ctrl",
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "tab",
+        "phrase": "tabulator",
+        "keys": [
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "escape",
+        "phrase": "anuluj",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "delete",
+        "phrase": "usun",
+        "keys": [
+          "delete"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "backspace",
+        "phrase": "kasuj",
+        "keys": [
+          "backspace"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "bold",
+        "phrase": "pogrub",
+        "keys": [
+          "ctrl",
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "italic",
+        "phrase": "kursywa",
+        "keys": [
+          "ctrl",
+          "i"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "underline",
+        "phrase": "podkresl",
+        "keys": [
+          "ctrl",
+          "u"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "document-start",
+        "phrase": "poczatek dokumentu",
+        "keys": [
+          "ctrl",
+          "home"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "document-end",
+        "phrase": "koniec dokumentu",
+        "keys": [
+          "ctrl",
+          "end"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "print",
+        "phrase": "drukuj",
+        "keys": [
+          "ctrl",
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "new-document",
+        "phrase": "nowy dokument",
+        "keys": [
+          "ctrl",
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "heading-1",
+        "phrase": "naglowek jeden",
+        "keys": [
+          "ctrl",
+          "alt",
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "heading-2",
+        "phrase": "naglowek dwa",
+        "keys": [
+          "ctrl",
+          "alt",
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "align-left",
+        "phrase": "wyrownaj do lewej",
+        "keys": [
+          "ctrl",
+          "l"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "align-center",
+        "phrase": "wysrodkuj",
+        "keys": [
+          "ctrl",
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "new-line",
+        "phrase": "nowa linia",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "office-word-en",
+    "name": "Word · office · EN",
+    "game": "Word",
+    "language": "en_US",
+    "apps": [
+      "winword.exe"
+    ],
+    "commands": [
+      {
+        "id": "save",
+        "phrase": "save",
+        "keys": [
+          "ctrl",
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "copy",
+        "phrase": "copy",
+        "keys": [
+          "ctrl",
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "paste",
+        "phrase": "paste",
+        "keys": [
+          "ctrl",
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "cut",
+        "phrase": "cut",
+        "keys": [
+          "ctrl",
+          "x"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "undo",
+        "phrase": "undo",
+        "keys": [
+          "ctrl",
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "redo",
+        "phrase": "redo",
+        "keys": [
+          "ctrl",
+          "y"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "select-all",
+        "phrase": "select all",
+        "keys": [
+          "ctrl",
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "find",
+        "phrase": "find",
+        "keys": [
+          "ctrl",
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "tab",
+        "phrase": "tab",
+        "keys": [
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "escape",
+        "phrase": "cancel",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "delete",
+        "phrase": "delete",
+        "keys": [
+          "delete"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "backspace",
+        "phrase": "backspace",
+        "keys": [
+          "backspace"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "bold",
+        "phrase": "bold",
+        "keys": [
+          "ctrl",
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "italic",
+        "phrase": "italic",
+        "keys": [
+          "ctrl",
+          "i"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "underline",
+        "phrase": "underline",
+        "keys": [
+          "ctrl",
+          "u"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "document-start",
+        "phrase": "start of document",
+        "keys": [
+          "ctrl",
+          "home"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "document-end",
+        "phrase": "end of document",
+        "keys": [
+          "ctrl",
+          "end"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "print",
+        "phrase": "print",
+        "keys": [
+          "ctrl",
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "new-document",
+        "phrase": "new document",
+        "keys": [
+          "ctrl",
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "heading-1",
+        "phrase": "heading one",
+        "keys": [
+          "ctrl",
+          "alt",
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "heading-2",
+        "phrase": "heading two",
+        "keys": [
+          "ctrl",
+          "alt",
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "align-left",
+        "phrase": "align left",
+        "keys": [
+          "ctrl",
+          "l"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "align-center",
+        "phrase": "center",
+        "keys": [
+          "ctrl",
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "new-line",
+        "phrase": "new line",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "office-browser",
+    "name": "Przeglądarka · biuro",
+    "game": "Przeglądarka",
+    "language": "pl_PL",
+    "apps": [
+      "chrome.exe",
+      "msedge.exe",
+      "firefox.exe"
+    ],
+    "commands": [
+      {
+        "id": "save",
+        "phrase": "zapisz",
+        "keys": [
+          "ctrl",
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "copy",
+        "phrase": "kopiuj",
+        "keys": [
+          "ctrl",
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "paste",
+        "phrase": "wklej",
+        "keys": [
+          "ctrl",
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "cut",
+        "phrase": "wytnij",
+        "keys": [
+          "ctrl",
+          "x"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "undo",
+        "phrase": "cofnij",
+        "keys": [
+          "ctrl",
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "redo",
+        "phrase": "ponow",
+        "keys": [
+          "ctrl",
+          "y"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "select-all",
+        "phrase": "zaznacz wszystko",
+        "keys": [
+          "ctrl",
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "find",
+        "phrase": "szukaj",
+        "keys": [
+          "ctrl",
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "escape",
+        "phrase": "anuluj",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "new-tab",
+        "phrase": "nowa karta",
+        "keys": [
+          "ctrl",
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "close-tab",
+        "phrase": "zamknij karte",
+        "keys": [
+          "ctrl",
+          "w"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "reopen-tab",
+        "phrase": "przywroc karte",
+        "keys": [
+          "ctrl",
+          "shift",
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "next-tab",
+        "phrase": "nastepna karta",
+        "keys": [
+          "ctrl",
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "previous-tab",
+        "phrase": "poprzednia karta",
+        "keys": [
+          "ctrl",
+          "shift",
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "reload",
+        "phrase": "odswiez",
+        "keys": [
+          "f5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "back",
+        "phrase": "wstecz",
+        "keys": [
+          "alt",
+          "left"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward",
+        "phrase": "dalej",
+        "keys": [
+          "alt",
+          "right"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "address-bar",
+        "phrase": "pasek adresu",
+        "keys": [
+          "ctrl",
+          "l"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "page-down",
+        "phrase": "strona w dol",
+        "keys": [
+          "page_down"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "page-up",
+        "phrase": "strona w gore",
+        "keys": [
+          "page_up"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "page-top",
+        "phrase": "na gore strony",
+        "keys": [
+          "home"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "page-bottom",
+        "phrase": "na dol strony",
+        "keys": [
+          "end"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "office-browser-en",
+    "name": "Browser · office · EN",
+    "game": "Browser",
+    "language": "en_US",
+    "apps": [
+      "chrome.exe",
+      "msedge.exe",
+      "firefox.exe"
+    ],
+    "commands": [
+      {
+        "id": "save",
+        "phrase": "save",
+        "keys": [
+          "ctrl",
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "copy",
+        "phrase": "copy",
+        "keys": [
+          "ctrl",
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "paste",
+        "phrase": "paste",
+        "keys": [
+          "ctrl",
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "cut",
+        "phrase": "cut",
+        "keys": [
+          "ctrl",
+          "x"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "undo",
+        "phrase": "undo",
+        "keys": [
+          "ctrl",
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "redo",
+        "phrase": "redo",
+        "keys": [
+          "ctrl",
+          "y"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "select-all",
+        "phrase": "select all",
+        "keys": [
+          "ctrl",
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "find",
+        "phrase": "find",
+        "keys": [
+          "ctrl",
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "escape",
+        "phrase": "cancel",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "new-tab",
+        "phrase": "new tab",
+        "keys": [
+          "ctrl",
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "close-tab",
+        "phrase": "close tab",
+        "keys": [
+          "ctrl",
+          "w"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "reopen-tab",
+        "phrase": "reopen tab",
+        "keys": [
+          "ctrl",
+          "shift",
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "next-tab",
+        "phrase": "next tab",
+        "keys": [
+          "ctrl",
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "previous-tab",
+        "phrase": "previous tab",
+        "keys": [
+          "ctrl",
+          "shift",
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "reload",
+        "phrase": "reload",
+        "keys": [
+          "f5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "back",
+        "phrase": "back",
+        "keys": [
+          "alt",
+          "left"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward",
+        "phrase": "forward",
+        "keys": [
+          "alt",
+          "right"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "address-bar",
+        "phrase": "address bar",
+        "keys": [
+          "ctrl",
+          "l"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "page-down",
+        "phrase": "page down",
+        "keys": [
+          "page_down"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "page-up",
+        "phrase": "page up",
+        "keys": [
+          "page_up"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "page-top",
+        "phrase": "top of page",
+        "keys": [
+          "home"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "page-bottom",
+        "phrase": "bottom of page",
+        "keys": [
+          "end"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  }
+]
