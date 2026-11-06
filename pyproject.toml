@@ -1,13 +1,13 @@
 [project]
-name = "lol-voice-controller"
-version = "1.0.0"
-description = "Voice control for League of Legends, running locally on Whisper"
+name = "axword-voice-control"
+version = "1.0.4"
+description = "Profile-based voice control for games, running locally on Whisper"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "GPL-3.0-or-later"
 license-files = ["LICENSE"]
 authors = [{ name = "Axword" }]
-keywords = ["league-of-legends", "speech-recognition", "whisper", "voice-control"]
+keywords = ["gaming", "speech-recognition", "whisper", "voice-control"]
 classifiers = [
     "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
     "Environment :: Win32 (MS Windows)",
@@ -19,7 +19,7 @@ classifiers = [
 dynamic = ["dependencies", "optional-dependencies"]
 
 [project.urls]
-Homepage = "https://github.com/Axword/voice-recognition-lol"
+Homepage = "https://axword.pl/"
 Source = "https://github.com/Axword/voice-recognition-lol"
 Issues = "https://github.com/Axword/voice-recognition-lol/issues"
 
@@ -32,16 +32,12 @@ dependencies = { file = ["requirements.txt"] }
 optional-dependencies.dev = { file = ["requirements-dev.txt"] }
 
 [tool.setuptools]
-packages = ["app", "controller", "controls", "game", "server"]
+packages = ["app", "controller", "controls", "server"]
 
 [tool.ruff]
 line-length = 120
 target-version = "py311"
 extend-exclude = [
-    "old_files",
-    "gui",
-    "setup.py",
-    "resource_helper.py",
     "build",
     "dist",
     "installer_output",
@@ -77,7 +73,7 @@ ignore = [
 "*.spec" = ["F821"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["app", "controller", "controls", "game", "server", "tools"]
+known-first-party = ["app", "controller", "controls", "server", "tools"]
 
 [tool.ruff.format]
 quote-style = "double"

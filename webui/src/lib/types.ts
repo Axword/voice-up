@@ -1,106 +1,31 @@
-// Ksztalty odpowiedzi API. Zrodlo prawdy: docs/CONTRACTS.md.
-
-export type RecognitionMode = 'letters' | 'spells';
-export type Sensitivity = 'low' | 'medium' | 'high';
-export type Theme = 'dark' | 'light' | 'system';
-export type UiLanguage = 'pl_PL' | 'en_US';
-
-export interface Settings {
-  recognition_mode: RecognitionMode;
-  spell_sensitivity: Sensitivity;
-  language: string;
-  merge_command_languages: boolean;
-  combo_enabled: boolean;
-  ui_language: UiLanguage;
-  flash_key: string;
-  summoner2_key: string;
-  engine_id: string;
-  audio_device: string | null;
-  start_with_windows: boolean;
-  start_listening_on_launch: boolean;
-  theme: Theme;
-  skipped_version: string | null;
-  check_updates: boolean;
-}
-
+export type CommandMode = 'click' | 'timed' | 'toggle';
+export interface VoiceCommand { id: string; phrase: string; keys: string[]; mode: CommandMode; duration_ms: number; enabled: boolean }
+import type { Language } from './i18n';
+export interface Profile { id: string; name: string; game: string; language: Language; commands: VoiceCommand[] }
+export interface ProfilesDocument { version: 1; active_profile_id: string; profiles: Profile[] }
 export interface Status {
-  listening: boolean;
-  game_active: boolean;
-  champion: string | null;
-  mode: string;
-  engine_id: string;
-  engine_name: string | null;
-  version: string;
-  mappings_count: number;
-  last_command: string | null;
-  last_heard: string | null;
-  update_available: boolean;
-  error?: string | null;
+  listening: boolean; active_profile_id: string; profile_name: string; mappings_count: number;
+  held_keys: string[]; held_command_ids: string[]; engine_id: string; engine_name: string | null;
+  version: string; last_command: string | null; last_heard: string | null; error?: string | null;
 }
-
-export interface AudioDevice {
-  id: string;
-  name: string;
-  default: boolean;
+export interface Settings {
+  language: string; ui_language: Language; engine_id: string; audio_device: string | null; start_with_windows: boolean;
+  start_listening_on_launch: boolean; matching_threshold: number; theme: 'light' | 'dark' | 'system';
 }
-
-export interface Engine {
-  id: string;
-  name: string;
-  backend: string;
-  speed: string;
-  quality: string;
-  size_bytes: number;
-  installed: boolean;
-  active: boolean;
-  requires_cuda: boolean;
-  bundled?: boolean;
-  description?: string | Record<string, string>;
-}
-
-export interface Mapping {
-  phrase: string;
-  key: string;
-  source: string;
-}
-
-export interface MappingsResponse {
-  champion: string | null;
-  mode: string;
-  mappings: Mapping[];
-}
-
-export interface LogLine {
-  time?: number;
-  level?: string;
-  message: string;
-}
-
-export interface LogsResponse {
-  files: { name: string; size: number; modified: number }[];
-  tail: (LogLine | string)[];
-}
-
-export interface UpdateInfo {
-  current: string | null;
-  latest: string | null;
-  available: boolean;
-  url?: string | null;
-  notes?: string | null;
-}
-
+export interface AudioDevice { id: string; name: string; default: boolean }
+export interface Engine { id: string; name: string; backend: string; speed: string; quality: string; size_bytes: number; installed: boolean; active: boolean; requires_cuda: boolean }
 export interface HeardItem {
   at: number;
   phrase: string;
-  /** Klawisze w kolejnosci wcisniecia. Pusta lista znaczy brak dopasowania. */
   keys: string[];
-}
-
-export interface DownloadState {
-  percent?: number;
-  received?: number;
-  total?: number;
-  done?: boolean;
-  cancelled?: boolean;
+  matched: boolean;
+  executed?: boolean;
+  command_id?: string;
+  profile_id?: string;
+  profile_name?: string;
+  mode?: CommandMode;
+  duration_ms?: number;
+  held?: boolean;
   error?: string;
 }
+export interface TestResult { text: string; matched: boolean; command: VoiceCommand | null; profile_id: string }

@@ -11,6 +11,7 @@ import os
 import sys
 from pathlib import Path
 
+# Retain the data location so existing speech models and settings remain usable.
 APP_NAME = "LoLVoice"
 
 
@@ -23,7 +24,7 @@ def _windows_local() -> Path:
 
 
 def _config_root() -> Path:
-    override = os.environ.get("LOLVOICE_HOME")
+    override = os.environ.get("VOICE_CONTROL_HOME") or os.environ.get("LOLVOICE_HOME")
     if override:
         return Path(override) / "config"
     if sys.platform == "win32":
@@ -32,7 +33,7 @@ def _config_root() -> Path:
 
 
 def _data_root() -> Path:
-    override = os.environ.get("LOLVOICE_HOME")
+    override = os.environ.get("VOICE_CONTROL_HOME") or os.environ.get("LOLVOICE_HOME")
     if override:
         return Path(override) / "data"
     if sys.platform == "win32":

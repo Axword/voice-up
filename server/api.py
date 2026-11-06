@@ -9,6 +9,7 @@ itself with no copying by hand.
 from __future__ import annotations
 
 import asyncio
+import json
 import secrets
 import threading
 import time
@@ -21,7 +22,7 @@ from fastapi import Body, FastAPI, HTTPException, Request, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
-from pydantic import ValidationError
+from pydantic import BaseModel, Field, ValidationError
 
 from app import config, engines, logging_setup, paths, version
 from app.logging_setup import get_logger
@@ -36,6 +37,20 @@ LOOPBACK_HOSTS = {"127.0.0.1", "::1", "::ffff:127.0.0.1", "localhost", "testclie
 _service: Any = None
 _service_error: str | None = None
 _service_lock = threading.Lock()
+
+
+class CommandTestRequest(BaseModel):
+    text: str = Field(min_length=1, max_length=500)
+
+
+class AudioTestRequest(BaseModel):
+    seconds: float = Field(default=3, ge=1, le=10)
+
+
+class SettingsPatch(BaseModel):
+    matching_threshold: config.MatchingThreshold = 1.0
+
+    model_config = {"extra": "allow"}
 
 
 def get_service() -> Any:
@@ -79,9 +94,10 @@ def status_payload() -> dict:
     """The GET /status body, also used for periodic WebSocket frames."""
     payload: dict[str, Any] = {
         "listening": False,
-        "game_active": False,
-        "champion": None,
-        "mode": config.load().recognition_mode,
+        "active_profile_id": None,
+        "profile_name": None,
+        "held_keys": [],
+        "held_command_ids": [],
         "engine_id": config.load().engine_id,
         "engine_name": None,
         "version": version.get_version(),
@@ -183,7 +199,7 @@ def create_app(port: int | None = None, token: str | None = None, on_quit: Calla
         await ws.get_hub().shutdown()
 
     application = FastAPI(
-        title="LoL Voice Controller",
+        title="Axword Voice Control",
         version=version.get_version(),
         docs_url=None,
         redoc_url=None,
@@ -242,7 +258,8 @@ def _register_routes(application: FastAPI) -> None:
         except Exception as exc:
             log.error("Start failed: %s", exc)
             return {"listening": False, "error": f"{type(exc).__name__}: {exc}"}
-        return {"listening": bool(status_payload().get("listening"))}
+        status = status_payload()
+        return {"listening": bool(status.get("listening")), "error": status.get("error")}
 
     @application.post(f"{API_PREFIX}/listening/stop")
     def listening_stop() -> dict:
@@ -254,17 +271,25 @@ def _register_routes(application: FastAPI) -> None:
         except Exception as exc:
             log.error("Stop failed: %s", exc)
             return {"listening": False, "error": f"{type(exc).__name__}: {exc}"}
-        return {"listening": bool(status_payload().get("listening"))}
+        status = status_payload()
+        return {"listening": bool(status.get("listening")), "error": status.get("error")}
 
     @application.get(f"{API_PREFIX}/settings")
     def read_settings() -> dict:
+        service = get_service()
+        if service is not None:
+            try:
+                return service.settings.model_dump()
+            except Exception as exc:
+                log.warning("Reading active profile settings failed: %s", exc)
         return config.load().model_dump()
 
     @application.put(f"{API_PREFIX}/settings")
-    def write_settings(patch: dict = Body(default_factory=dict)) -> dict:
+    def write_settings(patch: SettingsPatch = Body(default_factory=SettingsPatch)) -> dict:
+        changes = patch.model_dump(exclude_unset=True)
         before = config.load()
         try:
-            updated = config.update(patch or {})
+            updated = config.update(changes)
         except ValidationError as exc:
             # Zly typ albo wartosc spoza listy to blad wejscia, nie awaria serwera.
             raise HTTPException(status_code=422, detail=exc.errors(include_url=False)) from exc
@@ -278,7 +303,8 @@ def _register_routes(application: FastAPI) -> None:
         service = get_service()
         if service is not None:
             try:
-                service.apply_settings(updated)
+                service.apply_settings(updated, profile_language="language" in changes)
+                updated = service.settings
             except Exception as exc:
                 log.warning("Applying settings to the service failed: %s", exc)
         return updated.model_dump()
@@ -336,39 +362,49 @@ def _register_routes(application: FastAPI) -> None:
             return {"devices": [], "error": f"{type(exc).__name__}: {exc}"}
 
     @application.post(f"{API_PREFIX}/audio/test")
-    def audio_test(payload: dict = Body(default_factory=dict)) -> dict:
+    def audio_test(payload: AudioTestRequest = Body(default_factory=AudioTestRequest)) -> dict:
         service = get_service()
-        seconds = float(payload.get("seconds", 3) or 3)
         if service is None:
             return {"level": 0.0, "transcript": "", "error": service_error() or "voice service unavailable"}
         try:
-            result = service.test_microphone(seconds) or {}
+            result = service.test_microphone(payload.seconds) or {}
         except Exception as exc:
             log.warning("Microphone test failed: %s", exc)
             return {"level": 0.0, "transcript": "", "error": f"{type(exc).__name__}: {exc}"}
-        return {"level": float(result.get("level", 0.0)), "transcript": str(result.get("transcript", ""))}
+        return {
+            "level": float(result.get("level", 0.0)),
+            "transcript": str(result.get("transcript", "")),
+            **({"error": str(result["error"])} if result.get("error") else {}),
+        }
 
-    @application.get(f"{API_PREFIX}/champions/current/mappings")
-    def current_mappings() -> dict:
+    def require_service() -> Any:
         service = get_service()
         if service is None:
-            return {
-                "champion": None,
-                "mode": config.load().recognition_mode,
-                "mappings": [],
-                "error": service_error() or "voice service unavailable",
-            }
-        status = status_payload()
+            raise HTTPException(status_code=503, detail=service_error() or "Voice service unavailable")
+        return service
+
+    @application.get(f"{API_PREFIX}/profiles")
+    def read_profiles() -> dict:
+        return require_service().profiles_document()
+
+    @application.put(f"{API_PREFIX}/profiles")
+    def write_profiles(document: dict = Body(...)) -> dict:
         try:
-            mappings = list(service.mappings() or [])
-        except Exception as exc:
-            log.warning("Mapping listing failed: %s", exc)
-            mappings = []
-        return {
-            "champion": status.get("champion"),
-            "mode": status.get("mode", config.load().recognition_mode),
-            "mappings": mappings,
-        }
+            return require_service().replace_profiles(document)
+        except ValidationError as exc:
+            raise HTTPException(status_code=422, detail=json.loads(exc.json(include_url=False))) from exc
+        except OSError as exc:
+            log.error("Could not save profiles: %s", exc)
+            raise HTTPException(status_code=500, detail="Nie udało się zapisać profili.") from exc
+
+    @application.post(f"{API_PREFIX}/commands/test")
+    def test_command(payload: CommandTestRequest) -> dict:
+        return require_service().test_command(payload.text)
+
+    @application.post(f"{API_PREFIX}/keys/release")
+    def release_keys() -> dict:
+        require_service().release_all()
+        return {"released": True}
 
     @application.get(f"{API_PREFIX}/logs")
     def read_logs(limit: int = 200) -> dict:
@@ -425,9 +461,12 @@ def _register_routes(application: FastAPI) -> None:
 
     @application.websocket("/ws/status")
     async def status_socket(websocket: WebSocket) -> None:
+        if not _is_loopback(websocket.client):
+            await websocket.close(code=4403)
+            return
         expected = application.state.token or ""
         given = websocket.query_params.get("token", "") or websocket.headers.get(TOKEN_HEADER, "")
-        if expected and not secrets.compare_digest(given, expected):
+        if not expected or not secrets.compare_digest(given, expected):
             await websocket.close(code=4401)
             return
         await ws.status_endpoint(websocket)
@@ -437,7 +476,7 @@ PLACEHOLDER = """<!doctype html>
 <html lang="pl">
 <head>
 <meta charset="utf-8">
-<title>LoL Voice Controller</title>
+<title>Axword Voice Control</title>
 <style>
 :root {{
   --bg:#111214; --surface:#17181b; --border:#2a2c30;

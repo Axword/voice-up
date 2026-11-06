@@ -1,4 +1,4 @@
-"""LoL Voice Controller entry point.
+"""Voice Control by Axword entry point.
 
 Default run: local server, tray icon, panel opened in the browser. Listening
 does not start by itself unless start_listening_on_launch is set in settings,
@@ -49,7 +49,7 @@ def ensure_std_streams() -> None:
         if getattr(sys, name, None) is not None:
             continue
         try:
-            raw = open(os.devnull, "rb" if name == "stdin" else "wb", buffering=0)
+            raw = open(os.devnull, "rb" if name == "stdin" else "wb", buffering=0)  # noqa: SIM115
             stream: Any = _NullStream(raw, encoding="utf-8", errors="replace")
         except OSError:
             # Bez urzadzenia zerowego zostaje bufor w pamieci.
@@ -61,8 +61,9 @@ def ensure_std_streams() -> None:
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(prog="lolvoice", description="LoL Voice Controller")
+    parser = argparse.ArgumentParser(prog="axword-voice", description="Voice Control by Axword")
     parser.add_argument("--no-browser", action="store_true", help="do not open the panel at startup")
+    parser.add_argument("--no-tray", action="store_true", help="run the server without a system tray icon")
     parser.add_argument("--port", type=int, default=None, help="port for the local server")
     parser.add_argument("--cli", action="store_true", help="headless mode, no server and no tray")
     parser.add_argument("--debug", action="store_true", help="verbose logging")
@@ -116,9 +117,11 @@ def run_cli(args: argparse.Namespace) -> int:
         return 1
 
     settings = config.load()
-    print(f"Engine: {settings.engine_id}, mode: {settings.recognition_mode}")
+    print(f"Engine: {settings.engine_id}, profile: {service.status().get('profile_name', '')}")
     try:
-        service.start()
+        if not service.start():
+            print(f"Could not start listening: {service.status().get('error')}")
+            return 1
     except Exception as exc:
         print(f"Could not start listening: {exc}")
         return 1
@@ -128,10 +131,9 @@ def run_cli(args: argparse.Namespace) -> int:
         while not _shutdown.is_set():
             status = service.status() or {}
             print(
-                "listening={listening} game={game} champion={champion} heard={heard}".format(
+                "listening={listening} profile={profile} heard={heard}".format(
                     listening=status.get("listening"),
-                    game=status.get("game_active"),
-                    champion=status.get("champion"),
+                    profile=status.get("profile_name"),
                     heard=status.get("last_heard"),
                 )
             )
@@ -221,11 +223,10 @@ def run_app(args: argparse.Namespace) -> int:
         start_listening=lambda: _tray_start(),
         stop_listening=lambda: _tray_stop(),
         open_logs=tray.open_log_folder,
-        check_updates=lambda: _tray_check_updates(),
         quit=lambda: request_shutdown("tray"),
     )
 
-    _tray_icon = tray.run_tray(actions, blocking=False)
+    _tray_icon = None if args.no_tray else tray.run_tray(actions, blocking=False)
     if _tray_icon is None:
         log.info("Running without a tray icon")
 
@@ -272,14 +273,6 @@ def _tray_stop() -> None:
         log.error("Stop from the tray failed: %s", exc)
 
 
-def _tray_check_updates() -> None:
-    from server import updater, ws
-
-    result = updater.check(force=True)
-    ws.get_hub().broadcast({"type": "update", **result})
-    log.info("Update check finished, available=%s", result.get("available"))
-
-
 def main(argv: list[str] | None = None) -> int:
     ensure_std_streams()
     args = parse_args(argv)
@@ -287,7 +280,7 @@ def main(argv: list[str] | None = None) -> int:
     logging_setup.install_crash_handler()
     _install_signal_handlers()
 
-    log.info("Starting LoL Voice Controller")
+    log.info("Starting Voice Control by Axword")
     if args.cli:
         return run_cli(args)
     return run_app(args)

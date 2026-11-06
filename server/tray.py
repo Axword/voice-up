@@ -21,21 +21,19 @@ ICON_SIZE = 64
 
 STRINGS: dict[str, dict[str, str]] = {
     "pl_PL": {
-        "title": "LoL Voice Controller",
+        "title": "Voice Control by Axword",
         "open_panel": "Otworz panel",
         "start": "Start nasluchu",
         "stop": "Stop nasluchu",
         "open_logs": "Otworz folder logow",
-        "check_updates": "Sprawdz aktualizacje",
         "quit": "Zamknij",
     },
     "en_US": {
-        "title": "LoL Voice Controller",
+        "title": "Voice Control by Axword",
         "open_panel": "Open panel",
         "start": "Start listening",
         "stop": "Stop listening",
         "open_logs": "Open log folder",
-        "check_updates": "Check for updates",
         "quit": "Quit",
     },
 }
@@ -56,7 +54,6 @@ class TrayActions:
     start_listening: Callable[[], None]
     stop_listening: Callable[[], None]
     open_logs: Callable[[], None]
-    check_updates: Callable[[], None]
     quit: Callable[[], None]
 
 
@@ -112,7 +109,6 @@ def build_menu(actions: TrayActions, language: str | None = None) -> Any:
         pystray.MenuItem(text["stop"], lambda: actions.stop_listening()),
         pystray.Menu.SEPARATOR,
         pystray.MenuItem(text["open_logs"], lambda: actions.open_logs()),
-        pystray.MenuItem(text["check_updates"], lambda: actions.check_updates()),
         pystray.Menu.SEPARATOR,
         pystray.MenuItem(text["quit"], lambda: actions.quit()),
     )
@@ -130,7 +126,7 @@ def create_icon(actions: TrayActions, language: str | None = None) -> Any | None
         import pystray
 
         text = strings(language)
-        return pystray.Icon("lolvoice", _build_image(), text["title"], build_menu(actions, language))
+        return pystray.Icon("axword-voice", _build_image(), text["title"], build_menu(actions, language))
     except Exception as exc:
         log.info("Tray icon could not be created: %s", exc)
         return None

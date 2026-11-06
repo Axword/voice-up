@@ -43,7 +43,7 @@ def test_bundled_dir_holds_the_shipped_data(lolvoice_home):
 
 def test_nothing_is_written_next_to_the_application(lolvoice_home, workdir):
     config.load()
-    config.update({"flash_key": "f"})
+    config.update({"theme": "light"})
     assert not (Path(workdir) / "config.json").exists()
     assert not (Path(workdir) / "config").exists()
 
@@ -54,11 +54,10 @@ def test_nothing_is_written_next_to_the_application(lolvoice_home, workdir):
 def test_first_load_writes_the_defaults(lolvoice_home):
     assert not paths.CONFIG_FILE.exists()
     loaded = config.load()
-    assert loaded.recognition_mode == "spells"
-    assert loaded.flash_key == "d"
-    assert loaded.summoner2_key == "f"
+    assert loaded.engine_id == "whisper-tiny"
+    assert loaded.language == "pl_PL"
     assert paths.CONFIG_FILE.is_file()
-    assert json.loads(paths.CONFIG_FILE.read_text(encoding="utf-8"))["recognition_mode"] == "spells"
+    assert json.loads(paths.CONFIG_FILE.read_text(encoding="utf-8"))["engine_id"] == "whisper-tiny"
 
 
 def test_load_is_cached_until_reset(lolvoice_home):
@@ -70,11 +69,11 @@ def test_load_is_cached_until_reset(lolvoice_home):
 
 def test_update_applies_a_partial_patch(lolvoice_home):
     config.load()
-    updated = config.update({"spell_sensitivity": "low"})
-    assert updated.spell_sensitivity == "low"
+    updated = config.update({"theme": "light"})
+    assert updated.theme == "light"
     assert updated.language == "pl_PL"
     config.reset_cache()
-    assert config.load().spell_sensitivity == "low"
+    assert config.load().theme == "light"
 
 
 def test_update_can_clear_a_nullable_field(lolvoice_home):
@@ -114,7 +113,7 @@ def test_legacy_config_directory_is_migrated(lolvoice_home, workdir):
         Path(workdir) / "config",
         {
             "recognition_mode": "letters",
-            "spell_sensitivity": "high",
+            "theme": "light",
             "language": "pl_PL",
             "flash_key": "D",
             "ui_language": "pl_PL",
@@ -123,12 +122,12 @@ def test_legacy_config_directory_is_migrated(lolvoice_home, workdir):
     config.reset_cache()
     loaded = config.load()
 
-    assert loaded.recognition_mode == "letters"
-    assert loaded.spell_sensitivity == "high"
-    assert loaded.flash_key == "d"  # old builds stored it upper case
+    assert loaded.theme == "light"
+    assert not hasattr(loaded, "recognition_mode")
+    assert not hasattr(loaded, "flash_key")
     assert paths.CONFIG_FILE.is_file()
     on_disk = json.loads(paths.CONFIG_FILE.read_text(encoding="utf-8"))
-    assert on_disk["flash_key"] == "d"
+    assert "flash_key" not in on_disk
 
 
 def test_legacy_root_config_is_migrated(lolvoice_home, workdir):
@@ -138,7 +137,7 @@ def test_legacy_root_config_is_migrated(lolvoice_home, workdir):
     config.reset_cache()
     loaded = config.load()
     assert loaded.language == "en_US"
-    assert loaded.recognition_mode == "letters"
+    assert "recognition_mode" not in loaded.model_dump()
 
 
 def test_legacy_config_directory_wins_over_the_root_file(lolvoice_home, workdir):
@@ -182,7 +181,7 @@ def test_corrupt_config_falls_back_to_defaults(lolvoice_home):
     paths.CONFIG_FILE.write_text("not json at all", encoding="utf-8")
     config.reset_cache()
     loaded = config.load()
-    assert loaded.recognition_mode == "spells"
+    assert loaded.engine_id == "whisper-tiny"
     assert loaded.language == "pl_PL"
 
 
@@ -190,7 +189,7 @@ def test_empty_config_file_falls_back_to_defaults(lolvoice_home):
     paths.CONFIG_FILE.parent.mkdir(parents=True, exist_ok=True)
     paths.CONFIG_FILE.write_text("", encoding="utf-8")
     config.reset_cache()
-    assert config.load().flash_key == "d"
+    assert config.load().engine_id == "whisper-tiny"
 
 
 def test_saving_over_a_corrupt_file_repairs_it(lolvoice_home):

@@ -1,0 +1,2068 @@
+[
+  {
+    "id": "basic-keyboard",
+    "name": "Podstawowy · Klawiatura",
+    "game": "Keyboard",
+    "language": "pl_PL",
+    "commands": [
+      {
+        "id": "key-a",
+        "phrase": "a",
+        "keys": [
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-b",
+        "phrase": "b",
+        "keys": [
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-c",
+        "phrase": "c",
+        "keys": [
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-d",
+        "phrase": "d",
+        "keys": [
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-e",
+        "phrase": "e",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f",
+        "phrase": "f",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-g",
+        "phrase": "g",
+        "keys": [
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-h",
+        "phrase": "h",
+        "keys": [
+          "h"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-i",
+        "phrase": "i",
+        "keys": [
+          "i"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-j",
+        "phrase": "j",
+        "keys": [
+          "j"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-k",
+        "phrase": "k",
+        "keys": [
+          "k"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-l",
+        "phrase": "l",
+        "keys": [
+          "l"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-m",
+        "phrase": "m",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-n",
+        "phrase": "n",
+        "keys": [
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-o",
+        "phrase": "o",
+        "keys": [
+          "o"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-p",
+        "phrase": "p",
+        "keys": [
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-q",
+        "phrase": "q",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-r",
+        "phrase": "r",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-s",
+        "phrase": "s",
+        "keys": [
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-t",
+        "phrase": "t",
+        "keys": [
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-u",
+        "phrase": "u",
+        "keys": [
+          "u"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-v",
+        "phrase": "v",
+        "keys": [
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-w",
+        "phrase": "w",
+        "keys": [
+          "w"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-x",
+        "phrase": "x",
+        "keys": [
+          "x"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-y",
+        "phrase": "y",
+        "keys": [
+          "y"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-z",
+        "phrase": "z",
+        "keys": [
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-0",
+        "phrase": "0",
+        "keys": [
+          "0"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-1",
+        "phrase": "1",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-2",
+        "phrase": "2",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-3",
+        "phrase": "3",
+        "keys": [
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-4",
+        "phrase": "4",
+        "keys": [
+          "4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-5",
+        "phrase": "5",
+        "keys": [
+          "5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-6",
+        "phrase": "6",
+        "keys": [
+          "6"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-7",
+        "phrase": "7",
+        "keys": [
+          "7"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-8",
+        "phrase": "8",
+        "keys": [
+          "8"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-9",
+        "phrase": "9",
+        "keys": [
+          "9"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-enter",
+        "phrase": "enter",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-space",
+        "phrase": "spacja",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-esc",
+        "phrase": "escape",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-tab",
+        "phrase": "tabulator",
+        "keys": [
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-backspace",
+        "phrase": "cofnij",
+        "keys": [
+          "backspace"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-delete",
+        "phrase": "usuń",
+        "keys": [
+          "delete"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-insert",
+        "phrase": "wstaw",
+        "keys": [
+          "insert"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-home",
+        "phrase": "początek",
+        "keys": [
+          "home"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-end",
+        "phrase": "koniec",
+        "keys": [
+          "end"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-page_up",
+        "phrase": "strona w górę",
+        "keys": [
+          "page_up"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-page_down",
+        "phrase": "strona w dół",
+        "keys": [
+          "page_down"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-up",
+        "phrase": "strzałka w górę",
+        "keys": [
+          "up"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-down",
+        "phrase": "strzałka w dół",
+        "keys": [
+          "down"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-left",
+        "phrase": "strzałka w lewo",
+        "keys": [
+          "left"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-right",
+        "phrase": "strzałka w prawo",
+        "keys": [
+          "right"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-ctrl",
+        "phrase": "control",
+        "keys": [
+          "ctrl"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-shift",
+        "phrase": "shift",
+        "keys": [
+          "shift"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-alt",
+        "phrase": "alt",
+        "keys": [
+          "alt"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-cmd",
+        "phrase": "windows",
+        "keys": [
+          "cmd"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f1",
+        "phrase": "f1",
+        "keys": [
+          "f1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f2",
+        "phrase": "f2",
+        "keys": [
+          "f2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f3",
+        "phrase": "f3",
+        "keys": [
+          "f3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f4",
+        "phrase": "f4",
+        "keys": [
+          "f4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f5",
+        "phrase": "f5",
+        "keys": [
+          "f5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f6",
+        "phrase": "f6",
+        "keys": [
+          "f6"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f7",
+        "phrase": "f7",
+        "keys": [
+          "f7"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f8",
+        "phrase": "f8",
+        "keys": [
+          "f8"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f9",
+        "phrase": "f9",
+        "keys": [
+          "f9"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f10",
+        "phrase": "f10",
+        "keys": [
+          "f10"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f11",
+        "phrase": "f11",
+        "keys": [
+          "f11"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f12",
+        "phrase": "f12",
+        "keys": [
+          "f12"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-b-be",
+        "phrase": "be",
+        "keys": [
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-c-ce",
+        "phrase": "ce",
+        "keys": [
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-d-de",
+        "phrase": "de",
+        "keys": [
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-f-ef",
+        "phrase": "ef",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-g-gie",
+        "phrase": "gie",
+        "keys": [
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-h-ha",
+        "phrase": "ha",
+        "keys": [
+          "h"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-j-jot",
+        "phrase": "jot",
+        "keys": [
+          "j"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-k-ka",
+        "phrase": "ka",
+        "keys": [
+          "k"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-l-el",
+        "phrase": "el",
+        "keys": [
+          "l"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-m-em",
+        "phrase": "em",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-n-en",
+        "phrase": "en",
+        "keys": [
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-p-pe",
+        "phrase": "pe",
+        "keys": [
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-q-ku",
+        "phrase": "ku",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-r-er",
+        "phrase": "er",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-s-es",
+        "phrase": "es",
+        "keys": [
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-t-te",
+        "phrase": "te",
+        "keys": [
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-v-fal",
+        "phrase": "fał",
+        "keys": [
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-w-wu",
+        "phrase": "wu",
+        "keys": [
+          "w"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-x-iks",
+        "phrase": "iks",
+        "keys": [
+          "x"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-y-igrek",
+        "phrase": "igrek",
+        "keys": [
+          "y"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-z-zet",
+        "phrase": "zet",
+        "keys": [
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-0-zero",
+        "phrase": "zero",
+        "keys": [
+          "0"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-1-jeden",
+        "phrase": "jeden",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-2-dwa",
+        "phrase": "dwa",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-3-trzy",
+        "phrase": "trzy",
+        "keys": [
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-4-cztery",
+        "phrase": "cztery",
+        "keys": [
+          "4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-5-piec",
+        "phrase": "pięć",
+        "keys": [
+          "5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-6-szesc",
+        "phrase": "sześć",
+        "keys": [
+          "6"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-7-siedem",
+        "phrase": "siedem",
+        "keys": [
+          "7"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-8-osiem",
+        "phrase": "osiem",
+        "keys": [
+          "8"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-9-dziewiec",
+        "phrase": "dziewięć",
+        "keys": [
+          "9"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "basic-keyboard-en",
+    "name": "Basic · Keyboard · EN",
+    "game": "Keyboard",
+    "language": "en_US",
+    "commands": [
+      {
+        "id": "key-a",
+        "phrase": "a",
+        "keys": [
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-b",
+        "phrase": "b",
+        "keys": [
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-c",
+        "phrase": "c",
+        "keys": [
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-d",
+        "phrase": "d",
+        "keys": [
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-e",
+        "phrase": "e",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f",
+        "phrase": "f",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-g",
+        "phrase": "g",
+        "keys": [
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-h",
+        "phrase": "h",
+        "keys": [
+          "h"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-i",
+        "phrase": "i",
+        "keys": [
+          "i"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-j",
+        "phrase": "j",
+        "keys": [
+          "j"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-k",
+        "phrase": "k",
+        "keys": [
+          "k"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-l",
+        "phrase": "l",
+        "keys": [
+          "l"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-m",
+        "phrase": "m",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-n",
+        "phrase": "n",
+        "keys": [
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-o",
+        "phrase": "o",
+        "keys": [
+          "o"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-p",
+        "phrase": "p",
+        "keys": [
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-q",
+        "phrase": "q",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-r",
+        "phrase": "r",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-s",
+        "phrase": "s",
+        "keys": [
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-t",
+        "phrase": "t",
+        "keys": [
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-u",
+        "phrase": "u",
+        "keys": [
+          "u"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-v",
+        "phrase": "v",
+        "keys": [
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-w",
+        "phrase": "w",
+        "keys": [
+          "w"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-x",
+        "phrase": "x",
+        "keys": [
+          "x"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-y",
+        "phrase": "y",
+        "keys": [
+          "y"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-z",
+        "phrase": "z",
+        "keys": [
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-0",
+        "phrase": "0",
+        "keys": [
+          "0"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-1",
+        "phrase": "1",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-2",
+        "phrase": "2",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-3",
+        "phrase": "3",
+        "keys": [
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-4",
+        "phrase": "4",
+        "keys": [
+          "4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-5",
+        "phrase": "5",
+        "keys": [
+          "5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-6",
+        "phrase": "6",
+        "keys": [
+          "6"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-7",
+        "phrase": "7",
+        "keys": [
+          "7"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-8",
+        "phrase": "8",
+        "keys": [
+          "8"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-9",
+        "phrase": "9",
+        "keys": [
+          "9"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-enter",
+        "phrase": "enter",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-space",
+        "phrase": "space",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-esc",
+        "phrase": "escape",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-tab",
+        "phrase": "tab",
+        "keys": [
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-backspace",
+        "phrase": "backspace",
+        "keys": [
+          "backspace"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-delete",
+        "phrase": "delete",
+        "keys": [
+          "delete"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-insert",
+        "phrase": "insert",
+        "keys": [
+          "insert"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-home",
+        "phrase": "home",
+        "keys": [
+          "home"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-end",
+        "phrase": "end",
+        "keys": [
+          "end"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-page_up",
+        "phrase": "page up",
+        "keys": [
+          "page_up"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-page_down",
+        "phrase": "page down",
+        "keys": [
+          "page_down"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-up",
+        "phrase": "arrow up",
+        "keys": [
+          "up"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-down",
+        "phrase": "arrow down",
+        "keys": [
+          "down"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-left",
+        "phrase": "arrow left",
+        "keys": [
+          "left"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-right",
+        "phrase": "arrow right",
+        "keys": [
+          "right"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-ctrl",
+        "phrase": "control",
+        "keys": [
+          "ctrl"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-shift",
+        "phrase": "shift",
+        "keys": [
+          "shift"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-alt",
+        "phrase": "alt",
+        "keys": [
+          "alt"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-cmd",
+        "phrase": "windows",
+        "keys": [
+          "cmd"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f1",
+        "phrase": "f1",
+        "keys": [
+          "f1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f2",
+        "phrase": "f2",
+        "keys": [
+          "f2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f3",
+        "phrase": "f3",
+        "keys": [
+          "f3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f4",
+        "phrase": "f4",
+        "keys": [
+          "f4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f5",
+        "phrase": "f5",
+        "keys": [
+          "f5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f6",
+        "phrase": "f6",
+        "keys": [
+          "f6"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f7",
+        "phrase": "f7",
+        "keys": [
+          "f7"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f8",
+        "phrase": "f8",
+        "keys": [
+          "f8"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f9",
+        "phrase": "f9",
+        "keys": [
+          "f9"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f10",
+        "phrase": "f10",
+        "keys": [
+          "f10"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f11",
+        "phrase": "f11",
+        "keys": [
+          "f11"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "key-f12",
+        "phrase": "f12",
+        "keys": [
+          "f12"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-a-ay",
+        "phrase": "ay",
+        "keys": [
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-b-bee",
+        "phrase": "bee",
+        "keys": [
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-c-cee",
+        "phrase": "cee",
+        "keys": [
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-d-dee",
+        "phrase": "dee",
+        "keys": [
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-e-ee",
+        "phrase": "ee",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-f-ef",
+        "phrase": "ef",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-g-gee",
+        "phrase": "gee",
+        "keys": [
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-h-aitch",
+        "phrase": "aitch",
+        "keys": [
+          "h"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-i-eye",
+        "phrase": "eye",
+        "keys": [
+          "i"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-j-jay",
+        "phrase": "jay",
+        "keys": [
+          "j"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-k-kay",
+        "phrase": "kay",
+        "keys": [
+          "k"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-l-el",
+        "phrase": "el",
+        "keys": [
+          "l"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-m-em",
+        "phrase": "em",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-n-en",
+        "phrase": "en",
+        "keys": [
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-o-oh",
+        "phrase": "oh",
+        "keys": [
+          "o"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-p-pee",
+        "phrase": "pee",
+        "keys": [
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-q-cue",
+        "phrase": "cue",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-r-ar",
+        "phrase": "ar",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-s-ess",
+        "phrase": "ess",
+        "keys": [
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-t-tee",
+        "phrase": "tee",
+        "keys": [
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-u-you",
+        "phrase": "you",
+        "keys": [
+          "u"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-v-vee",
+        "phrase": "vee",
+        "keys": [
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-w-double-u",
+        "phrase": "double u",
+        "keys": [
+          "w"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-x-ex",
+        "phrase": "ex",
+        "keys": [
+          "x"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-y-why",
+        "phrase": "why",
+        "keys": [
+          "y"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-z-zed",
+        "phrase": "zed",
+        "keys": [
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-0-zero",
+        "phrase": "zero",
+        "keys": [
+          "0"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-1-one",
+        "phrase": "one",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-2-two",
+        "phrase": "two",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-3-three",
+        "phrase": "three",
+        "keys": [
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-4-four",
+        "phrase": "four",
+        "keys": [
+          "4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-5-five",
+        "phrase": "five",
+        "keys": [
+          "5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-6-six",
+        "phrase": "six",
+        "keys": [
+          "6"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-7-seven",
+        "phrase": "seven",
+        "keys": [
+          "7"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-8-eight",
+        "phrase": "eight",
+        "keys": [
+          "8"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-9-nine",
+        "phrase": "nine",
+        "keys": [
+          "9"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-b-be",
+        "phrase": "be",
+        "keys": [
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-c-see",
+        "phrase": "see",
+        "keys": [
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-w-double-you",
+        "phrase": "double you",
+        "keys": [
+          "w"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alias-z-zee",
+        "phrase": "zee",
+        "keys": [
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  }
+]

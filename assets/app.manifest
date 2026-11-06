@@ -2,10 +2,10 @@
 <assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
   <assemblyIdentity
       type="win32"
-      name="Axword.LoLVoice"
+      name="Axword.VoiceControl"
       version="1.0.0.0"
       processorArchitecture="amd64"/>
-  <description>Voice control for League of Legends</description>
+  <description>Profile-based voice control for games</description>
 
   <!-- No elevation. The application installs and runs per user. -->
   <trustInfo xmlns="urn:schemas-microsoft-com:asm.v3">

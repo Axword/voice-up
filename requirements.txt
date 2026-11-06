@@ -27,13 +27,6 @@ faster-whisper>=1.1
 # jaraco in a way PyInstaller cannot freeze. 68..70 is self-contained.
 setuptools>=68,<71
 
-# Input simulation, game client polling, process helpers
+# Input simulation and model downloads
 pynput>=1.7.6
 requests>=2.31
-psutil>=5.9
-
-# Console colours for the CLI entry point
-colorama>=0.4.6
-
-# Windows integration: single instance mutex, autostart, shell folders
-pywin32>=306; sys_platform == 'win32'

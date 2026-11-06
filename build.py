@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Build script for LoL Voice Controller.
+"""Build script for Voice Control by Axword.
 
 Three stages, each of which can be run on its own:
 
-    python build.py --app-only        PyInstaller onedir build into dist/LoLVoice
+    python build.py --app-only        PyInstaller onedir build into dist/AxwordVoice
     python build.py --installer-only  Inno Setup installer into dist/installer
     python build.py --portable-only   portable ZIP into dist
     python build.py                   all three
@@ -82,6 +82,9 @@ def build_webui() -> None:
 def clean() -> None:
     log("cleaning previous build output")
     for directory in (cfg.BUILD_DIR, cfg.DIST_DIR):
+        target = directory.resolve()
+        if target.parent != cfg.ROOT_DIR.resolve() or target.name not in {"build", "dist"}:
+            fail(f"refusing to clean a directory outside the project: {target}")
         if directory.exists():
             shutil.rmtree(directory)
 
@@ -147,14 +150,11 @@ def build_portable(version: str) -> None:
         for path in sorted(cfg.APP_DIST_DIR.rglob("*")):
             if path.is_file():
                 archive.write(path, Path(cfg.APP_NAME) / path.relative_to(cfg.APP_DIST_DIR))
-        # Marker file: the application keeps its data next to the executable
-        # when it finds this, instead of using APPDATA.
-        archive.writestr(f"{cfg.APP_NAME}/portable.txt", "Portable mode. Data is kept in this folder.\n")
     log(f"portable ZIP ready: {target} ({target.stat().st_size / (1024 * 1024):.1f} MB)")
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Build LoL Voice Controller.")
+    parser = argparse.ArgumentParser(description="Build Voice Control by Axword.")
     stage = parser.add_mutually_exclusive_group()
     stage.add_argument("--app-only", action="store_true", help="only run PyInstaller")
     stage.add_argument("--installer-only", action="store_true", help="only compile the installer")

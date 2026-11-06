@@ -1,198 +1,112 @@
-// Globalny stan panelu na sygnalach Preact plus polaczenie WebSocket.
-
 import { computed, effect, signal } from '@preact/signals';
 import { api, wsUrl } from './api';
-import type { DownloadState, HeardItem, LogLine, Settings, Status } from './types';
-
-export type ViewId = 'dashboard' | 'settings' | 'engines' | 'commands' | 'logs' | 'about';
-export type Connection = 'connecting' | 'online' | 'offline';
-export type SaveState = 'idle' | 'saving' | 'saved' | 'error';
-
-const HEARD_LIMIT = 50;
-const LOG_LIMIT = 500;
-
-export const view = signal<ViewId>('dashboard');
-export const connection = signal<Connection>('connecting');
-export const status = signal<Status | null>(null);
+import type { HeardItem, ProfilesDocument, Settings, Status } from './types';
+import { uiLanguage, languages, locale } from './i18n';
+export const view = signal<'commands' | 'settings' | 'activity'>('commands');
+export const profiles = signal<ProfilesDocument | null>(null);
 export const settings = signal<Settings | null>(null);
+export const status = signal<Status | null>(null);
+export const connection = signal<'connecting' | 'online' | 'offline'>('connecting');
+export const error = signal('');
+export const busy = signal(false);
 export const heard = signal<HeardItem[]>([]);
-export const logLines = signal<LogLine[]>([]);
-export const downloads = signal<Record<string, DownloadState>>({});
-export const enginesDirty = signal(0);
-export const saveState = signal<SaveState>('idle');
-
-// --- motyw -------------------------------------------------------------
-
-const systemDark =
-  typeof matchMedia === 'function' ? matchMedia('(prefers-color-scheme: dark)') : null;
-const systemPrefersDark = signal(systemDark?.matches ?? true);
-systemDark?.addEventListener('change', (e) => (systemPrefersDark.value = e.matches));
-
-export const theme = computed<'dark' | 'light'>(() => {
-  const chosen = settings.value?.theme ?? 'dark';
-  if (chosen === 'system') return systemPrefersDark.value ? 'dark' : 'light';
-  return chosen;
-});
-
+export const downloads = signal<Record<string, { percent?: number; error?: string; done?: boolean; cancelled?: boolean }>>({});
+export const activeProfile = computed(() => profiles.value?.profiles.find(p => p.id === profiles.value?.active_profile_id) ?? null);
+const systemDark = matchMedia('(prefers-color-scheme: dark)');
+const dark = signal(systemDark.matches);
+systemDark.addEventListener('change', e => { dark.value = e.matches; });
 effect(() => {
-  document.documentElement.dataset.theme = theme.value;
+  const choice = settings.value?.theme ?? 'light';
+  document.documentElement.dataset.theme = choice === 'system' ? dark.value ? 'dark' : 'light' : choice;
 });
-
-// --- ustawienia -------------------------------------------------------------
-
-let saveTimer: ReturnType<typeof setTimeout> | undefined;
-
+effect(() => {
+  const choice = settings.value?.ui_language;
+  uiLanguage.value = languages.some(item=>item.id===choice) ? choice! : 'pl_PL';
+});
+effect(() => { document.documentElement.lang = locale().split('-')[0]; });
+export async function run<T>(action: () => Promise<T>): Promise<T | undefined> {
+  if (busy.value) return;
+  busy.value = true; error.value = '';
+  try { return await action(); }
+  catch (cause) { error.value = cause instanceof Error ? cause.message : "Nie udało się wykonać działania."; }
+  finally { busy.value = false; }
+}
+export async function saveProfiles(next: ProfilesDocument): Promise<boolean> {
+  const saved = await run(() => api.saveProfiles(next));
+  if (!saved) return false;
+  profiles.value = saved;
+  const [nextStatus,nextSettings] = await Promise.all([api.status().catch(()=>status.value),api.settings().catch(()=>settings.value)]);
+  status.value = nextStatus; settings.value = nextSettings;
+  return true;
+}
 export async function patchSettings(patch: Partial<Settings>): Promise<void> {
-  const before = settings.value;
-  if (before) settings.value = { ...before, ...patch };
-  saveState.value = 'saving';
-  clearTimeout(saveTimer);
-  try {
-    settings.value = await api.putSettings(patch);
-    saveState.value = 'saved';
-    saveTimer = setTimeout(() => (saveState.value = 'idle'), 1600);
-  } catch {
-    if (before) settings.value = before;
-    saveState.value = 'error';
-    saveTimer = setTimeout(() => (saveState.value = 'idle'), 4000);
+  const saved = await run(() => api.saveSettings(patch));
+  if (saved) {
+    settings.value = saved;
+    if (patch.language) {
+      const [nextProfiles,nextStatus] = await Promise.all([api.profiles().catch(()=>profiles.value),api.status().catch(()=>status.value)]);
+      profiles.value = nextProfiles; status.value = nextStatus;
+    }
   }
 }
-
 export async function refreshAll(): Promise<void> {
   try {
-    const [st, cfg] = await Promise.all([api.status(), api.settings()]);
-    status.value = st;
-    settings.value = cfg;
-    if (connection.value === 'offline') connection.value = 'connecting';
-  } catch {
+    const [nextStatus, nextProfiles, nextSettings] = await Promise.all([api.status(), api.profiles(), api.settings()]);
+    status.value = nextStatus; profiles.value = nextProfiles; settings.value = nextSettings;
+    connection.value = 'online'; error.value = nextStatus.error ?? '';
+  } catch (cause) {
     connection.value = 'offline';
+    error.value = cause instanceof Error ? cause.message : "Nie udało się połączyć z aplikacją.";
   }
 }
-
-// --- ramki WebSocket ---------------------------------------------------------
-
-function onFrame(frame: Record<string, unknown>): void {
-  switch (frame.type) {
-    case 'status': {
-      const { type: _type, time: _time, ...rest } = frame;
-      status.value = rest as unknown as Status;
-      break;
-    }
-    case 'heard': {
-      const at = typeof frame.time === 'number' ? frame.time * 1000 : Date.now();
-      // matched to pojedynczy klawisz albo lista klawiszy przy lancuchu komend.
-      const matched = frame.matched;
-      const keys = Array.isArray(matched)
-        ? matched.filter((entry): entry is string => typeof entry === 'string' && entry.length > 0)
-        : typeof matched === 'string' && matched
-          ? [matched]
-          : [];
-      const item: HeardItem = { at, phrase: String(frame.text ?? ''), keys };
-      heard.value = [item, ...heard.value].slice(0, HEARD_LIMIT);
-      break;
-    }
-    case 'download': {
-      const id = String(frame.engine_id ?? '');
-      if (!id) break;
-      const prev = downloads.value[id] ?? {};
-      const next: DownloadState = { ...prev };
-      if (typeof frame.percent === 'number') next.percent = frame.percent / 100;
-      if (typeof frame.downloaded === 'number') next.received = frame.downloaded;
-      if (typeof frame.total === 'number') next.total = frame.total;
-      if (frame.done === true) next.done = true;
-      if (frame.cancelled === true) next.cancelled = true;
-      if (typeof frame.error === 'string') next.error = frame.error;
-      downloads.value = { ...downloads.value, [id]: next };
-      if (next.done || next.cancelled || next.error) enginesDirty.value += 1;
-      break;
-    }
-    case 'log': {
-      const line: LogLine = {
-        time: typeof frame.time === 'number' ? frame.time : undefined,
-        level: typeof frame.level === 'string' ? frame.level : 'info',
-        message: String(frame.message ?? ''),
-      };
-      const next = [...logLines.value, line];
-      logLines.value = next.length > LOG_LIMIT ? next.slice(next.length - LOG_LIMIT) : next;
-      break;
-    }
-    case 'update': {
-      const st = status.value;
-      if (st && typeof frame.available === 'boolean') {
-        status.value = { ...st, update_available: frame.available };
-      }
-      break;
-    }
-    default:
-      break;
-  }
-}
-
-// --- polaczenie --------------------------------------------------------------
-
 let socket: WebSocket | null = null;
-let reconnectTimer: ReturnType<typeof setTimeout> | undefined;
-let backoffMs = 1000;
-
-function scheduleReconnect(): void {
-  clearTimeout(reconnectTimer);
-  reconnectTimer = setTimeout(() => {
-    backoffMs = Math.min(backoffMs * 2, 15000);
-    connect();
-  }, backoffMs);
-}
-
+let retry: ReturnType<typeof setTimeout> | undefined;
+let backoff = 1000;
 export function connect(): void {
-  clearTimeout(reconnectTimer);
-  if (socket && (socket.readyState === WebSocket.OPEN || socket.readyState === WebSocket.CONNECTING)) {
-    return;
-  }
-  if (connection.value !== 'online') connection.value = 'connecting';
-
-  let ws: WebSocket;
-  try {
-    ws = new WebSocket(wsUrl());
-  } catch {
-    connection.value = 'offline';
-    scheduleReconnect();
-    return;
-  }
-  socket = ws;
-
-  ws.onopen = () => {
-    backoffMs = 1000;
-    connection.value = 'online';
-    void refreshAll();
-  };
-  ws.onmessage = (event) => {
+  clearTimeout(retry);
+  if (socket && socket.readyState < WebSocket.CLOSING) return;
+  const ws = new WebSocket(wsUrl()); socket = ws;
+  ws.onopen = () => { backoff = 1000; connection.value = 'online'; void refreshAll(); };
+  ws.onmessage = e => {
     try {
-      const frame = JSON.parse(String(event.data)) as Record<string, unknown>;
-      if (frame && typeof frame === 'object') onFrame(frame);
-    } catch {
-      /* nie-JSON ignorujemy */
-    }
+      const frame = JSON.parse(String(e.data));
+      if (frame.type === 'status') {
+        if (typeof frame.error === 'string' && frame.error && frame.error !== status.value?.error) error.value = frame.error;
+        status.value = frame as Status;
+      }
+      if (frame.type === 'heard') {
+        const matched = frame.matched;
+        const keys = Array.isArray(frame.keys) ? frame.keys : Array.isArray(matched) ? matched
+          : typeof matched === 'string' ? [matched] : matched?.keys ?? [];
+        const profileId = typeof frame.profile_id === 'string' ? frame.profile_id : status.value?.active_profile_id;
+        const profile = profiles.value?.profiles.find(item => item.id === profileId);
+        const normalize = (text: string) => text.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/ł/g, 'l').replace(/[^\p{L}\p{N}\s_]/gu, ' ').trim().replace(/\s+/g, ' ');
+        const command = profile?.commands.find(item => typeof frame.command_id === 'string'
+          ? item.id === frame.command_id : normalize(item.phrase) === normalize(String(frame.text ?? '')));
+        const mode = frame.mode === 'click' || frame.mode === 'timed' || frame.mode === 'toggle' ? frame.mode : command?.mode;
+        const at = typeof frame.time === 'number' && Number.isFinite(frame.time) && frame.time > 0 ? frame.time * 1000 : Date.now();
+        heard.value = [{ at, phrase: String(frame.text ?? ''), keys: keys.filter((key:unknown):key is string => typeof key === 'string'),
+          matched: Boolean(matched), executed: typeof frame.executed === 'boolean' ? frame.executed : undefined,
+          command_id: typeof frame.command_id === 'string' ? frame.command_id : command?.id,
+          profile_id: profileId, profile_name: typeof frame.profile_name === 'string' ? frame.profile_name : profile?.name,
+          mode, duration_ms: typeof frame.duration_ms === 'number' ? frame.duration_ms : command?.duration_ms,
+          held: typeof frame.held === 'boolean' ? frame.held : undefined,
+          error: typeof frame.error === 'string' && frame.error ? frame.error
+            : matched && frame.executed === false ? "Nie udało się wykonać komendy." : undefined }, ...heard.value].slice(0, 100);
+      }
+      if (frame.type === 'download' && frame.engine_id)
+        downloads.value = { ...downloads.value, [frame.engine_id]: {
+          percent: frame.percent, error: frame.error, done: frame.done, cancelled: frame.cancelled } };
+    } catch { /* Ignore incomplete frames. */ }
   };
   ws.onclose = () => {
-    if (socket === ws) socket = null;
-    connection.value = 'offline';
-    scheduleReconnect();
+    if (socket !== ws) return;
+    socket = null; connection.value = 'offline';
+    retry = setTimeout(() => { backoff = Math.min(backoff * 2, 15000); connect(); }, backoff);
   };
-  ws.onerror = () => {
-    ws.close();
-  };
+  ws.onerror = () => ws.close();
 }
-
 export function retryNow(): void {
-  clearTimeout(reconnectTimer);
-  backoffMs = 1000;
-  if (socket) {
-    try {
-      socket.close();
-    } catch {
-      /* i tak otwieramy nowe */
-    }
-    socket = null;
-  }
-  connect();
-  void refreshAll();
+  clearTimeout(retry); const old = socket; socket = null; old?.close();
+  connection.value = 'connecting'; backoff = 1000; connect(); void refreshAll();
 }

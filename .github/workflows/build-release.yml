@@ -1,310 +1,50 @@
-name: Build and Release
+name: Build Windows package
 
-# Releases come from a tag or from a manual run. Pushing to main never
-# publishes anything, that is what ci.yml is for.
 on:
-  push:
-    tags:
-      - 'v*'
   workflow_dispatch:
-    inputs:
-      release_type:
-        description: 'Version bump applied to version.json'
-        required: true
-        default: 'patch'
-        type: choice
-        options:
-          - patch
-          - minor
-          - major
-      prerelease:
-        description: 'Mark the release as a prerelease'
-        required: false
-        default: false
-        type: boolean
-
-concurrency:
-  group: release-${{ github.ref }}
-  cancel-in-progress: false
-
-env:
-  PYTHON_VERSION: '3.11'
-  NODE_VERSION: '20'
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build:
-    name: Build Windows package
     runs-on: windows-latest
-    env:
-      SIGNING_CERT: ${{ secrets.SIGNING_CERT_BASE64 }}
-    outputs:
-      version: ${{ steps.version.outputs.version }}
-      tag: ${{ steps.version.outputs.tag }}
-      sha256: ${{ steps.hash.outputs.sha256 }}
-      installer: ${{ steps.hash.outputs.installer }}
-      portable: ${{ steps.hash.outputs.portable }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
       - uses: actions/setup-python@v5
         with:
-          python-version: ${{ env.PYTHON_VERSION }}
+          python-version: '3.11'
           cache: pip
-          cache-dependency-path: |
-            requirements.txt
-            requirements-dev.txt
-
+          cache-dependency-path: requirements-dev.txt
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: '24'
           cache: npm
           cache-dependency-path: webui/package-lock.json
-
-      # version.json is the single source of truth. build_config.py reads it,
-      # so writing this one file is enough for the spec, the installer and the
-      # application itself.
-      - name: Resolve version
-        id: version
-        shell: python
-        env:
-          GITHUB_REF_NAME: ${{ github.ref_name }}
-          EVENT_NAME: ${{ github.event_name }}
-          RELEASE_TYPE: ${{ inputs.release_type }}
-          # shell: python uruchamia skrypt z katalogu tymczasowego, wiec
-          # korzen repo trzeba wskazac recznie.
-          PYTHONPATH: ${{ github.workspace }}
-        run: |
-          import os
-          import build_config as cfg
-
-          if os.environ["EVENT_NAME"] == "push":
-              version = os.environ["GITHUB_REF_NAME"].lstrip("v")
-          else:
-              major, minor, patch, _ = cfg.version_tuple(cfg.get_version())
-              bump = os.environ.get("RELEASE_TYPE") or "patch"
-              if bump == "major":
-                  major, minor, patch = major + 1, 0, 0
-              elif bump == "minor":
-                  minor, patch = minor + 1, 0
-              else:
-                  patch += 1
-              version = f"{major}.{minor}.{patch}"
-
-          cfg.set_version(version)
-          print(f"resolved version {version}")
-          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as handle:
-              handle.write(f"version={version}\n")
-              handle.write(f"tag=v{version}\n")
-
-      - name: Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install -r requirements-dev.txt
-
+      - name: Install dependencies
+        run: python -m pip install -r requirements-dev.txt
       - name: Build web panel
         working-directory: webui
         run: |
           npm ci
           npm run build
-
-      - name: Build application
-        run: python build.py --app-only
-
-      # Smart App Control i SmartScreen blokuja niepodpisane pliki wykonywalne.
-      # Podpis wlacza sie sam, gdy repozytorium ma sekrety certyfikatu; bez nich
-      # krok jest pomijany i build idzie dalej jak dotad.
-      - name: Sign application binaries
-        if: env.SIGNING_CERT != ''
-        shell: pwsh
-        env:
-          SIGNING_CERT: ${{ secrets.SIGNING_CERT_BASE64 }}
-          SIGNING_PASSWORD: ${{ secrets.SIGNING_CERT_PASSWORD }}
-        run: |
-          $pfx = Join-Path $env:RUNNER_TEMP 'signing.pfx'
-          [IO.File]::WriteAllBytes($pfx, [Convert]::FromBase64String($env:SIGNING_CERT))
-          $signtool = Get-ChildItem 'C:\Program Files (x86)\Windows Kits\10\bin' -Recurse -Filter signtool.exe |
-            Where-Object { $_.FullName -like '*x64*' } | Select-Object -First 1
-          $targets = Get-ChildItem dist/LoLVoice -Recurse -Include *.exe, *.dll, *.pyd
-          & $signtool.FullName sign /fd SHA256 /f $pfx /p $env:SIGNING_PASSWORD `
-            /tr http://timestamp.digicert.com /td SHA256 $targets.FullName
-          Remove-Item $pfx -Force
-
-      # windows-latest ships Inno Setup 6. Install it only if the image ever
-      # drops it, so the normal path costs nothing.
+      - name: Check tests
+        run: python -m pytest -m "not slow and not audio"
       - name: Ensure Inno Setup
         shell: pwsh
         run: |
-          $iscc = "C:\Program Files (x86)\Inno Setup 6\ISCC.exe"
-          if (-not (Test-Path $iscc)) {
-            Write-Host "Inno Setup not present on the image, installing"
+          $iscc = 'C:\Program Files (x86)\Inno Setup 6\ISCC.exe'
+          if (-not (Test-Path -LiteralPath $iscc)) {
             choco install innosetup --no-progress -y
           }
-          Add-Content -Path $env:GITHUB_PATH -Value "C:\Program Files (x86)\Inno Setup 6"
-
-      - name: Build installer
-        run: python build.py --installer-only
-
-      - name: Sign installer
-        if: env.SIGNING_CERT != ''
-        shell: pwsh
-        env:
-          SIGNING_CERT: ${{ secrets.SIGNING_CERT_BASE64 }}
-          SIGNING_PASSWORD: ${{ secrets.SIGNING_CERT_PASSWORD }}
-        run: |
-          $pfx = Join-Path $env:RUNNER_TEMP 'signing.pfx'
-          [IO.File]::WriteAllBytes($pfx, [Convert]::FromBase64String($env:SIGNING_CERT))
-          $signtool = Get-ChildItem 'C:\Program Files (x86)\Windows Kits\10\bin' -Recurse -Filter signtool.exe |
-            Where-Object { $_.FullName -like '*x64*' } | Select-Object -First 1
-          & $signtool.FullName sign /fd SHA256 /f $pfx /p $env:SIGNING_PASSWORD `
-            /tr http://timestamp.digicert.com /td SHA256 dist/installer/LoLVoiceSetup.exe
-          Remove-Item $pfx -Force
-
-      - name: Build portable ZIP
-        run: python build.py --portable-only
-
-      - name: Hash artifacts
-        id: hash
-        shell: python
-        env:
-          PYTHONPATH: ${{ github.workspace }}
-        run: |
-          import hashlib
-          import os
-          import build_config as cfg
-
-          installer = cfg.INSTALLER_FILE
-          portable = cfg.portable_zip_path()
-          digest = hashlib.sha256(installer.read_bytes()).hexdigest()
-          print(f"{installer.name} sha256 {digest}")
-          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as handle:
-              handle.write(f"sha256={digest}\n")
-              handle.write(f"installer={installer.name}\n")
-              handle.write(f"portable={portable.name}\n")
-
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+          Add-Content -Path $env:GITHUB_PATH -Value 'C:\Program Files (x86)\Inno Setup 6'
+      - name: Build application, installer and portable ZIP
+        run: python build.py
+      - uses: actions/upload-artifact@v4
         with:
-          name: windows-package
+          name: axword-voice-windows
           path: |
-            dist/installer/*.exe
-            dist/*.zip
-            version.json
+            dist/installer/AxwordVoiceSetup.exe
+            dist/AxwordVoice-*-portable.zip
           if-no-files-found: error
           retention-days: 14
-
-  release:
-    name: Publish release
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - uses: actions/download-artifact@v4
-        with:
-          name: windows-package
-          path: artifacts
-
-      - name: Flatten artifacts
-        run: |
-          mkdir -p release
-          find artifacts -type f \( -name '*.exe' -o -name '*.zip' \) -exec mv {} release/ \;
-          ls -l release
-
-      # A manual run bumps version.json on main and creates the tag, so the
-      # released version stays reachable from the default branch.
-      - name: Tag manual release
-        if: github.event_name == 'workflow_dispatch'
-        env:
-          VERSION: ${{ needs.build.outputs.version }}
-          TAG: ${{ needs.build.outputs.tag }}
-        run: |
-          cp artifacts/version.json version.json
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add version.json
-          git commit -m "Release ${TAG}" || echo "nothing to commit"
-          git tag -a "${TAG}" -m "Release ${TAG}"
-          git push origin HEAD:${GITHUB_REF_NAME}
-          git push origin "${TAG}"
-
-      - name: Build changelog
-        id: changelog
-        env:
-          TAG: ${{ needs.build.outputs.tag }}
-        run: |
-          PREVIOUS=$(git describe --tags --abbrev=0 "${TAG}^" 2>/dev/null || true)
-          if [ -n "$PREVIOUS" ]; then
-            RANGE="${PREVIOUS}..${TAG}"
-          else
-            RANGE="${TAG}"
-          fi
-          git log --no-merges --pretty=format:'- %s (%h)' $RANGE > notes.md || true
-          if [ ! -s notes.md ]; then
-            echo "- No recorded changes" > notes.md
-          fi
-          {
-            echo 'notes<<CHANGELOG_EOF'
-            cat notes.md
-            # git log --pretty=format nie konczy pliku nowa linia, a delimiter
-            # musi stac w osobnej linii.
-            echo ''
-            echo 'CHANGELOG_EOF'
-          } >> "$GITHUB_OUTPUT"
-
-      # Manifest read by the in app updater (server/updater.py).
-      - name: Write latest.json
-        env:
-          VERSION: ${{ needs.build.outputs.version }}
-          TAG: ${{ needs.build.outputs.tag }}
-          SHA256: ${{ needs.build.outputs.sha256 }}
-          INSTALLER: ${{ needs.build.outputs.installer }}
-        run: |
-          python3 - <<'PY'
-          import json
-          import os
-          from pathlib import Path
-
-          repo = os.environ["GITHUB_REPOSITORY"]
-          tag = os.environ["TAG"]
-          installer = os.environ["INSTALLER"]
-          manifest = {
-              "version": os.environ["VERSION"],
-              "url": f"https://github.com/{repo}/releases/download/{tag}/{installer}",
-              "sha256": os.environ["SHA256"],
-              "notes": Path("notes.md").read_text(encoding="utf-8").strip(),
-          }
-          Path("release/latest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
-          print(json.dumps(manifest, indent=2))
-          PY
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ needs.build.outputs.tag }}
-          name: LoL Voice Controller ${{ needs.build.outputs.version }}
-          body: |
-            ## Changes
-
-            ${{ steps.changelog.outputs.notes }}
-
-            ## Install
-
-            Download `${{ needs.build.outputs.installer }}` and run it. The installer is per user,
-            it does not ask for administrator rights. Portable users can take
-            `${{ needs.build.outputs.portable }}` instead.
-
-            The binaries are not code signed yet, so SmartScreen may warn on first run.
-          draft: false
-          prerelease: ${{ inputs.prerelease == true }}
-          files: |
-            release/*.exe
-            release/*.zip
-            release/latest.json
-          fail_on_unmatched_files: true

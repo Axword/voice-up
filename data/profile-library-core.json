@@ -1,0 +1,1164 @@
+[
+  {
+    "id": "league-of-legends",
+    "name": "League of Legends",
+    "game": "League of Legends · Point & Click",
+    "commands": [
+      {
+        "id": "flash",
+        "phrase": "błysk",
+        "keys": [
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ultimate",
+        "phrase": "superumiejętność",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "level-up",
+        "phrase": "ulepsz umiejętność",
+        "keys": [
+          "ctrl",
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "scoreboard",
+        "phrase": "wyniki",
+        "keys": [
+          "tab"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "attack",
+        "phrase": "atakuj",
+        "keys": [
+          "a"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-q",
+        "phrase": "pierwsza umiejętność",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-w",
+        "phrase": "druga umiejętność",
+        "keys": [
+          "w"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-e",
+        "phrase": "trzecia umiejętność",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "recall",
+        "phrase": "powrót do bazy",
+        "keys": [
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "shop",
+        "phrase": "sklep",
+        "keys": [
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "stop",
+        "phrase": "zatrzymaj bohatera",
+        "keys": [
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "center-camera",
+        "phrase": "pokaż bohatera",
+        "keys": [
+          "space"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "camera-lock",
+        "phrase": "zablokuj kamerę",
+        "keys": [
+          "y"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "level-w",
+        "phrase": "ulepsz drugą",
+        "keys": [
+          "ctrl",
+          "w"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "level-e",
+        "phrase": "ulepsz trzecią",
+        "keys": [
+          "ctrl",
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "level-r",
+        "phrase": "ulepsz superumiejętność",
+        "keys": [
+          "ctrl",
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "summoner-two",
+        "phrase": "drugie zaklęcie",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "chat",
+        "phrase": "czat",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "all-chat",
+        "phrase": "czat ogólny",
+        "keys": [
+          "shift",
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "menu",
+        "phrase": "menu",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "pl_PL"
+  },
+  {
+    "id": "minecraft",
+    "name": "Minecraft",
+    "game": "Minecraft Java Edition · PC",
+    "commands": [
+      {
+        "id": "inventory",
+        "phrase": "ekwipunek",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "walk",
+        "phrase": "idź",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "sprint",
+        "phrase": "biegnij",
+        "keys": [
+          "ctrl",
+          "w"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "jump",
+        "phrase": "skocz",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "sneak",
+        "phrase": "skradaj się",
+        "keys": [
+          "shift"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "sneak-walk",
+        "phrase": "skradaj się naprzód",
+        "keys": [
+          "shift",
+          "w"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "backward",
+        "phrase": "cofnij",
+        "keys": [
+          "s"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "left",
+        "phrase": "w lewo",
+        "keys": [
+          "a"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "right",
+        "phrase": "w prawo",
+        "keys": [
+          "d"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "attack",
+        "phrase": "uderz",
+        "keys": [
+          "left_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mine",
+        "phrase": "kop",
+        "keys": [
+          "left_click"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "use",
+        "phrase": "użyj",
+        "keys": [
+          "right_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "eat",
+        "phrase": "jedz",
+        "keys": [
+          "right_click"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "drop",
+        "phrase": "wyrzuć przedmiot",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-one",
+        "phrase": "pierwszy przedmiot",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-two",
+        "phrase": "drugi przedmiot",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-three",
+        "phrase": "trzeci przedmiot",
+        "keys": [
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-four",
+        "phrase": "czwarty przedmiot",
+        "keys": [
+          "4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-five",
+        "phrase": "piąty przedmiot",
+        "keys": [
+          "5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "players",
+        "phrase": "lista graczy",
+        "keys": [
+          "tab"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "chat",
+        "phrase": "czat",
+        "keys": [
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "menu",
+        "phrase": "menu",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "pl_PL"
+  },
+  {
+    "id": "league-of-legends-wasd",
+    "name": "League of Legends · WASD",
+    "game": "League of Legends · Keyboard WASD",
+    "commands": [
+      {
+        "id": "forward",
+        "phrase": "naprzód",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "backward",
+        "phrase": "cofnij",
+        "keys": [
+          "s"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "left",
+        "phrase": "w lewo",
+        "keys": [
+          "a"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "right",
+        "phrase": "w prawo",
+        "keys": [
+          "d"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-one",
+        "phrase": "pierwsza umiejętność",
+        "keys": [
+          "right_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-two",
+        "phrase": "druga umiejętność",
+        "keys": [
+          "shift"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-three",
+        "phrase": "trzecia umiejętność",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ultimate",
+        "phrase": "superumiejętność",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "summoner-one",
+        "phrase": "pierwsze zaklęcie",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "summoner-two",
+        "phrase": "drugie zaklęcie",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "confirm-cast",
+        "phrase": "potwierdź",
+        "keys": [
+          "left_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "cancel-cast",
+        "phrase": "anuluj rzucanie",
+        "keys": [
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "scout",
+        "phrase": "rozejrzyj się",
+        "keys": [
+          "middle_click"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "pl_PL"
+  },
+  {
+    "id": "league-of-legends-en",
+    "name": "League of Legends · EN",
+    "game": "League of Legends · Point & Click",
+    "commands": [
+      {
+        "id": "flash",
+        "phrase": "flash",
+        "keys": [
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ultimate",
+        "phrase": "ultimate",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "level-up",
+        "phrase": "level up ability",
+        "keys": [
+          "ctrl",
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "scoreboard",
+        "phrase": "scoreboard",
+        "keys": [
+          "tab"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "attack",
+        "phrase": "attack",
+        "keys": [
+          "a"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-q",
+        "phrase": "first ability",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-w",
+        "phrase": "second ability",
+        "keys": [
+          "w"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-e",
+        "phrase": "third ability",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "recall",
+        "phrase": "recall",
+        "keys": [
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "shop",
+        "phrase": "shop",
+        "keys": [
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "stop",
+        "phrase": "stop champion",
+        "keys": [
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "center-camera",
+        "phrase": "center camera",
+        "keys": [
+          "space"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "camera-lock",
+        "phrase": "lock camera",
+        "keys": [
+          "y"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "level-w",
+        "phrase": "level up second",
+        "keys": [
+          "ctrl",
+          "w"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "level-e",
+        "phrase": "level up third",
+        "keys": [
+          "ctrl",
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "level-r",
+        "phrase": "level up ultimate",
+        "keys": [
+          "ctrl",
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "summoner-two",
+        "phrase": "second summoner spell",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "chat",
+        "phrase": "chat",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "all-chat",
+        "phrase": "all chat",
+        "keys": [
+          "shift",
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "menu",
+        "phrase": "menu",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "en_US"
+  },
+  {
+    "id": "minecraft-en",
+    "name": "Minecraft · EN",
+    "game": "Minecraft Java Edition · PC",
+    "commands": [
+      {
+        "id": "inventory",
+        "phrase": "inventory",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "walk",
+        "phrase": "walk",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "sprint",
+        "phrase": "sprint",
+        "keys": [
+          "ctrl",
+          "w"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "jump",
+        "phrase": "jump",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "sneak",
+        "phrase": "sneak",
+        "keys": [
+          "shift"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "sneak-walk",
+        "phrase": "sneak forward",
+        "keys": [
+          "shift",
+          "w"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "backward",
+        "phrase": "move back",
+        "keys": [
+          "s"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "left",
+        "phrase": "move left",
+        "keys": [
+          "a"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "right",
+        "phrase": "move right",
+        "keys": [
+          "d"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "attack",
+        "phrase": "hit",
+        "keys": [
+          "left_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mine",
+        "phrase": "mine",
+        "keys": [
+          "left_click"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "use",
+        "phrase": "use",
+        "keys": [
+          "right_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "eat",
+        "phrase": "eat",
+        "keys": [
+          "right_click"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "drop",
+        "phrase": "drop item",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-one",
+        "phrase": "first item",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-two",
+        "phrase": "second item",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-three",
+        "phrase": "third item",
+        "keys": [
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-four",
+        "phrase": "fourth item",
+        "keys": [
+          "4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-five",
+        "phrase": "fifth item",
+        "keys": [
+          "5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "players",
+        "phrase": "player list",
+        "keys": [
+          "tab"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "chat",
+        "phrase": "chat",
+        "keys": [
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "menu",
+        "phrase": "menu",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "en_US"
+  },
+  {
+    "id": "league-of-legends-wasd-en",
+    "name": "League of Legends · WASD · EN",
+    "game": "League of Legends · Keyboard WASD",
+    "commands": [
+      {
+        "id": "forward",
+        "phrase": "move forward",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "backward",
+        "phrase": "move back",
+        "keys": [
+          "s"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "left",
+        "phrase": "move left",
+        "keys": [
+          "a"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "right",
+        "phrase": "move right",
+        "keys": [
+          "d"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-one",
+        "phrase": "first ability",
+        "keys": [
+          "right_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-two",
+        "phrase": "second ability",
+        "keys": [
+          "shift"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-three",
+        "phrase": "third ability",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ultimate",
+        "phrase": "ultimate",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "summoner-one",
+        "phrase": "first summoner spell",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "summoner-two",
+        "phrase": "second summoner spell",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "confirm-cast",
+        "phrase": "confirm cast",
+        "keys": [
+          "left_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "cancel-cast",
+        "phrase": "cancel cast",
+        "keys": [
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "scout",
+        "phrase": "look around",
+        "keys": [
+          "middle_click"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "en_US"
+  }
+]

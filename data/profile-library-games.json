@@ -1,0 +1,4302 @@
+[
+  {
+    "id": "counter-strike-2",
+    "name": "Counter-Strike 2",
+    "game": "Counter-Strike 2",
+    "language": "pl_PL",
+    "commands": [
+      {
+        "id": "reload",
+        "phrase": "przeładuj",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "buy",
+        "phrase": "menu zakupów",
+        "keys": [
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "interact",
+        "phrase": "użyj",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "inspect",
+        "phrase": "obejrzyj broń",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "drop",
+        "phrase": "upuść broń",
+        "keys": [
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "last-weapon",
+        "phrase": "poprzednia broń",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "primary",
+        "phrase": "broń główna",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "secondary",
+        "phrase": "pistolet",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "knife",
+        "phrase": "nóż",
+        "keys": [
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "grenades",
+        "phrase": "wybierz granat",
+        "keys": [
+          "4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "bomb",
+        "phrase": "wybierz bombę",
+        "keys": [
+          "5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ping",
+        "phrase": "oznacz",
+        "keys": [
+          "middle_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "scores",
+        "phrase": "wyniki trzy sekundy",
+        "keys": [
+          "tab"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "crouch",
+        "phrase": "trzymaj kucanie",
+        "keys": [
+          "ctrl"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "quiet-forward",
+        "phrase": "cichy marsz trzy sekundy",
+        "keys": [
+          "shift",
+          "w"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward",
+        "phrase": "ciągły marsz",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "team-chat",
+        "phrase": "czat drużyny",
+        "keys": [
+          "u"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "switch-hands",
+        "phrase": "zmień rękę",
+        "keys": [
+          "h"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "apex-legends",
+    "name": "Apex Legends",
+    "game": "Apex Legends",
+    "language": "pl_PL",
+    "commands": [
+      {
+        "id": "interact",
+        "phrase": "podnieś",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "jump",
+        "phrase": "skok",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "reload",
+        "phrase": "przeładuj",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "grenade",
+        "phrase": "wybierz granat",
+        "keys": [
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "tactical",
+        "phrase": "zdolność taktyczna",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ultimate",
+        "phrase": "zdolność specjalna",
+        "keys": [
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "map",
+        "phrase": "mapa",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "inventory",
+        "phrase": "ekwipunek",
+        "keys": [
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "inspect",
+        "phrase": "obejrzyj broń",
+        "keys": [
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "heal",
+        "phrase": "ulecz",
+        "keys": [
+          "4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "health-wheel",
+        "phrase": "koło leczenia trzy sekundy",
+        "keys": [
+          "4"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "holster",
+        "phrase": "schowaj broń",
+        "keys": [
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "crouch",
+        "phrase": "kucnij",
+        "keys": [
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "hold-crouch",
+        "phrase": "trzymaj kucanie",
+        "keys": [
+          "ctrl"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward",
+        "phrase": "ciągły marsz",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "sprint",
+        "phrase": "biegnij trzy sekundy",
+        "keys": [
+          "shift",
+          "w"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "melee",
+        "phrase": "walka wręcz",
+        "keys": [
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "hold-aim",
+        "phrase": "trzymaj celowanie",
+        "keys": [
+          "right_click"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "helldivers-2",
+    "name": "Helldivers 2",
+    "game": "Helldivers 2",
+    "language": "pl_PL",
+    "commands": [
+      {
+        "id": "reload",
+        "phrase": "przeładuj",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "interact",
+        "phrase": "użyj",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "hold-interact",
+        "phrase": "użyj przez trzy sekundy",
+        "keys": [
+          "e"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "stim",
+        "phrase": "stymulant",
+        "keys": [
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "grenade",
+        "phrase": "rzuć granat",
+        "keys": [
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "melee",
+        "phrase": "walka wręcz",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "map",
+        "phrase": "mapa",
+        "keys": [
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "crouch",
+        "phrase": "kucnij",
+        "keys": [
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "prone",
+        "phrase": "połóż się",
+        "keys": [
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "dive",
+        "phrase": "padnij",
+        "keys": [
+          "alt"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "backpack",
+        "phrase": "użyj plecaka",
+        "keys": [
+          "5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ping",
+        "phrase": "oznacz",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "comms-wheel",
+        "phrase": "koło komunikacji trzy sekundy",
+        "keys": [
+          "q"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "emote",
+        "phrase": "gest",
+        "keys": [
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "stratagem-menu",
+        "phrase": "trzymaj menu wsparcia",
+        "keys": [
+          "ctrl"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "weapon-functions",
+        "phrase": "ustawienia broni trzy sekundy",
+        "keys": [
+          "r"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward",
+        "phrase": "ciągły marsz",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "sprint",
+        "phrase": "biegnij trzy sekundy",
+        "keys": [
+          "shift",
+          "w"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "deep-rock-galactic",
+    "name": "Deep Rock Galactic",
+    "game": "Deep Rock Galactic",
+    "language": "pl_PL",
+    "commands": [
+      {
+        "id": "interact",
+        "phrase": "użyj",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "jump",
+        "phrase": "skok",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "salute",
+        "phrase": "za skałę i kamień",
+        "keys": [
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "reload",
+        "phrase": "przeładuj",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "flare",
+        "phrase": "rzuć flarę",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "grenade",
+        "phrase": "rzuć granat",
+        "keys": [
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mule",
+        "phrase": "przywołaj muła",
+        "keys": [
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "scanner",
+        "phrase": "skaner trzy sekundy",
+        "keys": [
+          "tab"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "laser-pointer",
+        "phrase": "trzymaj wskaźnik",
+        "keys": [
+          "ctrl"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "pickaxe",
+        "phrase": "kop przez trzy sekundy",
+        "keys": [
+          "right_click"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "primary",
+        "phrase": "broń główna",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "secondary",
+        "phrase": "broń dodatkowa",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mobility",
+        "phrase": "narzędzie ruchu",
+        "keys": [
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "utility",
+        "phrase": "narzędzie użytkowe",
+        "keys": [
+          "4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "resupply",
+        "phrase": "wybierz zaopatrzenie",
+        "keys": [
+          "5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "previous",
+        "phrase": "poprzedni przedmiot",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward",
+        "phrase": "ciągły marsz",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "menu",
+        "phrase": "menu",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "warframe",
+    "name": "Warframe",
+    "game": "Warframe",
+    "language": "pl_PL",
+    "commands": [
+      {
+        "id": "interact",
+        "phrase": "użyj",
+        "keys": [
+          "x"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "jump",
+        "phrase": "skok",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "reload",
+        "phrase": "przeładuj",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "switch-weapon",
+        "phrase": "zmień broń",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "melee",
+        "phrase": "walka wręcz",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "map",
+        "phrase": "mapa",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mission-progress",
+        "phrase": "postęp misji",
+        "keys": [
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-one",
+        "phrase": "zdolność pierwsza",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-two",
+        "phrase": "zdolność druga",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-three",
+        "phrase": "zdolność trzecia",
+        "keys": [
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-four",
+        "phrase": "zdolność czwarta",
+        "keys": [
+          "4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "transference",
+        "phrase": "transferencja",
+        "keys": [
+          "5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "waypoint",
+        "phrase": "oznacz miejsce",
+        "keys": [
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "gear-wheel",
+        "phrase": "koło wyposażenia trzy sekundy",
+        "keys": [
+          "q"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "crouch",
+        "phrase": "kucnij",
+        "keys": [
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward",
+        "phrase": "ciągły marsz",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "sprint",
+        "phrase": "biegnij trzy sekundy",
+        "keys": [
+          "shift",
+          "w"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "hold-aim",
+        "phrase": "trzymaj celowanie",
+        "keys": [
+          "right_click"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "stardew-valley",
+    "name": "Stardew Valley",
+    "game": "Stardew Valley",
+    "language": "pl_PL",
+    "commands": [
+      {
+        "id": "tool",
+        "phrase": "użyj narzędzia",
+        "keys": [
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "interact",
+        "phrase": "sprawdź",
+        "keys": [
+          "x"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "inventory",
+        "phrase": "ekwipunek",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "journal",
+        "phrase": "dziennik",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "map",
+        "phrase": "mapa",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "emotes",
+        "phrase": "gesty",
+        "keys": [
+          "y"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "toolbar",
+        "phrase": "następny pasek",
+        "keys": [
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "chat",
+        "phrase": "otwórz czat",
+        "keys": [
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "screenshot",
+        "phrase": "tryb zdjęcia",
+        "keys": [
+          "f4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-one",
+        "phrase": "pierwszy przedmiot",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-two",
+        "phrase": "drugi przedmiot",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-three",
+        "phrase": "trzeci przedmiot",
+        "keys": [
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward-timed",
+        "phrase": "idź trzy sekundy",
+        "keys": [
+          "w"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward",
+        "phrase": "ciągły marsz",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "half-stack",
+        "phrase": "połowa stosu",
+        "keys": [
+          "shift",
+          "right_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "move-stack",
+        "phrase": "przenieś stos",
+        "keys": [
+          "shift",
+          "left_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "terraria",
+    "name": "Terraria",
+    "game": "Terraria",
+    "language": "pl_PL",
+    "commands": [
+      {
+        "id": "inventory",
+        "phrase": "ekwipunek",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "map",
+        "phrase": "pełna mapa",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "map-style",
+        "phrase": "zmień minimapę",
+        "keys": [
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "heal",
+        "phrase": "ulecz",
+        "keys": [
+          "h"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mana",
+        "phrase": "przywróć manę",
+        "keys": [
+          "j"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "buff",
+        "phrase": "użyj wzmocnień",
+        "keys": [
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mount",
+        "phrase": "wierzchowiec",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "grapple",
+        "phrase": "użyj haka",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "smart-cursor",
+        "phrase": "inteligentny kursor",
+        "keys": [
+          "ctrl"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "auto-select",
+        "phrase": "trzymaj dobór narzędzia",
+        "keys": [
+          "shift"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "chat",
+        "phrase": "otwórz czat",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-one",
+        "phrase": "pierwszy przedmiot",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-two",
+        "phrase": "drugi przedmiot",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-three",
+        "phrase": "trzeci przedmiot",
+        "keys": [
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "move-stack",
+        "phrase": "przenieś do skrzyni",
+        "keys": [
+          "shift",
+          "left_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "favorite",
+        "phrase": "oznacz jako ulubione",
+        "keys": [
+          "alt",
+          "left_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "camera",
+        "phrase": "tryb aparatu",
+        "keys": [
+          "f4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "hide-hud",
+        "phrase": "przełącz interfejs",
+        "keys": [
+          "f11"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "factorio",
+    "name": "Factorio",
+    "game": "Factorio",
+    "language": "pl_PL",
+    "commands": [
+      {
+        "id": "inventory",
+        "phrase": "ekwipunek",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "pipette",
+        "phrase": "pipeta",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "rotate",
+        "phrase": "obróć",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "rotate-back",
+        "phrase": "obróć w drugą stronę",
+        "keys": [
+          "shift",
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alt-mode",
+        "phrase": "szczegóły maszyn",
+        "keys": [
+          "alt"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "pickup",
+        "phrase": "zbieraj trzy sekundy",
+        "keys": [
+          "f"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mine",
+        "phrase": "wydobywaj trzy sekundy",
+        "keys": [
+          "right_click"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "copy",
+        "phrase": "kopiuj obszar",
+        "keys": [
+          "ctrl",
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "paste",
+        "phrase": "wklej obszar",
+        "keys": [
+          "ctrl",
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "undo",
+        "phrase": "cofnij",
+        "keys": [
+          "ctrl",
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "redo",
+        "phrase": "ponów",
+        "keys": [
+          "ctrl",
+          "y"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blueprint",
+        "phrase": "nowy schemat",
+        "keys": [
+          "alt",
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vehicle",
+        "phrase": "wejdź lub wyjdź",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "flip-horizontal",
+        "phrase": "odbij poziomo",
+        "keys": [
+          "h"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "flip-vertical",
+        "phrase": "odbij pionowo",
+        "keys": [
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "map",
+        "phrase": "mapa",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "technology",
+        "phrase": "technologie",
+        "keys": [
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "production",
+        "phrase": "statystyki produkcji",
+        "keys": [
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "inkbound",
+    "name": "Inkbound",
+    "game": "Inkbound",
+    "language": "pl_PL",
+    "commands": [
+      {
+        "id": "ability-one",
+        "phrase": "zdolność pierwsza",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-two",
+        "phrase": "zdolność druga",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-three",
+        "phrase": "zdolność trzecia",
+        "keys": [
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-four",
+        "phrase": "zdolność czwarta",
+        "keys": [
+          "4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-five",
+        "phrase": "zdolność piąta",
+        "keys": [
+          "5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "left-item",
+        "phrase": "lewy przedmiot",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "right-item",
+        "phrase": "prawy przedmiot",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "inventory",
+        "phrase": "ekwipunek",
+        "keys": [
+          "i"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "character",
+        "phrase": "postać",
+        "keys": [
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "map",
+        "phrase": "mapa",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "interact",
+        "phrase": "użyj",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "cancel",
+        "phrase": "anuluj",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "tab",
+        "phrase": "zmień zakładkę",
+        "keys": [
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "select",
+        "phrase": "wybierz",
+        "keys": [
+          "left_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "trails-beyond-the-horizon",
+    "name": "Trails Beyond the Horizon",
+    "game": "Trails Beyond the Horizon",
+    "language": "pl_PL",
+    "commands": [
+      {
+        "id": "interact",
+        "phrase": "użyj",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "topic",
+        "phrase": "temat rozmowy",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "notebook",
+        "phrase": "notatnik",
+        "keys": [
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "map",
+        "phrase": "mapa",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "log",
+        "phrase": "historia rozmów",
+        "keys": [
+          "l"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "todo",
+        "phrase": "lista zadań",
+        "keys": [
+          "j"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "travel",
+        "phrase": "menu podróży",
+        "keys": [
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "healing",
+        "phrase": "sztuki leczenia",
+        "keys": [
+          "h"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "fishing",
+        "phrase": "wędkowanie",
+        "keys": [
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "shortcut",
+        "phrase": "menu skrótów",
+        "keys": [
+          "y"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "confirm",
+        "phrase": "potwierdź",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "cancel",
+        "phrase": "anuluj",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "previous-tab",
+        "phrase": "poprzednia zakładka",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "next-tab",
+        "phrase": "następna zakładka",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward-timed",
+        "phrase": "idź trzy sekundy",
+        "keys": [
+          "w"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward",
+        "phrase": "ciągły marsz",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "portal-2",
+    "name": "Portal 2",
+    "game": "Portal 2",
+    "language": "pl_PL",
+    "commands": [
+      {
+        "id": "blue-portal",
+        "phrase": "niebieski portal",
+        "keys": [
+          "left_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "orange-portal",
+        "phrase": "pomarańczowy portal",
+        "keys": [
+          "right_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "interact",
+        "phrase": "użyj",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "jump",
+        "phrase": "skok",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "crouch",
+        "phrase": "trzymaj kucanie",
+        "keys": [
+          "ctrl"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "zoom",
+        "phrase": "przybliżenie",
+        "keys": [
+          "middle_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "partner-view",
+        "phrase": "podgląd partnera trzy sekundy",
+        "keys": [
+          "tab"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ping",
+        "phrase": "oznacz",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "gesture-menu",
+        "phrase": "menu gestów trzy sekundy",
+        "keys": [
+          "q"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "chat",
+        "phrase": "otwórz czat",
+        "keys": [
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "screenshot",
+        "phrase": "zrób zdjęcie",
+        "keys": [
+          "f5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "quick-save",
+        "phrase": "szybki zapis",
+        "keys": [
+          "f6"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward-timed",
+        "phrase": "idź trzy sekundy",
+        "keys": [
+          "w"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward",
+        "phrase": "ciągły marsz",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "team-fortress-2",
+    "name": "Team Fortress 2",
+    "game": "Team Fortress 2",
+    "language": "pl_PL",
+    "commands": [
+      {
+        "id": "reload",
+        "phrase": "przeładuj",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "jump",
+        "phrase": "skok",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "medic",
+        "phrase": "medyk",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "taunt",
+        "phrase": "drwina",
+        "keys": [
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "last-weapon",
+        "phrase": "poprzednia broń",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-one",
+        "phrase": "pierwszy slot",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-two",
+        "phrase": "drugi slot",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-three",
+        "phrase": "trzeci slot",
+        "keys": [
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "class",
+        "phrase": "zmień klasę",
+        "keys": [
+          ","
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "team",
+        "phrase": "zmień drużynę",
+        "keys": [
+          "."
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "inventory",
+        "phrase": "plecak",
+        "keys": [
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "loadout",
+        "phrase": "wyposażenie",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "inspect",
+        "phrase": "obejrzyj przedmiot",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "team-chat",
+        "phrase": "czat drużyny",
+        "keys": [
+          "u"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "scores",
+        "phrase": "wyniki trzy sekundy",
+        "keys": [
+          "tab"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "crouch",
+        "phrase": "trzymaj kucanie",
+        "keys": [
+          "ctrl"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward",
+        "phrase": "ciągły marsz",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "voice-menu",
+        "phrase": "menu komunikacji",
+        "keys": [
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "counter-strike-2-en",
+    "name": "Counter-Strike 2 · EN",
+    "game": "Counter-Strike 2",
+    "language": "en_US",
+    "commands": [
+      {
+        "id": "reload",
+        "phrase": "reload",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "buy",
+        "phrase": "buy menu",
+        "keys": [
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "interact",
+        "phrase": "interact",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "inspect",
+        "phrase": "inspect weapon",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "drop",
+        "phrase": "drop weapon",
+        "keys": [
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "last-weapon",
+        "phrase": "previous weapon",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "primary",
+        "phrase": "primary weapon",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "secondary",
+        "phrase": "sidearm",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "knife",
+        "phrase": "knife",
+        "keys": [
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "grenades",
+        "phrase": "select grenade",
+        "keys": [
+          "4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "bomb",
+        "phrase": "select bomb",
+        "keys": [
+          "5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ping",
+        "phrase": "ping",
+        "keys": [
+          "middle_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "scores",
+        "phrase": "show scores for three seconds",
+        "keys": [
+          "tab"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "crouch",
+        "phrase": "hold crouch",
+        "keys": [
+          "ctrl"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "quiet-forward",
+        "phrase": "quiet walk for three seconds",
+        "keys": [
+          "shift",
+          "w"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward",
+        "phrase": "keep moving",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "team-chat",
+        "phrase": "team chat",
+        "keys": [
+          "u"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "switch-hands",
+        "phrase": "switch hands",
+        "keys": [
+          "h"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "apex-legends-en",
+    "name": "Apex Legends · EN",
+    "game": "Apex Legends",
+    "language": "en_US",
+    "commands": [
+      {
+        "id": "interact",
+        "phrase": "pick up",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "jump",
+        "phrase": "jump",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "reload",
+        "phrase": "reload",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "grenade",
+        "phrase": "select grenade",
+        "keys": [
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "tactical",
+        "phrase": "tactical ability",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ultimate",
+        "phrase": "ultimate ability",
+        "keys": [
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "map",
+        "phrase": "open map",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "inventory",
+        "phrase": "open inventory",
+        "keys": [
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "inspect",
+        "phrase": "inspect weapon",
+        "keys": [
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "heal",
+        "phrase": "heal",
+        "keys": [
+          "4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "health-wheel",
+        "phrase": "healing wheel for three seconds",
+        "keys": [
+          "4"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "holster",
+        "phrase": "holster weapon",
+        "keys": [
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "crouch",
+        "phrase": "crouch",
+        "keys": [
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "hold-crouch",
+        "phrase": "hold crouch",
+        "keys": [
+          "ctrl"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward",
+        "phrase": "keep moving",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "sprint",
+        "phrase": "sprint for three seconds",
+        "keys": [
+          "shift",
+          "w"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "melee",
+        "phrase": "melee",
+        "keys": [
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "hold-aim",
+        "phrase": "hold aim",
+        "keys": [
+          "right_click"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "helldivers-2-en",
+    "name": "Helldivers 2 · EN",
+    "game": "Helldivers 2",
+    "language": "en_US",
+    "commands": [
+      {
+        "id": "reload",
+        "phrase": "reload",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "interact",
+        "phrase": "interact",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "hold-interact",
+        "phrase": "interact for three seconds",
+        "keys": [
+          "e"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "stim",
+        "phrase": "use stim",
+        "keys": [
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "grenade",
+        "phrase": "throw grenade",
+        "keys": [
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "melee",
+        "phrase": "melee",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "map",
+        "phrase": "open map",
+        "keys": [
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "crouch",
+        "phrase": "crouch",
+        "keys": [
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "prone",
+        "phrase": "go prone",
+        "keys": [
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "dive",
+        "phrase": "dive",
+        "keys": [
+          "alt"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "backpack",
+        "phrase": "use backpack",
+        "keys": [
+          "5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ping",
+        "phrase": "ping",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "comms-wheel",
+        "phrase": "comms wheel for three seconds",
+        "keys": [
+          "q"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "emote",
+        "phrase": "emote",
+        "keys": [
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "stratagem-menu",
+        "phrase": "hold stratagem menu",
+        "keys": [
+          "ctrl"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "weapon-functions",
+        "phrase": "weapon options for three seconds",
+        "keys": [
+          "r"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward",
+        "phrase": "keep moving",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "sprint",
+        "phrase": "sprint for three seconds",
+        "keys": [
+          "shift",
+          "w"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "deep-rock-galactic-en",
+    "name": "Deep Rock Galactic · EN",
+    "game": "Deep Rock Galactic",
+    "language": "en_US",
+    "commands": [
+      {
+        "id": "interact",
+        "phrase": "interact",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "jump",
+        "phrase": "jump",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "salute",
+        "phrase": "rock and stone",
+        "keys": [
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "reload",
+        "phrase": "reload",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "flare",
+        "phrase": "throw flare",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "grenade",
+        "phrase": "throw grenade",
+        "keys": [
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mule",
+        "phrase": "call the mule",
+        "keys": [
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "scanner",
+        "phrase": "scan for three seconds",
+        "keys": [
+          "tab"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "laser-pointer",
+        "phrase": "hold laser pointer",
+        "keys": [
+          "ctrl"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "pickaxe",
+        "phrase": "mine for three seconds",
+        "keys": [
+          "right_click"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "primary",
+        "phrase": "primary weapon",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "secondary",
+        "phrase": "secondary weapon",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mobility",
+        "phrase": "movement tool",
+        "keys": [
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "utility",
+        "phrase": "utility tool",
+        "keys": [
+          "4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "resupply",
+        "phrase": "select resupply",
+        "keys": [
+          "5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "previous",
+        "phrase": "previous item",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward",
+        "phrase": "keep moving",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "menu",
+        "phrase": "open menu",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "warframe-en",
+    "name": "Warframe · EN",
+    "game": "Warframe",
+    "language": "en_US",
+    "commands": [
+      {
+        "id": "interact",
+        "phrase": "interact",
+        "keys": [
+          "x"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "jump",
+        "phrase": "jump",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "reload",
+        "phrase": "reload",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "switch-weapon",
+        "phrase": "switch weapon",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "melee",
+        "phrase": "melee",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "map",
+        "phrase": "open map",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mission-progress",
+        "phrase": "mission progress",
+        "keys": [
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-one",
+        "phrase": "first ability",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-two",
+        "phrase": "second ability",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-three",
+        "phrase": "third ability",
+        "keys": [
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-four",
+        "phrase": "fourth ability",
+        "keys": [
+          "4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "transference",
+        "phrase": "transference",
+        "keys": [
+          "5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "waypoint",
+        "phrase": "mark location",
+        "keys": [
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "gear-wheel",
+        "phrase": "gear wheel for three seconds",
+        "keys": [
+          "q"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "crouch",
+        "phrase": "crouch",
+        "keys": [
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward",
+        "phrase": "keep moving",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "sprint",
+        "phrase": "sprint for three seconds",
+        "keys": [
+          "shift",
+          "w"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "hold-aim",
+        "phrase": "hold aim",
+        "keys": [
+          "right_click"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "stardew-valley-en",
+    "name": "Stardew Valley · EN",
+    "game": "Stardew Valley",
+    "language": "en_US",
+    "commands": [
+      {
+        "id": "tool",
+        "phrase": "use tool",
+        "keys": [
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "interact",
+        "phrase": "check",
+        "keys": [
+          "x"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "inventory",
+        "phrase": "open inventory",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "journal",
+        "phrase": "open journal",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "map",
+        "phrase": "open map",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "emotes",
+        "phrase": "emote menu",
+        "keys": [
+          "y"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "toolbar",
+        "phrase": "next toolbar",
+        "keys": [
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "chat",
+        "phrase": "open chat",
+        "keys": [
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "screenshot",
+        "phrase": "screenshot mode",
+        "keys": [
+          "f4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-one",
+        "phrase": "first item",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-two",
+        "phrase": "second item",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-three",
+        "phrase": "third item",
+        "keys": [
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward-timed",
+        "phrase": "walk for three seconds",
+        "keys": [
+          "w"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward",
+        "phrase": "keep moving",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "half-stack",
+        "phrase": "split stack",
+        "keys": [
+          "shift",
+          "right_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "move-stack",
+        "phrase": "move stack",
+        "keys": [
+          "shift",
+          "left_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "terraria-en",
+    "name": "Terraria · EN",
+    "game": "Terraria",
+    "language": "en_US",
+    "commands": [
+      {
+        "id": "inventory",
+        "phrase": "open inventory",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "map",
+        "phrase": "world map",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "map-style",
+        "phrase": "cycle minimap",
+        "keys": [
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "heal",
+        "phrase": "quick heal",
+        "keys": [
+          "h"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mana",
+        "phrase": "restore mana",
+        "keys": [
+          "j"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "buff",
+        "phrase": "use buffs",
+        "keys": [
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mount",
+        "phrase": "mount up",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "grapple",
+        "phrase": "grapple",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "smart-cursor",
+        "phrase": "smart cursor",
+        "keys": [
+          "ctrl"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "auto-select",
+        "phrase": "hold auto select",
+        "keys": [
+          "shift"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "chat",
+        "phrase": "open chat",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-one",
+        "phrase": "first item",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-two",
+        "phrase": "second item",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-three",
+        "phrase": "third item",
+        "keys": [
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "move-stack",
+        "phrase": "move to chest",
+        "keys": [
+          "shift",
+          "left_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "favorite",
+        "phrase": "favorite item",
+        "keys": [
+          "alt",
+          "left_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "camera",
+        "phrase": "camera mode",
+        "keys": [
+          "f4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "hide-hud",
+        "phrase": "toggle interface",
+        "keys": [
+          "f11"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "factorio-en",
+    "name": "Factorio · EN",
+    "game": "Factorio",
+    "language": "en_US",
+    "commands": [
+      {
+        "id": "inventory",
+        "phrase": "open inventory",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "pipette",
+        "phrase": "pick item",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "rotate",
+        "phrase": "rotate clockwise",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "rotate-back",
+        "phrase": "rotate counterclockwise",
+        "keys": [
+          "shift",
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "alt-mode",
+        "phrase": "show machine details",
+        "keys": [
+          "alt"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "pickup",
+        "phrase": "collect for three seconds",
+        "keys": [
+          "f"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mine",
+        "phrase": "mine for three seconds",
+        "keys": [
+          "right_click"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "copy",
+        "phrase": "copy area",
+        "keys": [
+          "ctrl",
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "paste",
+        "phrase": "paste area",
+        "keys": [
+          "ctrl",
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "undo",
+        "phrase": "undo",
+        "keys": [
+          "ctrl",
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "redo",
+        "phrase": "redo",
+        "keys": [
+          "ctrl",
+          "y"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blueprint",
+        "phrase": "new blueprint",
+        "keys": [
+          "alt",
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vehicle",
+        "phrase": "enter or exit vehicle",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "flip-horizontal",
+        "phrase": "flip horizontally",
+        "keys": [
+          "h"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "flip-vertical",
+        "phrase": "flip vertically",
+        "keys": [
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "map",
+        "phrase": "open map",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "technology",
+        "phrase": "research",
+        "keys": [
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "production",
+        "phrase": "production statistics",
+        "keys": [
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "inkbound-en",
+    "name": "Inkbound · EN",
+    "game": "Inkbound",
+    "language": "en_US",
+    "commands": [
+      {
+        "id": "ability-one",
+        "phrase": "first ability",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-two",
+        "phrase": "second ability",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-three",
+        "phrase": "third ability",
+        "keys": [
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-four",
+        "phrase": "fourth ability",
+        "keys": [
+          "4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ability-five",
+        "phrase": "fifth ability",
+        "keys": [
+          "5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "left-item",
+        "phrase": "left item",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "right-item",
+        "phrase": "right item",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "inventory",
+        "phrase": "open inventory",
+        "keys": [
+          "i"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "character",
+        "phrase": "character sheet",
+        "keys": [
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "map",
+        "phrase": "open map",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "interact",
+        "phrase": "interact",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "cancel",
+        "phrase": "cancel",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "tab",
+        "phrase": "next tab",
+        "keys": [
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "select",
+        "phrase": "select",
+        "keys": [
+          "left_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "trails-beyond-the-horizon-en",
+    "name": "Trails Beyond the Horizon · EN",
+    "game": "Trails Beyond the Horizon",
+    "language": "en_US",
+    "commands": [
+      {
+        "id": "interact",
+        "phrase": "interact",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "topic",
+        "phrase": "conversation topic",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "notebook",
+        "phrase": "open notebook",
+        "keys": [
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "map",
+        "phrase": "open map",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "log",
+        "phrase": "dialogue history",
+        "keys": [
+          "l"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "todo",
+        "phrase": "task list",
+        "keys": [
+          "j"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "travel",
+        "phrase": "travel menu",
+        "keys": [
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "healing",
+        "phrase": "healing arts",
+        "keys": [
+          "h"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "fishing",
+        "phrase": "start fishing",
+        "keys": [
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "shortcut",
+        "phrase": "shortcut menu",
+        "keys": [
+          "y"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "confirm",
+        "phrase": "confirm",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "cancel",
+        "phrase": "cancel",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "previous-tab",
+        "phrase": "previous tab",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "next-tab",
+        "phrase": "next tab",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward-timed",
+        "phrase": "walk for three seconds",
+        "keys": [
+          "w"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward",
+        "phrase": "keep moving",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "portal-2-en",
+    "name": "Portal 2 · EN",
+    "game": "Portal 2",
+    "language": "en_US",
+    "commands": [
+      {
+        "id": "blue-portal",
+        "phrase": "blue portal",
+        "keys": [
+          "left_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "orange-portal",
+        "phrase": "orange portal",
+        "keys": [
+          "right_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "interact",
+        "phrase": "interact",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "jump",
+        "phrase": "jump",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "crouch",
+        "phrase": "hold crouch",
+        "keys": [
+          "ctrl"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "zoom",
+        "phrase": "toggle zoom",
+        "keys": [
+          "middle_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "partner-view",
+        "phrase": "partner view for three seconds",
+        "keys": [
+          "tab"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "ping",
+        "phrase": "ping",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "gesture-menu",
+        "phrase": "gesture menu for three seconds",
+        "keys": [
+          "q"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "chat",
+        "phrase": "open chat",
+        "keys": [
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "screenshot",
+        "phrase": "take screenshot",
+        "keys": [
+          "f5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "quick-save",
+        "phrase": "quick save",
+        "keys": [
+          "f6"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward-timed",
+        "phrase": "walk for three seconds",
+        "keys": [
+          "w"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward",
+        "phrase": "keep moving",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "id": "team-fortress-2-en",
+    "name": "Team Fortress 2 · EN",
+    "game": "Team Fortress 2",
+    "language": "en_US",
+    "commands": [
+      {
+        "id": "reload",
+        "phrase": "reload",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "jump",
+        "phrase": "jump",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "medic",
+        "phrase": "medic",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "taunt",
+        "phrase": "taunt",
+        "keys": [
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "last-weapon",
+        "phrase": "previous weapon",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-one",
+        "phrase": "slot one",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-two",
+        "phrase": "slot two",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "slot-three",
+        "phrase": "slot three",
+        "keys": [
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "class",
+        "phrase": "change class",
+        "keys": [
+          ","
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "team",
+        "phrase": "change team",
+        "keys": [
+          "."
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "inventory",
+        "phrase": "open backpack",
+        "keys": [
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "loadout",
+        "phrase": "open loadout",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "inspect",
+        "phrase": "inspect item",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "team-chat",
+        "phrase": "team chat",
+        "keys": [
+          "u"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "scores",
+        "phrase": "show scores for three seconds",
+        "keys": [
+          "tab"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "crouch",
+        "phrase": "hold crouch",
+        "keys": [
+          "ctrl"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "forward",
+        "phrase": "keep moving",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "voice-menu",
+        "phrase": "voice menu",
+        "keys": [
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ]
+  }
+]

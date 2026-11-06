@@ -5,30 +5,25 @@ from __future__ import annotations
 import json
 import threading
 from pathlib import Path
-from typing import Any, Literal, Optional
+from typing import Annotated, Any, Literal, Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from app import paths
 
-RecognitionMode = Literal["letters", "spells"]
-Sensitivity = Literal["low", "medium", "high"]
+Language = Literal["pl_PL", "en_US", "de_DE", "es_ES", "fr_FR", "uk_UA"]
+MatchingThreshold = Annotated[float, Field(ge=0, le=1, strict=True, allow_inf_nan=False)]
 
 
 class Settings(BaseModel):
-    recognition_mode: RecognitionMode = "spells"
-    spell_sensitivity: Sensitivity = "medium"
-    language: str = "pl_PL"
-    merge_command_languages: bool = False
-    combo_enabled: bool = False
-    ui_language: Literal["pl_PL", "en_US"] = "pl_PL"
-    flash_key: str = "d"
-    summoner2_key: str = "f"
+    language: Language = "pl_PL"
+    ui_language: Language = "pl_PL"
     engine_id: str = "whisper-tiny"
+    matching_threshold: MatchingThreshold = 1.0
     audio_device: Optional[str] = None
     start_with_windows: bool = False
     start_listening_on_launch: bool = False
-    theme: Literal["dark", "light", "system"] = "dark"
+    theme: Literal["dark", "light", "system"] = "light"
     skipped_version: Optional[str] = None
     check_updates: bool = True
 
@@ -66,9 +61,8 @@ def load(force: bool = False) -> Settings:
                 raw = {}
         else:
             raw = _migrate_legacy(paths.CONFIG_FILE)
-        # Older builds stored the flash key upper-cased.
-        if isinstance(raw.get("flash_key"), str):
-            raw["flash_key"] = raw["flash_key"].lower()
+        if not isinstance(raw, dict):
+            raw = {}
         _cached = Settings(**raw) if raw else Settings()
         if not paths.CONFIG_FILE.is_file():
             _write(_cached)

@@ -12,15 +12,14 @@ from pathlib import Path
 
 ROOT_DIR = Path(__file__).resolve().parent
 
-# Identity. These names are also used by installer.iss and by the winget
-# manifest, so changing one of them means changing the release assets too.
-APP_NAME = "LoLVoice"
-PRODUCT_NAME = "LoL Voice Controller"
+# Identity shared by the installer and generated build artifacts.
+APP_NAME = "AxwordVoice"
+PRODUCT_NAME = "Voice Control by Axword"
 EXE_NAME = f"{APP_NAME}.exe"
 PUBLISHER = "Axword"
 COPYRIGHT = "Copyright (C) 2026 Axword"
-DESCRIPTION = "Voice control for League of Legends"
-HOMEPAGE = "https://github.com/Axword/voice-recognition-lol"
+DESCRIPTION = "Profile-based voice control for games and applications"
+HOMEPAGE = "https://axword.pl/"
 # Stable installer identity. Must match AppId in installer.iss.
 APP_ID = "{9F1D2C4E-6B78-4A31-9E5C-0D3A7F8B2E14}"
 
@@ -35,11 +34,11 @@ APP_DIST_DIR = DIST_DIR / APP_NAME
 INSTALLER_DIR = DIST_DIR / "installer"
 VERSION_INFO_FILE = BUILD_DIR / "version_info.txt"
 INSTALLER_SCRIPT = ROOT_DIR / "installer.iss"
-SPEC_FILE = ROOT_DIR / "LoLVoiceAssistant.spec"
+SPEC_FILE = ROOT_DIR / "AxwordVoice.spec"
 
 # Stable file names. Keeping them identical between releases helps SmartScreen
 # build reputation while the binaries are unsigned.
-INSTALLER_BASENAME = "LoLVoiceSetup"
+INSTALLER_BASENAME = "AxwordVoiceSetup"
 INSTALLER_FILE = INSTALLER_DIR / f"{INSTALLER_BASENAME}.exe"
 
 FALLBACK_VERSION = "0.0.0"
@@ -88,12 +87,21 @@ def portable_zip_path(version: str | None = None) -> Path:
 
 def bundle_data() -> list[tuple[str, str]]:
     """(source, destination) pairs, only for sources that exist."""
+    for filename in (
+        "profile-library-core.json", "profile-library-games.json", "profile-library-sim.json",
+        "profile-library-baseline.json",
+    ):
+        if not (ROOT_DIR / "data" / filename).is_file():
+            raise FileNotFoundError(f"Required profile library file is missing: {filename}")
     candidates = [
         ("webui/dist", "webui/dist"),
-        ("data/engines.json", "data"),
+        ("data", "data"),
+        ("docs", "docs"),
         ("assets", "assets"),
         ("models", "models"),
         ("version.json", "."),
+        ("LICENSE", "."),
+        ("THIRD-PARTY-NOTICES.md", "."),
     ]
     return [(src, dest) for src, dest in candidates if (ROOT_DIR / src).exists()]
 
@@ -135,25 +143,16 @@ HIDDEN_IMPORTS = [
     "pynput",
     "pynput.keyboard._win32",
     "requests",
-    "psutil",
-    "colorama",
-    # Windows integration
-    "win32api",
-    "win32con",
-    "win32event",
-    "win32gui",
-    "winerror",
-    "pywintypes",
     # Application packages
     "app",
     "app.config",
     "app.engines",
     "app.logging_setup",
     "app.paths",
+    "app.profiles",
     "app.version",
     "controller",
     "controls",
-    "game",
     "server",
 ]
 

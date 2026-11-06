@@ -1,125 +1,96 @@
-# LoL Voice Controller
+# Voice Control by Axword
 
-[![CI](https://github.com/Axword/voice-recognition-lol/actions/workflows/ci.yml/badge.svg)](https://github.com/Axword/voice-recognition-lol/actions/workflows/ci.yml)
-[![Latest release](https://img.shields.io/github/v/release/Axword/voice-recognition-lol)](https://github.com/Axword/voice-recognition-lol/releases/latest)
+Lokalne sterowanie głosem dla gier i aplikacji na Windows 10/11. Każdy profil zawiera własne komendy, zapisane w JSON. Rozpoznawanie mowy działa lokalnie przez Whisper.
 
-Cast spells in League of Legends by saying their names. The application listens to your
-microphone, recognises the spell name of the champion you are playing and presses the
-matching key. Recognition runs locally, nothing is sent anywhere.
+Biblioteka startowa zawiera 56 profili i 1191 komend: 28 zestawów do gier, aplikacji i podstawowej klawiatury, każdy w wersji polskiej i angielskiej. Powstały na podstawie otwartych profili Talon, dokumentacji sterowania i autorskich mapowań klawiszy. Pełną listę, źródła i wymagane ustawienia opisuje [biblioteka profili](docs/PROFILE_LIBRARY.md).
 
-Windows 10 and 11, Polish and English.
+Interfejs można przełączyć na polski, angielski, niemiecki, hiszpański, francuski lub ukraiński. Każdy profil ma osobny język rozpoznawania; wybór profilu automatycznie ustawia język komend. Edycja języka nie tłumaczy samodzielnie dodanych fraz.
 
-## Install
+Listę profili można filtrować według języka. Profil podstawowej klawiatury rozpoznaje litery, cyfry i aliasy wymowy, np. polskie „wu” oraz angielskie „double you” naciskają W. Sekcja „Zaawansowane” w panelu komend pozwala ustawić podobieństwo fraz od 0 do 100%; domyślne 100% wymaga dokładnego dopasowania, a pojedyncze litery pozostają dokładne przy każdym progu.
 
-Installer (recommended):
+Przy aktualizacji nowe profile są dopisywane do istniejącej konfiguracji. Własne komendy, zmienione profile i wybór aktywnego profilu pozostają zachowane; usunięte wcześniej zestawy nie wracają przy kolejnym uruchomieniu.
 
-1. Download `LoLVoiceSetup.exe` from the [latest release](https://github.com/Axword/voice-recognition-lol/releases/latest).
-2. Run it. The install is per user and does not ask for administrator rights.
-3. The application starts in the system tray and opens the settings panel in your browser.
+## Komendy
 
-The binaries are not code signed yet, so Windows SmartScreen may warn the first time.
-Choose "More info" and then "Run anyway".
+- `click`: naciśnięcie i zwolnienie przycisków.
+- `timed`: przytrzymanie przycisków przez `duration_ms` (domyślnie 3000 ms).
+- `toggle`: przytrzymanie do ponownego wypowiedzenia tej samej frazy.
 
-If Windows has Smart App Control turned on, it blocks unsigned binaries outright:
-the installer stops with error 4551, or the application starts and then reports a
-blocked DLL. Smart App Control has no per file exception list. Either turn it off
-in Windows Security, under App and browser control (this cannot be turned back on
-without reinstalling Windows), or build from source, where the binaries are local
-and are not blocked. Most machines have Smart App Control off, since it only stays
-on when a clean Windows 11 install never runs unsigned software.
+Wszystkie przyciski jednej komendy są wciskane jednocześnie, np. `ctrl` + `q`. Zatrzymanie nasłuchu lub zmiana profilu zwalnia trzymane przyciski.
 
-Winget:
-
+```json
+{
+  "version": 1,
+  "active_profile_id": "moja-gra",
+  "profiles": [
+    {
+      "id": "moja-gra",
+      "name": "Mój profil",
+      "game": "Moja gra",
+      "language": "pl_PL",
+      "commands": [
+        {
+          "id": "atak",
+          "phrase": "atak",
+          "keys": ["ctrl", "q"],
+          "mode": "click",
+          "duration_ms": 3000,
+          "enabled": true
+        },
+        {
+          "id": "bieg",
+          "phrase": "biegnij",
+          "keys": ["shift", "w"],
+          "mode": "toggle",
+          "duration_ms": 3000,
+          "enabled": true
+        }
+      ]
+    }
+  ]
+}
 ```
-winget install Axword.LoLVoice
-```
 
-Portable: download `LoLVoice-<version>-portable.zip`, unpack it anywhere and run
-`LoLVoice.exe`. In portable mode settings and models stay next to the executable.
+## Uruchomienie ze źródeł
 
-## How it works
+Wymagane Python 3.11+ i Node.js 22.12+ (zalecany Node 24).
 
-A tray application runs a local API on 127.0.0.1 and serves a settings panel that you
-open in a browser. It reads the current champion from the League Live Client Data API,
-builds voice commands from the official spell names, and a local Whisper model turns
-what you say into the key press for that spell.
-
-## Running from source
-
-Requires Python 3.11 and Node 20.
-
-```
+```powershell
 python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements-dev.txt
-cd webui && npm ci && npm run build && cd ..
+.venv\Scripts\Activate.ps1
+python -m pip install -r requirements-dev.txt
+cd webui
+npm ci
+npm run build
+cd ..
 python main.py
 ```
 
-Settings live in `%APPDATA%\LoLVoice`, logs, caches and downloaded models in
-`%LOCALAPPDATA%\LoLVoice`. Set `LOLVOICE_HOME` to redirect all of it to one folder.
+Można też uruchomić `install.bat`, a następnie `launch.bat`. Aplikacja otwiera panel w przeglądarce i działa w zasobniku systemowym. Przed pierwszym nasłuchem pobierz model w ustawieniach panelu i wybierz mikrofon.
 
-## Running the tests
+Podgląd lokalny bez ikony w zasobniku i automatycznego otwierania przeglądarki, z osobnymi danymi w katalogu projektu:
 
-```
-pytest -m "not slow and not audio"     # unit, mapping and API tests
-pytest                                  # everything, needs audio fixtures
-python tools/check_copy.py              # copy style check
-ruff check .                            # lint
+```powershell
+$env:VOICE_CONTROL_HOME = Join-Path (Get-Location) '.preview-data'
+python main.py --no-tray --no-browser --port 21337
 ```
 
-The audio tests need fixtures generated by `tests/tools/generate_audio_fixtures.py`
-and ffmpeg on PATH. They are not committed, they are generated and cached in CI.
+Panel jest dostępny pod `http://127.0.0.1:21337`. Zatrzymanie serwera: `Ctrl+C`.
 
-## Docker
+Profile można edytować w panelu oraz importować i eksportować jako JSON. Tekstowy edytor JSON obsługuje cały dokument: wszystkie profile, ich komendy i wybór aktywnego profilu. Ustawienia i profile są w `%APPDATA%\LoLVoice`, a modele i logi w `%LOCALAPPDATA%\LoLVoice`. Dawne katalogi pozostają dla zgodności z pobranymi modelami. Zmienna `VOICE_CONTROL_HOME` przenosi wszystkie dane do wskazanego folderu; wcześniejsza `LOLVOICE_HOME` nadal działa.
 
-```
-docker compose up panel                          # panel and API on 127.0.0.1:21337
-docker compose --profile dev up                  # plus Vite with hot reload on 5173
-docker compose --profile test run --rm tests     # test suite
-docker compose --profile test run --rm lint      # ruff and the copy check
-```
+## Sprawdzenie i budowanie
 
-Containers cover the panel, the API and the tests. They cannot record a microphone
-or press keys in the game, so playing still means running the app on Windows.
-Champion detection works when League runs on the host, through `host.docker.internal`.
-Details in [docs/DOCKER.md](docs/DOCKER.md).
-
-## Building
-
-```
-python build.py --with-webui        # panel, application, installer, portable ZIP
-python build.py --app-only          # PyInstaller onedir build only
-python build.py --installer-only    # Inno Setup installer only
+```powershell
+python -m pytest -m "not slow and not audio"
+cd webui
+npm run build
+cd ..
+python build.py --with-webui --app-only
 ```
 
-The installer step needs Inno Setup 6 on Windows. Output lands in `dist/`.
-Releases are produced by the `build-release.yml` workflow from a `v*` tag or a manual
-run, never from a plain push to main.
+Pełny instalator wymaga Inno Setup 6: `python build.py --with-webui`. Wyniki to `dist/AxwordVoice`, `dist/installer/AxwordVoiceSetup.exe` i archiwum portable. Automatyczne aktualizacje ze starego kanału LoL są wyłączone.
 
-## Project layout
+Kontenery służą do pracy nad panelem i API, bez sterowania klawiaturą i mikrofonem hosta: [docs/DOCKER.md](docs/DOCKER.md).
 
-```
-app/          shared layer: paths, config, logging, version, engine registry
-controller/   voice engine, Whisper and voice activity detection
-controls/     command mappings and key presses
-game/         Live Client Data API, Data Dragon, spell mapping
-server/       FastAPI, WebSocket, tray, updater, single instance
-webui/        settings panel, Vite, builds to webui/dist
-tests/        pytest suites, fixtures and generators
-tools/        repository checks
-```
-
-## License
-
-GNU General Public License version 3 or later. The full text is in [LICENSE](LICENSE).
-
-In short: you may use, study, share and modify the application, and if you
-distribute a modified version you pass the same freedoms on, with the source.
-The copyright stays with the author, so a separate commercial licence can be
-granted on request.
-
-The installer and the portable package bundle third party libraries, each under
-its own licence. They are listed in
-[THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md), which
-`tools/generate_notices.py` regenerates from the installed packages.
+Licencja GNU GPL v3 lub nowsza: [LICENSE](LICENSE). Licencje bibliotek: [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).

@@ -1,20 +1,20 @@
-; LoL Voice Controller installer.
+; Voice Control by Axword installer.
 ;
 ; Per user install, no elevation, nothing written outside the user profile.
 ; Compile with:
-;   iscc /DMyAppVersion=1.2.3 /Odist\installer /FLoLVoiceSetup installer.iss
+;   iscc /DMyAppVersion=1.2.3 /Odist\installer /FAxwordVoiceSetup installer.iss
 ; or through build.py --installer-only, which passes the same arguments.
 
 #ifndef MyAppVersion
   #define MyAppVersion "0.0.0"
 #endif
 
-#define MyAppName "LoL Voice Controller"
-#define MyAppShortName "LoLVoice"
+#define MyAppName "Voice Control by Axword"
+#define MyAppShortName "AxwordVoice"
 #define MyAppPublisher "Axword"
 #define MyAppURL "https://github.com/Axword/voice-recognition-lol"
-#define MyAppExeName "LoLVoice.exe"
-#define MySourceDir "dist\LoLVoice"
+#define MyAppExeName "AxwordVoice.exe"
+#define MySourceDir "dist\AxwordVoice"
 
 [Setup]
 ; Stable identity, do not change between releases. Matches APP_ID in build_config.py.
@@ -49,7 +49,7 @@ UninstallDisplayIcon={app}\{#MyAppExeName}
 UninstallFilesDir={app}\uninstall
 
 OutputDir=dist\installer
-OutputBaseFilename=LoLVoiceSetup
+OutputBaseFilename=AxwordVoiceSetup
 SetupIconFile=assets\installer_icon.ico
 Compression=lzma2/max
 SolidCompression=yes
@@ -63,7 +63,7 @@ MinVersion=10.0
 AppMutex=Global\LoLVoiceSingleInstance
 CloseApplications=yes
 RestartApplications=no
-SetupMutex=LoLVoiceSetupMutex
+SetupMutex=AxwordVoiceSetupMutex
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -71,11 +71,11 @@ Name: "polish"; MessagesFile: "compiler:Languages\Polish.isl"
 
 [CustomMessages]
 english.LaunchApp=Start {#MyAppName}
-english.LogsShortcut=LoL Voice logs
+english.LogsShortcut=Voice Control logs
 english.RemoveData=Remove your settings and logs as well?%n%nChoose No to keep them for a future install.
 english.RemoveModels=Remove downloaded speech models as well?%n%nThey can be several hundred megabytes and would need downloading again.
 polish.LaunchApp=Uruchom {#MyAppName}
-polish.LogsShortcut=Logi LoL Voice
+polish.LogsShortcut=Logi Voice Control
 polish.RemoveData=Usunac takze ustawienia i logi?%n%nWybierz Nie, aby zachowac je na przyszla instalacje.
 polish.RemoveModels=Usunac takze pobrane modele mowy?%n%nMoga zajmowac kilkaset megabajtow i trzeba bedzie pobrac je ponownie.
 
@@ -87,7 +87,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Source: "{#MySourceDir}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
-Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Comment: "Voice control for League of Legends"
+Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Comment: "Profile-based voice control for games"
 ; Direct route to the logs, works even when the application does not start.
 Name: "{autoprograms}\{cm:LogsShortcut}"; Filename: "{localappdata}\LoLVoice\logs"
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon

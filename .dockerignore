@@ -2,6 +2,7 @@
 .github
 venv
 .venv
+.venv-test
 __pycache__
 **/__pycache__
 *.pyc
@@ -14,7 +15,6 @@ dist
 installer_output
 models
 old_files
-gui
 cache
 tests/reports
 tests/fixtures/audio

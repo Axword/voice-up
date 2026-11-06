@@ -1,0 +1,5268 @@
+[
+  {
+    "id": "skyrim",
+    "name": "Skyrim",
+    "game": "The Elder Scrolls V: Skyrim",
+    "commands": [
+      {
+        "id": "skyrim-inventory",
+        "phrase": "ekwipunek",
+        "keys": [
+          "i"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-map",
+        "phrase": "mapa",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-journal",
+        "phrase": "dziennik",
+        "keys": [
+          "j"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-favorites",
+        "phrase": "ulubione",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-magic",
+        "phrase": "magia",
+        "keys": [
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-menu",
+        "phrase": "menu postaci",
+        "keys": [
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-weapon",
+        "phrase": "wyciągnij lub schowaj broń",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-shout",
+        "phrase": "krzyk",
+        "keys": [
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-activate",
+        "phrase": "interakcja",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-jump",
+        "phrase": "skok",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-sneak",
+        "phrase": "skradanie",
+        "keys": [
+          "ctrl"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-camera",
+        "phrase": "zmień kamerę",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-wait",
+        "phrase": "czekanie",
+        "keys": [
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-skills",
+        "phrase": "umiejętności",
+        "keys": [
+          "/"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-autorun",
+        "phrase": "automatyczny marsz",
+        "keys": [
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-sprint",
+        "phrase": "sprint przez trzy sekundy",
+        "keys": [
+          "alt",
+          "w"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-forward",
+        "phrase": "idź do przodu",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-both-hands",
+        "phrase": "obie ręce",
+        "keys": [
+          "left_click",
+          "right_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "pl_PL"
+  },
+  {
+    "id": "euro-truck-simulator-2",
+    "name": "Euro Truck Simulator 2",
+    "game": "Euro Truck Simulator 2",
+    "commands": [
+      {
+        "id": "euro-truck-simulator-2-engine",
+        "phrase": "silnik",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-parking-brake",
+        "phrase": "hamulec ręczny",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-headlights",
+        "phrase": "światła",
+        "keys": [
+          "l"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-wipers",
+        "phrase": "wycieraczki",
+        "keys": [
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-cruise",
+        "phrase": "tempomat",
+        "keys": [
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-indicator-left",
+        "phrase": "kierunek lewy",
+        "keys": [
+          "["
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-indicator-right",
+        "phrase": "kierunek prawy",
+        "keys": [
+          "]"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-hazard",
+        "phrase": "awaryjne",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-horn",
+        "phrase": "klakson przez trzy sekundy",
+        "keys": [
+          "h"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-camera-cabin",
+        "phrase": "kamera kabiny",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-camera-chase",
+        "phrase": "kamera zewnętrzna",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-mirrors",
+        "phrase": "lusterka",
+        "keys": [
+          "f2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-advisor",
+        "phrase": "widok nawigacji",
+        "keys": [
+          "f3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-advisor-mouse",
+        "phrase": "mysz nawigacji",
+        "keys": [
+          "f1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-activate",
+        "phrase": "aktywuj",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-trailer",
+        "phrase": "naczepa",
+        "keys": [
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-brake",
+        "phrase": "hamuj przez trzy sekundy",
+        "keys": [
+          "s"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-throttle",
+        "phrase": "trzymaj gaz",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "pl_PL"
+  },
+  {
+    "id": "american-truck-simulator",
+    "name": "American Truck Simulator",
+    "game": "American Truck Simulator",
+    "commands": [
+      {
+        "id": "american-truck-simulator-engine",
+        "phrase": "silnik",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-parking-brake",
+        "phrase": "hamulec ręczny",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-headlights",
+        "phrase": "światła",
+        "keys": [
+          "l"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-wipers",
+        "phrase": "wycieraczki",
+        "keys": [
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-cruise",
+        "phrase": "tempomat",
+        "keys": [
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-indicator-left",
+        "phrase": "kierunek lewy",
+        "keys": [
+          "["
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-indicator-right",
+        "phrase": "kierunek prawy",
+        "keys": [
+          "]"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-hazard",
+        "phrase": "awaryjne",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-horn",
+        "phrase": "klakson przez trzy sekundy",
+        "keys": [
+          "h"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-camera-cabin",
+        "phrase": "kamera kabiny",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-camera-chase",
+        "phrase": "kamera zewnętrzna",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-mirrors",
+        "phrase": "lusterka",
+        "keys": [
+          "f2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-advisor",
+        "phrase": "widok nawigacji",
+        "keys": [
+          "f3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-advisor-mouse",
+        "phrase": "mysz nawigacji",
+        "keys": [
+          "f1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-activate",
+        "phrase": "aktywuj",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-trailer",
+        "phrase": "naczepa",
+        "keys": [
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-brake",
+        "phrase": "hamuj przez trzy sekundy",
+        "keys": [
+          "s"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-throttle",
+        "phrase": "trzymaj gaz",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "pl_PL"
+  },
+  {
+    "id": "google-chrome",
+    "name": "Google Chrome",
+    "game": "Google Chrome · Windows",
+    "commands": [
+      {
+        "id": "google-chrome-address",
+        "phrase": "pasek adresu",
+        "keys": [
+          "ctrl",
+          "l"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-back",
+        "phrase": "cofnij stronę",
+        "keys": [
+          "alt",
+          "left"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-forward",
+        "phrase": "następna strona",
+        "keys": [
+          "alt",
+          "right"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-home",
+        "phrase": "strona główna",
+        "keys": [
+          "alt",
+          "home"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-reload",
+        "phrase": "odśwież stronę",
+        "keys": [
+          "ctrl",
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-hard-reload",
+        "phrase": "odśwież bez pamięci",
+        "keys": [
+          "ctrl",
+          "shift",
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-new-tab",
+        "phrase": "nowa karta",
+        "keys": [
+          "ctrl",
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-restore-tab",
+        "phrase": "przywróć kartę",
+        "keys": [
+          "ctrl",
+          "shift",
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-next-tab",
+        "phrase": "następna karta",
+        "keys": [
+          "ctrl",
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-previous-tab",
+        "phrase": "poprzednia karta",
+        "keys": [
+          "ctrl",
+          "shift",
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-first-tab",
+        "phrase": "pierwsza karta",
+        "keys": [
+          "ctrl",
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-last-tab",
+        "phrase": "ostatnia karta",
+        "keys": [
+          "ctrl",
+          "9"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-new-window",
+        "phrase": "nowe okno",
+        "keys": [
+          "ctrl",
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-private-window",
+        "phrase": "okno prywatne",
+        "keys": [
+          "ctrl",
+          "shift",
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-bookmark",
+        "phrase": "dodaj zakładkę",
+        "keys": [
+          "ctrl",
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-bookmark-tabs",
+        "phrase": "zapisz wszystkie karty",
+        "keys": [
+          "ctrl",
+          "shift",
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-bookmarks",
+        "phrase": "menedżer zakładek",
+        "keys": [
+          "ctrl",
+          "shift",
+          "o"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-bookmarks-bar",
+        "phrase": "pasek zakładek",
+        "keys": [
+          "ctrl",
+          "shift",
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-downloads",
+        "phrase": "pobrane pliki",
+        "keys": [
+          "ctrl",
+          "j"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-history",
+        "phrase": "historia",
+        "keys": [
+          "ctrl",
+          "h"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-find",
+        "phrase": "znajdź na stronie",
+        "keys": [
+          "ctrl",
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-find-next",
+        "phrase": "następny wynik",
+        "keys": [
+          "ctrl",
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-devtools",
+        "phrase": "narzędzia programisty",
+        "keys": [
+          "ctrl",
+          "shift",
+          "i"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-profile-menu",
+        "phrase": "wybierz profil",
+        "keys": [
+          "ctrl",
+          "shift",
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-tab-search",
+        "phrase": "szukaj karty",
+        "keys": [
+          "ctrl",
+          "shift",
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "pl_PL"
+  },
+  {
+    "id": "mozilla-firefox",
+    "name": "Mozilla Firefox",
+    "game": "Mozilla Firefox · Windows",
+    "commands": [
+      {
+        "id": "mozilla-firefox-address",
+        "phrase": "pasek adresu",
+        "keys": [
+          "ctrl",
+          "l"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-back",
+        "phrase": "cofnij stronę",
+        "keys": [
+          "alt",
+          "left"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-forward",
+        "phrase": "następna strona",
+        "keys": [
+          "alt",
+          "right"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-home",
+        "phrase": "strona główna",
+        "keys": [
+          "alt",
+          "home"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-reload",
+        "phrase": "odśwież stronę",
+        "keys": [
+          "ctrl",
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-hard-reload",
+        "phrase": "odśwież bez pamięci",
+        "keys": [
+          "ctrl",
+          "shift",
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-new-tab",
+        "phrase": "nowa karta",
+        "keys": [
+          "ctrl",
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-restore-tab",
+        "phrase": "przywróć kartę",
+        "keys": [
+          "ctrl",
+          "shift",
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-next-tab",
+        "phrase": "następna karta",
+        "keys": [
+          "ctrl",
+          "page_down"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-previous-tab",
+        "phrase": "poprzednia karta",
+        "keys": [
+          "ctrl",
+          "page_up"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-first-tab",
+        "phrase": "pierwsza karta",
+        "keys": [
+          "ctrl",
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-last-tab",
+        "phrase": "ostatnia karta",
+        "keys": [
+          "ctrl",
+          "9"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-new-window",
+        "phrase": "nowe okno",
+        "keys": [
+          "ctrl",
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-private-window",
+        "phrase": "okno prywatne",
+        "keys": [
+          "ctrl",
+          "shift",
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-bookmark",
+        "phrase": "dodaj zakładkę",
+        "keys": [
+          "ctrl",
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-bookmark-tabs",
+        "phrase": "zapisz wszystkie karty",
+        "keys": [
+          "ctrl",
+          "shift",
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-bookmarks-sidebar",
+        "phrase": "panel zakładek",
+        "keys": [
+          "ctrl",
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-history-sidebar",
+        "phrase": "panel historii",
+        "keys": [
+          "ctrl",
+          "h"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-history-library",
+        "phrase": "biblioteka historii",
+        "keys": [
+          "ctrl",
+          "shift",
+          "h"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-downloads",
+        "phrase": "pobrane pliki",
+        "keys": [
+          "ctrl",
+          "j"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-extensions",
+        "phrase": "dodatki",
+        "keys": [
+          "ctrl",
+          "shift",
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-find",
+        "phrase": "znajdź na stronie",
+        "keys": [
+          "ctrl",
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-find-next",
+        "phrase": "następny wynik",
+        "keys": [
+          "f3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-devtools",
+        "phrase": "narzędzia programisty",
+        "keys": [
+          "ctrl",
+          "shift",
+          "i"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "pl_PL"
+  },
+  {
+    "id": "windows-explorer",
+    "name": "Eksplorator plików",
+    "game": "Eksplorator plików · Windows",
+    "commands": [
+      {
+        "id": "windows-explorer-parent",
+        "phrase": "folder nadrzędny",
+        "keys": [
+          "alt",
+          "up"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-back",
+        "phrase": "poprzedni folder",
+        "keys": [
+          "alt",
+          "left"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-forward",
+        "phrase": "następny folder",
+        "keys": [
+          "alt",
+          "right"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-address",
+        "phrase": "pasek adresu",
+        "keys": [
+          "ctrl",
+          "l"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-search",
+        "phrase": "szukaj pliku",
+        "keys": [
+          "ctrl",
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-new-folder",
+        "phrase": "nowy folder",
+        "keys": [
+          "ctrl",
+          "shift",
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-rename",
+        "phrase": "zmień nazwę",
+        "keys": [
+          "f2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-properties",
+        "phrase": "właściwości",
+        "keys": [
+          "alt",
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-refresh",
+        "phrase": "odśwież folder",
+        "keys": [
+          "f5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-select-all",
+        "phrase": "zaznacz wszystko",
+        "keys": [
+          "ctrl",
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-copy",
+        "phrase": "kopiuj",
+        "keys": [
+          "ctrl",
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-paste",
+        "phrase": "wklej",
+        "keys": [
+          "ctrl",
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-cut",
+        "phrase": "wytnij",
+        "keys": [
+          "ctrl",
+          "x"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-preview",
+        "phrase": "panel podglądu",
+        "keys": [
+          "alt",
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-details-pane",
+        "phrase": "panel szczegółów",
+        "keys": [
+          "alt",
+          "shift",
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-open",
+        "phrase": "otwórz zaznaczone",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-new-window",
+        "phrase": "nowe okno",
+        "keys": [
+          "ctrl",
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-details-view",
+        "phrase": "widok szczegółów",
+        "keys": [
+          "ctrl",
+          "shift",
+          "6"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-large-icons",
+        "phrase": "duże ikony",
+        "keys": [
+          "ctrl",
+          "shift",
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-context",
+        "phrase": "menu zaznaczenia",
+        "keys": [
+          "shift",
+          "f10"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "pl_PL"
+  },
+  {
+    "id": "visual-studio-code",
+    "name": "Visual Studio Code",
+    "game": "Visual Studio Code · Windows",
+    "commands": [
+      {
+        "id": "visual-studio-code-palette",
+        "phrase": "paleta poleceń",
+        "keys": [
+          "ctrl",
+          "shift",
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-quick-open",
+        "phrase": "szukaj pliku",
+        "keys": [
+          "ctrl",
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-symbol",
+        "phrase": "symbole pliku",
+        "keys": [
+          "ctrl",
+          "shift",
+          "o"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-explorer",
+        "phrase": "panel plików",
+        "keys": [
+          "ctrl",
+          "shift",
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-search",
+        "phrase": "szukaj w projekcie",
+        "keys": [
+          "ctrl",
+          "shift",
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-source",
+        "phrase": "kontrola wersji",
+        "keys": [
+          "ctrl",
+          "shift",
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-debug-panel",
+        "phrase": "panel debugowania",
+        "keys": [
+          "ctrl",
+          "shift",
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-extensions",
+        "phrase": "rozszerzenia",
+        "keys": [
+          "ctrl",
+          "shift",
+          "x"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-sidebar",
+        "phrase": "pasek boczny",
+        "keys": [
+          "ctrl",
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-terminal",
+        "phrase": "terminal",
+        "keys": [
+          "ctrl",
+          "`"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-settings",
+        "phrase": "ustawienia",
+        "keys": [
+          "ctrl",
+          ","
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-wrap",
+        "phrase": "zawijanie wierszy",
+        "keys": [
+          "alt",
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-problems",
+        "phrase": "lista problemów",
+        "keys": [
+          "ctrl",
+          "shift",
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-definition",
+        "phrase": "pokaż definicję",
+        "keys": [
+          "f12"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-peek",
+        "phrase": "podgląd definicji",
+        "keys": [
+          "alt",
+          "f12"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-references",
+        "phrase": "pokaż odwołania",
+        "keys": [
+          "shift",
+          "f12"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-rename",
+        "phrase": "zmień nazwę symbolu",
+        "keys": [
+          "f2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-format",
+        "phrase": "formatuj dokument",
+        "keys": [
+          "shift",
+          "alt",
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-breakpoint",
+        "phrase": "punkt przerwania",
+        "keys": [
+          "f9"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-debug-start",
+        "phrase": "uruchom lub kontynuuj",
+        "keys": [
+          "f5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-debug-stop",
+        "phrase": "zatrzymaj debugowanie",
+        "keys": [
+          "shift",
+          "f5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-step-over",
+        "phrase": "krok dalej",
+        "keys": [
+          "f10"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-save",
+        "phrase": "zapisz plik",
+        "keys": [
+          "ctrl",
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-comment",
+        "phrase": "komentarz wiersza",
+        "keys": [
+          "ctrl",
+          "/"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-next-error",
+        "phrase": "następny problem",
+        "keys": [
+          "f8"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "pl_PL"
+  },
+  {
+    "id": "vlc",
+    "name": "VLC",
+    "game": "VLC media player · Windows",
+    "commands": [
+      {
+        "id": "vlc-play",
+        "phrase": "odtwórz lub wstrzymaj",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-stop",
+        "phrase": "zatrzymaj film",
+        "keys": [
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-next",
+        "phrase": "następny plik",
+        "keys": [
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-previous",
+        "phrase": "poprzedni plik",
+        "keys": [
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-fullscreen",
+        "phrase": "pełny ekran",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-exit-fullscreen",
+        "phrase": "wyjdź z pełnego ekranu",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-volume-up",
+        "phrase": "głośniej",
+        "keys": [
+          "ctrl",
+          "up"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-volume-down",
+        "phrase": "ciszej",
+        "keys": [
+          "ctrl",
+          "down"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-mute",
+        "phrase": "wycisz lub włącz dźwięk",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-backward",
+        "phrase": "przewiń wstecz",
+        "keys": [
+          "shift",
+          "left"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-forward",
+        "phrase": "przewiń do przodu",
+        "keys": [
+          "shift",
+          "right"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-faster",
+        "phrase": "szybciej",
+        "keys": [
+          "+"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-slower",
+        "phrase": "wolniej",
+        "keys": [
+          "-"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-normal-rate",
+        "phrase": "zwykła prędkość",
+        "keys": [
+          "="
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "pl_PL"
+  },
+  {
+    "id": "blender",
+    "name": "Blender",
+    "game": "Blender · domyślna mapa klawiszy",
+    "commands": [
+      {
+        "id": "blender-move",
+        "phrase": "przesuń",
+        "keys": [
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-rotate",
+        "phrase": "obróć",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-scale",
+        "phrase": "skaluj",
+        "keys": [
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-confirm",
+        "phrase": "zatwierdź operację",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-cancel",
+        "phrase": "anuluj operację",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-add",
+        "phrase": "menu dodawania",
+        "keys": [
+          "shift",
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-duplicate",
+        "phrase": "duplikuj",
+        "keys": [
+          "shift",
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-join",
+        "phrase": "połącz obiekty",
+        "keys": [
+          "ctrl",
+          "j"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-select-all",
+        "phrase": "zaznacz wszystko",
+        "keys": [
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-deselect",
+        "phrase": "odznacz wszystko",
+        "keys": [
+          "alt",
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-invert-selection",
+        "phrase": "odwróć zaznaczenie",
+        "keys": [
+          "ctrl",
+          "i"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-search",
+        "phrase": "szukaj operacji",
+        "keys": [
+          "f3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-save",
+        "phrase": "zapisz projekt",
+        "keys": [
+          "ctrl",
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-undo",
+        "phrase": "cofnij",
+        "keys": [
+          "ctrl",
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-redo",
+        "phrase": "ponów",
+        "keys": [
+          "ctrl",
+          "shift",
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-repeat",
+        "phrase": "powtórz operację",
+        "keys": [
+          "shift",
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-render",
+        "phrase": "renderuj klatkę",
+        "keys": [
+          "f12"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-show-render",
+        "phrase": "pokaż render",
+        "keys": [
+          "f11"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "pl_PL"
+  },
+  {
+    "id": "spotify",
+    "name": "Spotify",
+    "game": "Spotify · Windows",
+    "commands": [
+      {
+        "id": "spotify-play",
+        "phrase": "odtwórz lub wstrzymaj",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-mute",
+        "phrase": "wycisz lub włącz dźwięk",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-shuffle",
+        "phrase": "odtwarzanie losowe",
+        "keys": [
+          "ctrl",
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-repeat",
+        "phrase": "powtarzanie",
+        "keys": [
+          "ctrl",
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-quick-search",
+        "phrase": "szybkie wyszukiwanie",
+        "keys": [
+          "ctrl",
+          "k"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-search",
+        "phrase": "strona wyszukiwania",
+        "keys": [
+          "ctrl",
+          "l"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-home",
+        "phrase": "strona główna",
+        "keys": [
+          "alt",
+          "shift",
+          "h"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-library",
+        "phrase": "biblioteka",
+        "keys": [
+          "alt",
+          "shift",
+          "0"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-playlists",
+        "phrase": "playlisty",
+        "keys": [
+          "alt",
+          "shift",
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-podcasts",
+        "phrase": "podcasty",
+        "keys": [
+          "alt",
+          "shift",
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-artists",
+        "phrase": "wykonawcy",
+        "keys": [
+          "alt",
+          "shift",
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-albums",
+        "phrase": "albumy",
+        "keys": [
+          "alt",
+          "shift",
+          "4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-liked",
+        "phrase": "polubione utwory",
+        "keys": [
+          "alt",
+          "shift",
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-queue",
+        "phrase": "kolejka",
+        "keys": [
+          "alt",
+          "shift",
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-now-playing",
+        "phrase": "teraz odtwarzane",
+        "keys": [
+          "alt",
+          "shift",
+          "j"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-recommendations",
+        "phrase": "muzyka dla ciebie",
+        "keys": [
+          "alt",
+          "shift",
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-new-releases",
+        "phrase": "nowości",
+        "keys": [
+          "alt",
+          "shift",
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-settings",
+        "phrase": "ustawienia",
+        "keys": [
+          "ctrl",
+          ","
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "pl_PL"
+  },
+  {
+    "id": "windows-desktop",
+    "name": "Windows",
+    "game": "Pulpit i okna · Windows",
+    "commands": [
+      {
+        "id": "windows-desktop-desktop",
+        "phrase": "pokaż pulpit",
+        "keys": [
+          "cmd",
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-explorer",
+        "phrase": "otwórz pliki",
+        "keys": [
+          "cmd",
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-settings",
+        "phrase": "ustawienia systemu",
+        "keys": [
+          "cmd",
+          "i"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-search",
+        "phrase": "wyszukiwanie systemowe",
+        "keys": [
+          "cmd",
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-tasks",
+        "phrase": "widok zadań",
+        "keys": [
+          "cmd",
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-switch-window",
+        "phrase": "przełącz okno",
+        "keys": [
+          "alt",
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-snap-left",
+        "phrase": "okno po lewej",
+        "keys": [
+          "cmd",
+          "left"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-snap-right",
+        "phrase": "okno po prawej",
+        "keys": [
+          "cmd",
+          "right"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-maximize",
+        "phrase": "maksymalizuj okno",
+        "keys": [
+          "cmd",
+          "up"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-minimize",
+        "phrase": "zmniejsz okno",
+        "keys": [
+          "cmd",
+          "down"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-isolate",
+        "phrase": "ukryj pozostałe okna",
+        "keys": [
+          "cmd",
+          "home"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-restore-all",
+        "phrase": "przywróć zminimalizowane okna",
+        "keys": [
+          "cmd",
+          "shift",
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-desktop-left",
+        "phrase": "pulpit po lewej",
+        "keys": [
+          "cmd",
+          "ctrl",
+          "left"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-desktop-right",
+        "phrase": "pulpit po prawej",
+        "keys": [
+          "cmd",
+          "ctrl",
+          "right"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-screenshot",
+        "phrase": "wycinek ekranu",
+        "keys": [
+          "cmd",
+          "shift",
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-window-menu",
+        "phrase": "menu okna",
+        "keys": [
+          "alt",
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-task-manager",
+        "phrase": "menedżer zadań",
+        "keys": [
+          "ctrl",
+          "shift",
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-dismiss",
+        "phrase": "zamknij okno dialogowe",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "pl_PL"
+  },
+  {
+    "id": "text-editing",
+    "name": "Edycja tekstu",
+    "game": "Edytory tekstu · standardowe skróty Windows",
+    "commands": [
+      {
+        "id": "text-editing-select-all",
+        "phrase": "zaznacz wszystko",
+        "keys": [
+          "ctrl",
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-copy",
+        "phrase": "kopiuj",
+        "keys": [
+          "ctrl",
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-paste",
+        "phrase": "wklej",
+        "keys": [
+          "ctrl",
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-cut",
+        "phrase": "wytnij",
+        "keys": [
+          "ctrl",
+          "x"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-undo",
+        "phrase": "cofnij",
+        "keys": [
+          "ctrl",
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-redo",
+        "phrase": "ponów",
+        "keys": [
+          "ctrl",
+          "y"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-find",
+        "phrase": "znajdź tekst",
+        "keys": [
+          "ctrl",
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-replace",
+        "phrase": "zamień tekst",
+        "keys": [
+          "ctrl",
+          "h"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-document-start",
+        "phrase": "początek dokumentu",
+        "keys": [
+          "ctrl",
+          "home"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-document-end",
+        "phrase": "koniec dokumentu",
+        "keys": [
+          "ctrl",
+          "end"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-line-start",
+        "phrase": "początek wiersza",
+        "keys": [
+          "home"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-line-end",
+        "phrase": "koniec wiersza",
+        "keys": [
+          "end"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-word-left",
+        "phrase": "poprzednie słowo",
+        "keys": [
+          "ctrl",
+          "left"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-word-right",
+        "phrase": "następne słowo",
+        "keys": [
+          "ctrl",
+          "right"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-select-word-left",
+        "phrase": "zaznacz poprzednie słowo",
+        "keys": [
+          "ctrl",
+          "shift",
+          "left"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-select-word-right",
+        "phrase": "zaznacz następne słowo",
+        "keys": [
+          "ctrl",
+          "shift",
+          "right"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-select-line-start",
+        "phrase": "zaznacz do początku wiersza",
+        "keys": [
+          "shift",
+          "home"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-select-line-end",
+        "phrase": "zaznacz do końca wiersza",
+        "keys": [
+          "shift",
+          "end"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "pl_PL"
+  },
+  {
+    "id": "skyrim-en",
+    "name": "Skyrim · EN",
+    "game": "The Elder Scrolls V: Skyrim",
+    "commands": [
+      {
+        "id": "skyrim-inventory-en",
+        "phrase": "open inventory",
+        "keys": [
+          "i"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-map-en",
+        "phrase": "world map",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-journal-en",
+        "phrase": "quest journal",
+        "keys": [
+          "j"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-favorites-en",
+        "phrase": "favorite items",
+        "keys": [
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-magic-en",
+        "phrase": "magic menu",
+        "keys": [
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-menu-en",
+        "phrase": "character menu",
+        "keys": [
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-weapon-en",
+        "phrase": "draw or sheath weapon",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-shout-en",
+        "phrase": "use shout",
+        "keys": [
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-activate-en",
+        "phrase": "interact",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-jump-en",
+        "phrase": "jump",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-sneak-en",
+        "phrase": "sneak mode",
+        "keys": [
+          "ctrl"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-camera-en",
+        "phrase": "switch camera",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-wait-en",
+        "phrase": "wait menu",
+        "keys": [
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-skills-en",
+        "phrase": "skill tree",
+        "keys": [
+          "/"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-autorun-en",
+        "phrase": "auto move",
+        "keys": [
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-sprint-en",
+        "phrase": "sprint for three seconds",
+        "keys": [
+          "alt",
+          "w"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-forward-en",
+        "phrase": "keep walking forward",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "skyrim-both-hands-en",
+        "phrase": "use both hands",
+        "keys": [
+          "left_click",
+          "right_click"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "en_US"
+  },
+  {
+    "id": "euro-truck-simulator-2-en",
+    "name": "Euro Truck Simulator 2 · EN",
+    "game": "Euro Truck Simulator 2",
+    "commands": [
+      {
+        "id": "euro-truck-simulator-2-engine-en",
+        "phrase": "engine switch",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-parking-brake-en",
+        "phrase": "parking brake",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-headlights-en",
+        "phrase": "headlights",
+        "keys": [
+          "l"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-wipers-en",
+        "phrase": "windshield wipers",
+        "keys": [
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-cruise-en",
+        "phrase": "cruise control",
+        "keys": [
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-indicator-left-en",
+        "phrase": "left indicator",
+        "keys": [
+          "["
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-indicator-right-en",
+        "phrase": "right indicator",
+        "keys": [
+          "]"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-hazard-en",
+        "phrase": "hazard lights",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-horn-en",
+        "phrase": "sound horn for three seconds",
+        "keys": [
+          "h"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-camera-cabin-en",
+        "phrase": "cabin view",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-camera-chase-en",
+        "phrase": "chase view",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-mirrors-en",
+        "phrase": "side mirrors",
+        "keys": [
+          "f2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-advisor-en",
+        "phrase": "navigation display",
+        "keys": [
+          "f3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-advisor-mouse-en",
+        "phrase": "navigation mouse",
+        "keys": [
+          "f1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-activate-en",
+        "phrase": "activate",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-trailer-en",
+        "phrase": "trailer coupling",
+        "keys": [
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-brake-en",
+        "phrase": "brake for three seconds",
+        "keys": [
+          "s"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "euro-truck-simulator-2-throttle-en",
+        "phrase": "hold accelerator",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "en_US"
+  },
+  {
+    "id": "american-truck-simulator-en",
+    "name": "American Truck Simulator · EN",
+    "game": "American Truck Simulator",
+    "commands": [
+      {
+        "id": "american-truck-simulator-engine-en",
+        "phrase": "engine switch",
+        "keys": [
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-parking-brake-en",
+        "phrase": "parking brake",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-headlights-en",
+        "phrase": "headlights",
+        "keys": [
+          "l"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-wipers-en",
+        "phrase": "windshield wipers",
+        "keys": [
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-cruise-en",
+        "phrase": "cruise control",
+        "keys": [
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-indicator-left-en",
+        "phrase": "left indicator",
+        "keys": [
+          "["
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-indicator-right-en",
+        "phrase": "right indicator",
+        "keys": [
+          "]"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-hazard-en",
+        "phrase": "hazard lights",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-horn-en",
+        "phrase": "sound horn for three seconds",
+        "keys": [
+          "h"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-camera-cabin-en",
+        "phrase": "cabin view",
+        "keys": [
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-camera-chase-en",
+        "phrase": "chase view",
+        "keys": [
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-mirrors-en",
+        "phrase": "side mirrors",
+        "keys": [
+          "f2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-advisor-en",
+        "phrase": "navigation display",
+        "keys": [
+          "f3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-advisor-mouse-en",
+        "phrase": "navigation mouse",
+        "keys": [
+          "f1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-activate-en",
+        "phrase": "activate",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-trailer-en",
+        "phrase": "trailer coupling",
+        "keys": [
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-brake-en",
+        "phrase": "brake for three seconds",
+        "keys": [
+          "s"
+        ],
+        "mode": "timed",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "american-truck-simulator-throttle-en",
+        "phrase": "hold accelerator",
+        "keys": [
+          "w"
+        ],
+        "mode": "toggle",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "en_US"
+  },
+  {
+    "id": "google-chrome-en",
+    "name": "Google Chrome · EN",
+    "game": "Google Chrome · Windows",
+    "commands": [
+      {
+        "id": "google-chrome-address-en",
+        "phrase": "address field",
+        "keys": [
+          "ctrl",
+          "l"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-back-en",
+        "phrase": "previous page",
+        "keys": [
+          "alt",
+          "left"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-forward-en",
+        "phrase": "next page",
+        "keys": [
+          "alt",
+          "right"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-home-en",
+        "phrase": "home page",
+        "keys": [
+          "alt",
+          "home"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-reload-en",
+        "phrase": "refresh page",
+        "keys": [
+          "ctrl",
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-hard-reload-en",
+        "phrase": "refresh without cache",
+        "keys": [
+          "ctrl",
+          "shift",
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-new-tab-en",
+        "phrase": "create tab",
+        "keys": [
+          "ctrl",
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-restore-tab-en",
+        "phrase": "restore closed tab",
+        "keys": [
+          "ctrl",
+          "shift",
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-next-tab-en",
+        "phrase": "next tab",
+        "keys": [
+          "ctrl",
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-previous-tab-en",
+        "phrase": "previous tab",
+        "keys": [
+          "ctrl",
+          "shift",
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-first-tab-en",
+        "phrase": "first tab",
+        "keys": [
+          "ctrl",
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-last-tab-en",
+        "phrase": "last tab",
+        "keys": [
+          "ctrl",
+          "9"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-new-window-en",
+        "phrase": "create window",
+        "keys": [
+          "ctrl",
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-private-window-en",
+        "phrase": "private window",
+        "keys": [
+          "ctrl",
+          "shift",
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-bookmark-en",
+        "phrase": "save bookmark",
+        "keys": [
+          "ctrl",
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-bookmark-tabs-en",
+        "phrase": "bookmark every tab",
+        "keys": [
+          "ctrl",
+          "shift",
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-bookmarks-en",
+        "phrase": "bookmark manager",
+        "keys": [
+          "ctrl",
+          "shift",
+          "o"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-bookmarks-bar-en",
+        "phrase": "bookmark toolbar",
+        "keys": [
+          "ctrl",
+          "shift",
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-downloads-en",
+        "phrase": "download list",
+        "keys": [
+          "ctrl",
+          "j"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-history-en",
+        "phrase": "browsing history",
+        "keys": [
+          "ctrl",
+          "h"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-find-en",
+        "phrase": "find on page",
+        "keys": [
+          "ctrl",
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-find-next-en",
+        "phrase": "next search match",
+        "keys": [
+          "ctrl",
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-devtools-en",
+        "phrase": "developer panel",
+        "keys": [
+          "ctrl",
+          "shift",
+          "i"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-profile-menu-en",
+        "phrase": "profile menu",
+        "keys": [
+          "ctrl",
+          "shift",
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "google-chrome-tab-search-en",
+        "phrase": "search tabs",
+        "keys": [
+          "ctrl",
+          "shift",
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "en_US"
+  },
+  {
+    "id": "mozilla-firefox-en",
+    "name": "Mozilla Firefox · EN",
+    "game": "Mozilla Firefox · Windows",
+    "commands": [
+      {
+        "id": "mozilla-firefox-address-en",
+        "phrase": "address field",
+        "keys": [
+          "ctrl",
+          "l"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-back-en",
+        "phrase": "previous page",
+        "keys": [
+          "alt",
+          "left"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-forward-en",
+        "phrase": "next page",
+        "keys": [
+          "alt",
+          "right"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-home-en",
+        "phrase": "home page",
+        "keys": [
+          "alt",
+          "home"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-reload-en",
+        "phrase": "refresh page",
+        "keys": [
+          "ctrl",
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-hard-reload-en",
+        "phrase": "refresh without cache",
+        "keys": [
+          "ctrl",
+          "shift",
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-new-tab-en",
+        "phrase": "create tab",
+        "keys": [
+          "ctrl",
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-restore-tab-en",
+        "phrase": "restore closed tab",
+        "keys": [
+          "ctrl",
+          "shift",
+          "t"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-next-tab-en",
+        "phrase": "next tab",
+        "keys": [
+          "ctrl",
+          "page_down"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-previous-tab-en",
+        "phrase": "previous tab",
+        "keys": [
+          "ctrl",
+          "page_up"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-first-tab-en",
+        "phrase": "first tab",
+        "keys": [
+          "ctrl",
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-last-tab-en",
+        "phrase": "last tab",
+        "keys": [
+          "ctrl",
+          "9"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-new-window-en",
+        "phrase": "create window",
+        "keys": [
+          "ctrl",
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-private-window-en",
+        "phrase": "private window",
+        "keys": [
+          "ctrl",
+          "shift",
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-bookmark-en",
+        "phrase": "save bookmark",
+        "keys": [
+          "ctrl",
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-bookmark-tabs-en",
+        "phrase": "bookmark every tab",
+        "keys": [
+          "ctrl",
+          "shift",
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-bookmarks-sidebar-en",
+        "phrase": "bookmark sidebar",
+        "keys": [
+          "ctrl",
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-history-sidebar-en",
+        "phrase": "history sidebar",
+        "keys": [
+          "ctrl",
+          "h"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-history-library-en",
+        "phrase": "history library",
+        "keys": [
+          "ctrl",
+          "shift",
+          "h"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-downloads-en",
+        "phrase": "download list",
+        "keys": [
+          "ctrl",
+          "j"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-extensions-en",
+        "phrase": "manage add ons",
+        "keys": [
+          "ctrl",
+          "shift",
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-find-en",
+        "phrase": "find on page",
+        "keys": [
+          "ctrl",
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-find-next-en",
+        "phrase": "next search match",
+        "keys": [
+          "f3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "mozilla-firefox-devtools-en",
+        "phrase": "developer panel",
+        "keys": [
+          "ctrl",
+          "shift",
+          "i"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "en_US"
+  },
+  {
+    "id": "windows-explorer-en",
+    "name": "File Explorer · EN",
+    "game": "Eksplorator plików · Windows",
+    "commands": [
+      {
+        "id": "windows-explorer-parent-en",
+        "phrase": "parent folder",
+        "keys": [
+          "alt",
+          "up"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-back-en",
+        "phrase": "previous folder",
+        "keys": [
+          "alt",
+          "left"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-forward-en",
+        "phrase": "next folder",
+        "keys": [
+          "alt",
+          "right"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-address-en",
+        "phrase": "address field",
+        "keys": [
+          "ctrl",
+          "l"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-search-en",
+        "phrase": "search files",
+        "keys": [
+          "ctrl",
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-new-folder-en",
+        "phrase": "create folder",
+        "keys": [
+          "ctrl",
+          "shift",
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-rename-en",
+        "phrase": "rename item",
+        "keys": [
+          "f2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-properties-en",
+        "phrase": "item properties",
+        "keys": [
+          "alt",
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-refresh-en",
+        "phrase": "refresh folder",
+        "keys": [
+          "f5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-select-all-en",
+        "phrase": "select everything",
+        "keys": [
+          "ctrl",
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-copy-en",
+        "phrase": "copy selection",
+        "keys": [
+          "ctrl",
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-paste-en",
+        "phrase": "paste clipboard",
+        "keys": [
+          "ctrl",
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-cut-en",
+        "phrase": "cut selection",
+        "keys": [
+          "ctrl",
+          "x"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-preview-en",
+        "phrase": "preview pane",
+        "keys": [
+          "alt",
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-details-pane-en",
+        "phrase": "details pane",
+        "keys": [
+          "alt",
+          "shift",
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-open-en",
+        "phrase": "open selection",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-new-window-en",
+        "phrase": "create window",
+        "keys": [
+          "ctrl",
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-details-view-en",
+        "phrase": "details view",
+        "keys": [
+          "ctrl",
+          "shift",
+          "6"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-large-icons-en",
+        "phrase": "large icons",
+        "keys": [
+          "ctrl",
+          "shift",
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-explorer-context-en",
+        "phrase": "selection menu",
+        "keys": [
+          "shift",
+          "f10"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "en_US"
+  },
+  {
+    "id": "visual-studio-code-en",
+    "name": "Visual Studio Code · EN",
+    "game": "Visual Studio Code · Windows",
+    "commands": [
+      {
+        "id": "visual-studio-code-palette-en",
+        "phrase": "command palette",
+        "keys": [
+          "ctrl",
+          "shift",
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-quick-open-en",
+        "phrase": "find project file",
+        "keys": [
+          "ctrl",
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-symbol-en",
+        "phrase": "file symbols",
+        "keys": [
+          "ctrl",
+          "shift",
+          "o"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-explorer-en",
+        "phrase": "file panel",
+        "keys": [
+          "ctrl",
+          "shift",
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-search-en",
+        "phrase": "search project",
+        "keys": [
+          "ctrl",
+          "shift",
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-source-en",
+        "phrase": "version control",
+        "keys": [
+          "ctrl",
+          "shift",
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-debug-panel-en",
+        "phrase": "debug panel",
+        "keys": [
+          "ctrl",
+          "shift",
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-extensions-en",
+        "phrase": "extension panel",
+        "keys": [
+          "ctrl",
+          "shift",
+          "x"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-sidebar-en",
+        "phrase": "toggle sidebar",
+        "keys": [
+          "ctrl",
+          "b"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-terminal-en",
+        "phrase": "terminal panel",
+        "keys": [
+          "ctrl",
+          "`"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-settings-en",
+        "phrase": "editor settings",
+        "keys": [
+          "ctrl",
+          ","
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-wrap-en",
+        "phrase": "toggle word wrapping",
+        "keys": [
+          "alt",
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-problems-en",
+        "phrase": "problem list",
+        "keys": [
+          "ctrl",
+          "shift",
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-definition-en",
+        "phrase": "show definition",
+        "keys": [
+          "f12"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-peek-en",
+        "phrase": "preview definition",
+        "keys": [
+          "alt",
+          "f12"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-references-en",
+        "phrase": "show references",
+        "keys": [
+          "shift",
+          "f12"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-rename-en",
+        "phrase": "rename symbol",
+        "keys": [
+          "f2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-format-en",
+        "phrase": "format document",
+        "keys": [
+          "shift",
+          "alt",
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-breakpoint-en",
+        "phrase": "toggle breakpoint",
+        "keys": [
+          "f9"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-debug-start-en",
+        "phrase": "start or continue debugging",
+        "keys": [
+          "f5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-debug-stop-en",
+        "phrase": "stop debugging",
+        "keys": [
+          "shift",
+          "f5"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-step-over-en",
+        "phrase": "step over",
+        "keys": [
+          "f10"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-save-en",
+        "phrase": "save current file",
+        "keys": [
+          "ctrl",
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-comment-en",
+        "phrase": "toggle line comment",
+        "keys": [
+          "ctrl",
+          "/"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "visual-studio-code-next-error-en",
+        "phrase": "next problem",
+        "keys": [
+          "f8"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "en_US"
+  },
+  {
+    "id": "vlc-en",
+    "name": "VLC · EN",
+    "game": "VLC media player · Windows",
+    "commands": [
+      {
+        "id": "vlc-play-en",
+        "phrase": "play or pause",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-stop-en",
+        "phrase": "stop video",
+        "keys": [
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-next-en",
+        "phrase": "next media file",
+        "keys": [
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-previous-en",
+        "phrase": "previous media file",
+        "keys": [
+          "p"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-fullscreen-en",
+        "phrase": "full screen",
+        "keys": [
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-exit-fullscreen-en",
+        "phrase": "leave full screen",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-volume-up-en",
+        "phrase": "raise volume",
+        "keys": [
+          "ctrl",
+          "up"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-volume-down-en",
+        "phrase": "lower volume",
+        "keys": [
+          "ctrl",
+          "down"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-mute-en",
+        "phrase": "mute or unmute",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-backward-en",
+        "phrase": "jump backward",
+        "keys": [
+          "shift",
+          "left"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-forward-en",
+        "phrase": "jump forward",
+        "keys": [
+          "shift",
+          "right"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-faster-en",
+        "phrase": "increase playback speed",
+        "keys": [
+          "+"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-slower-en",
+        "phrase": "decrease playback speed",
+        "keys": [
+          "-"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "vlc-normal-rate-en",
+        "phrase": "normal playback speed",
+        "keys": [
+          "="
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "en_US"
+  },
+  {
+    "id": "blender-en",
+    "name": "Blender · EN",
+    "game": "Blender · domyślna mapa klawiszy",
+    "commands": [
+      {
+        "id": "blender-move-en",
+        "phrase": "move selection",
+        "keys": [
+          "g"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-rotate-en",
+        "phrase": "rotate selection",
+        "keys": [
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-scale-en",
+        "phrase": "scale selection",
+        "keys": [
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-confirm-en",
+        "phrase": "confirm operation",
+        "keys": [
+          "enter"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-cancel-en",
+        "phrase": "cancel operation",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-add-en",
+        "phrase": "add menu",
+        "keys": [
+          "shift",
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-duplicate-en",
+        "phrase": "duplicate selection",
+        "keys": [
+          "shift",
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-join-en",
+        "phrase": "join objects",
+        "keys": [
+          "ctrl",
+          "j"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-select-all-en",
+        "phrase": "select everything",
+        "keys": [
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-deselect-en",
+        "phrase": "clear selection",
+        "keys": [
+          "alt",
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-invert-selection-en",
+        "phrase": "invert selection",
+        "keys": [
+          "ctrl",
+          "i"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-search-en",
+        "phrase": "search operations",
+        "keys": [
+          "f3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-save-en",
+        "phrase": "save project",
+        "keys": [
+          "ctrl",
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-undo-en",
+        "phrase": "undo edit",
+        "keys": [
+          "ctrl",
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-redo-en",
+        "phrase": "redo edit",
+        "keys": [
+          "ctrl",
+          "shift",
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-repeat-en",
+        "phrase": "repeat operation",
+        "keys": [
+          "shift",
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-render-en",
+        "phrase": "render frame",
+        "keys": [
+          "f12"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "blender-show-render-en",
+        "phrase": "view render",
+        "keys": [
+          "f11"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "en_US"
+  },
+  {
+    "id": "spotify-en",
+    "name": "Spotify · EN",
+    "game": "Spotify · Windows",
+    "commands": [
+      {
+        "id": "spotify-play-en",
+        "phrase": "play or pause",
+        "keys": [
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-mute-en",
+        "phrase": "mute or unmute",
+        "keys": [
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-shuffle-en",
+        "phrase": "shuffle playback",
+        "keys": [
+          "ctrl",
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-repeat-en",
+        "phrase": "repeat playback",
+        "keys": [
+          "ctrl",
+          "r"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-quick-search-en",
+        "phrase": "quick search",
+        "keys": [
+          "ctrl",
+          "k"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-search-en",
+        "phrase": "search page",
+        "keys": [
+          "ctrl",
+          "l"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-home-en",
+        "phrase": "home page",
+        "keys": [
+          "alt",
+          "shift",
+          "h"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-library-en",
+        "phrase": "music library",
+        "keys": [
+          "alt",
+          "shift",
+          "0"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-playlists-en",
+        "phrase": "playlist collection",
+        "keys": [
+          "alt",
+          "shift",
+          "1"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-podcasts-en",
+        "phrase": "podcast collection",
+        "keys": [
+          "alt",
+          "shift",
+          "2"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-artists-en",
+        "phrase": "artist collection",
+        "keys": [
+          "alt",
+          "shift",
+          "3"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-albums-en",
+        "phrase": "album collection",
+        "keys": [
+          "alt",
+          "shift",
+          "4"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-liked-en",
+        "phrase": "liked tracks",
+        "keys": [
+          "alt",
+          "shift",
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-queue-en",
+        "phrase": "playback queue",
+        "keys": [
+          "alt",
+          "shift",
+          "q"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-now-playing-en",
+        "phrase": "now playing",
+        "keys": [
+          "alt",
+          "shift",
+          "j"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-recommendations-en",
+        "phrase": "made for you",
+        "keys": [
+          "alt",
+          "shift",
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-new-releases-en",
+        "phrase": "new releases",
+        "keys": [
+          "alt",
+          "shift",
+          "n"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "spotify-settings-en",
+        "phrase": "application settings",
+        "keys": [
+          "ctrl",
+          ","
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "en_US"
+  },
+  {
+    "id": "windows-desktop-en",
+    "name": "Windows · EN",
+    "game": "Pulpit i okna · Windows",
+    "commands": [
+      {
+        "id": "windows-desktop-desktop-en",
+        "phrase": "show desktop",
+        "keys": [
+          "cmd",
+          "d"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-explorer-en",
+        "phrase": "open file explorer",
+        "keys": [
+          "cmd",
+          "e"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-settings-en",
+        "phrase": "system settings",
+        "keys": [
+          "cmd",
+          "i"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-search-en",
+        "phrase": "system search",
+        "keys": [
+          "cmd",
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-tasks-en",
+        "phrase": "task overview",
+        "keys": [
+          "cmd",
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-switch-window-en",
+        "phrase": "switch window",
+        "keys": [
+          "alt",
+          "tab"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-snap-left-en",
+        "phrase": "snap window left",
+        "keys": [
+          "cmd",
+          "left"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-snap-right-en",
+        "phrase": "snap window right",
+        "keys": [
+          "cmd",
+          "right"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-maximize-en",
+        "phrase": "maximize window",
+        "keys": [
+          "cmd",
+          "up"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-minimize-en",
+        "phrase": "reduce window",
+        "keys": [
+          "cmd",
+          "down"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-isolate-en",
+        "phrase": "hide other windows",
+        "keys": [
+          "cmd",
+          "home"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-restore-all-en",
+        "phrase": "restore minimized windows",
+        "keys": [
+          "cmd",
+          "shift",
+          "m"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-desktop-left-en",
+        "phrase": "desktop to the left",
+        "keys": [
+          "cmd",
+          "ctrl",
+          "left"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-desktop-right-en",
+        "phrase": "desktop to the right",
+        "keys": [
+          "cmd",
+          "ctrl",
+          "right"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-screenshot-en",
+        "phrase": "screen snip",
+        "keys": [
+          "cmd",
+          "shift",
+          "s"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-window-menu-en",
+        "phrase": "window menu",
+        "keys": [
+          "alt",
+          "space"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-task-manager-en",
+        "phrase": "task manager",
+        "keys": [
+          "ctrl",
+          "shift",
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "windows-desktop-dismiss-en",
+        "phrase": "dismiss dialog",
+        "keys": [
+          "esc"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "en_US"
+  },
+  {
+    "id": "text-editing-en",
+    "name": "Text editing · EN",
+    "game": "Edytory tekstu · standardowe skróty Windows",
+    "commands": [
+      {
+        "id": "text-editing-select-all-en",
+        "phrase": "select everything",
+        "keys": [
+          "ctrl",
+          "a"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-copy-en",
+        "phrase": "copy selection",
+        "keys": [
+          "ctrl",
+          "c"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-paste-en",
+        "phrase": "paste clipboard",
+        "keys": [
+          "ctrl",
+          "v"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-cut-en",
+        "phrase": "cut selection",
+        "keys": [
+          "ctrl",
+          "x"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-undo-en",
+        "phrase": "undo edit",
+        "keys": [
+          "ctrl",
+          "z"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-redo-en",
+        "phrase": "redo edit",
+        "keys": [
+          "ctrl",
+          "y"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-find-en",
+        "phrase": "find text",
+        "keys": [
+          "ctrl",
+          "f"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-replace-en",
+        "phrase": "replace text",
+        "keys": [
+          "ctrl",
+          "h"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-document-start-en",
+        "phrase": "document beginning",
+        "keys": [
+          "ctrl",
+          "home"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-document-end-en",
+        "phrase": "document end",
+        "keys": [
+          "ctrl",
+          "end"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-line-start-en",
+        "phrase": "line beginning",
+        "keys": [
+          "home"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-line-end-en",
+        "phrase": "line end",
+        "keys": [
+          "end"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-word-left-en",
+        "phrase": "previous word",
+        "keys": [
+          "ctrl",
+          "left"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-word-right-en",
+        "phrase": "next word",
+        "keys": [
+          "ctrl",
+          "right"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-select-word-left-en",
+        "phrase": "select previous word",
+        "keys": [
+          "ctrl",
+          "shift",
+          "left"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-select-word-right-en",
+        "phrase": "select next word",
+        "keys": [
+          "ctrl",
+          "shift",
+          "right"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-select-line-start-en",
+        "phrase": "select to line beginning",
+        "keys": [
+          "shift",
+          "home"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      },
+      {
+        "id": "text-editing-select-line-end-en",
+        "phrase": "select to line end",
+        "keys": [
+          "shift",
+          "end"
+        ],
+        "mode": "click",
+        "duration_ms": 3000,
+        "enabled": true
+      }
+    ],
+    "language": "en_US"
+  }
+]

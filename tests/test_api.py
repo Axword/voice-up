@@ -1,20 +1,20 @@
 """REST API against the contract in docs/CONTRACTS.md.
 
-Everything runs on the Starlette TestClient. No socket leaves the process: the
-voice service gets a dummy controller instead of a microphone, and the update
-check is answered by a stubbed GitHub.
+Everything runs on the Starlette TestClient. The voice service gets a dummy
+controller instead of a microphone; command previews never generate system
+input, and the former application update channel stays disconnected.
 """
 
 from __future__ import annotations
 
 import io
 import json
-import sys
 import zipfile
 
 import pytest
 import requests
 from fastapi.testclient import TestClient
+from starlette.websockets import WebSocketDisconnect
 
 from app import config, paths
 from server import api as server_api
@@ -23,15 +23,10 @@ TOKEN = "test-token"
 API = "/api/v1"
 
 SETTINGS_KEYS = {
-    "recognition_mode",
-    "spell_sensitivity",
     "language",
-    "merge_command_languages",
-    "combo_enabled",
     "ui_language",
-    "flash_key",
-    "summoner2_key",
     "engine_id",
+    "matching_threshold",
     "audio_device",
     "start_with_windows",
     "start_listening_on_launch",
@@ -42,9 +37,10 @@ SETTINGS_KEYS = {
 
 STATUS_KEYS = {
     "listening",
-    "game_active",
-    "champion",
-    "mode",
+    "active_profile_id",
+    "profile_name",
+    "held_keys",
+    "held_command_ids",
     "engine_id",
     "engine_name",
     "version",
@@ -56,12 +52,10 @@ STATUS_KEYS = {
 
 
 class DummyController:
-    """Stands in for LoLVoiceController, so nothing opens an audio stream."""
+    """Stands in for the audio controller without opening a microphone."""
 
     def __init__(self) -> None:
         self.is_listening = False
-        self.game_active = False
-        self.current_champion_name = None
         self.transcriber = object()
         self.settings = None
 
@@ -118,13 +112,44 @@ def test_panel_index_is_served_without_a_token(api_app):
         assert "window.__LOLVOICE__" in response.text
 
 
+@pytest.mark.parametrize("path", ["/profiles", "/commands/test", "/keys/release"])
+def test_profile_endpoints_require_authentication(api_app, path):
+    with TestClient(api_app) as client:
+        response = client.get(f"{API}{path}") if path == "/profiles" else client.post(f"{API}{path}", json={})
+        assert response.status_code == 401
+
+
+def test_socket_rejects_an_invalid_token(api_app):
+    with TestClient(api_app) as client:
+        with pytest.raises(WebSocketDisconnect) as error, client.websocket_connect("/ws/status?token=wrong"):
+            pass
+        assert error.value.code == 4401
+
+
+def test_socket_rejects_a_non_loopback_client(api_app):
+    with TestClient(api_app, client=("203.0.113.7", 4444)) as client:
+        with pytest.raises(WebSocketDisconnect) as error, client.websocket_connect(f"/ws/status?token={TOKEN}"):
+            pass
+        assert error.value.code == 4403
+
+
+def test_authenticated_socket_receives_the_status(api_app):
+    with TestClient(api_app) as client, client.websocket_connect(f"/ws/status?token={TOKEN}") as socket:
+        frame = socket.receive_json()
+        assert frame["type"] == "status"
+        assert set(frame) >= STATUS_KEYS
+
+
 # --- status and listening -------------------------------------------------
 
 
 def test_status_shape(api_client, dummy_service):
     payload = api_client.get(f"{API}/status").json()
     assert set(payload) >= STATUS_KEYS
-    assert payload["mode"] == config.load().recognition_mode
+    assert payload["active_profile_id"] == dummy_service.profiles_document()["active_profile_id"]
+    assert payload["profile_name"]
+    assert payload["held_keys"] == []
+    assert "champion" not in payload
     assert isinstance(payload["mappings_count"], int)
     assert isinstance(payload["listening"], bool)
     assert payload["version"]
@@ -161,34 +186,34 @@ def test_settings_get_returns_the_full_model(api_client):
 def test_settings_put_applies_a_partial_patch_and_persists(api_client, dummy_service):
     before = api_client.get(f"{API}/settings").json()
 
-    response = api_client.put(f"{API}/settings", json={"spell_sensitivity": "high", "flash_key": "f"})
+    response = api_client.put(f"{API}/settings", json={"theme": "dark", "audio_device": "Mikrofon"})
     assert response.status_code == 200
     updated = response.json()
     assert set(updated) == SETTINGS_KEYS
-    assert updated["spell_sensitivity"] == "high"
-    assert updated["flash_key"] == "f"
+    assert updated["theme"] == "dark"
+    assert updated["audio_device"] == "Mikrofon"
     assert updated["language"] == before["language"]
     assert updated["engine_id"] == before["engine_id"]
 
     on_disk = json.loads(paths.CONFIG_FILE.read_text(encoding="utf-8"))
-    assert on_disk["spell_sensitivity"] == "high"
-    assert on_disk["flash_key"] == "f"
+    assert on_disk["theme"] == "dark"
+    assert on_disk["audio_device"] == "Mikrofon"
 
     config.reset_cache()
-    assert config.load().flash_key == "f"
+    assert config.load().audio_device == "Mikrofon"
 
 
 def test_settings_put_reaches_the_service(api_client, dummy_service):
-    api_client.put(f"{API}/settings", json={"recognition_mode": "letters"})
-    assert dummy_service.mapping_manager.mode == "letters"
-    assert api_client.get(f"{API}/status").json()["mode"] == "letters"
+    api_client.put(f"{API}/settings", json={"language": "en_US"})
+    assert dummy_service.settings.language == "en_US"
+    assert dummy_service._controller.settings.language == "en_US"
 
 
 @pytest.mark.parametrize(
     "patch",
     [
-        {"recognition_mode": "telepathy"},
-        {"spell_sensitivity": "maximum"},
+        {"ui_language": "telepathy"},
+        {"audio_device": []},
         {"theme": "neon"},
         {"check_updates": "maybe"},
     ],
@@ -216,9 +241,9 @@ def test_settings_put_rejects_an_invalid_value(api_client, patch):
 
 
 def test_settings_put_rejects_an_invalid_value_without_touching_the_service(api_client, dummy_service):
-    before_mode = dummy_service.mapping_manager.mode
-    assert api_client.put(f"{API}/settings", json={"recognition_mode": "telepathy"}).status_code == 422
-    assert dummy_service.mapping_manager.mode == before_mode
+    before = dummy_service.settings.model_dump()
+    assert api_client.put(f"{API}/settings", json={"theme": "neon"}).status_code == 422
+    assert dummy_service.settings.model_dump() == before
 
 
 def test_settings_put_with_an_empty_body_changes_nothing(api_client):
@@ -300,16 +325,81 @@ def test_audio_test_survives_a_missing_microphone(api_client, dummy_service, mon
     assert payload["transcript"] == ""
 
 
-# --- mappings ----------------------------------------------------------------
+@pytest.mark.parametrize("seconds", [-1, 0, 11, "many"])
+def test_audio_test_rejects_an_invalid_duration(api_client, seconds):
+    assert api_client.post(f"{API}/audio/test", json={"seconds": seconds}).status_code == 422
 
 
-def test_current_mappings_shape(api_client, dummy_service):
-    payload = api_client.get(f"{API}/champions/current/mappings").json()
-    assert {"champion", "mode", "mappings"} <= set(payload)
-    assert payload["mappings"]
-    for row in payload["mappings"]:
-        assert set(row) == {"phrase", "key", "source"}
-        assert row["source"] in {"champion", "letter", "extra"}
+# --- profile documents and command previews -----------------------------------
+
+
+def test_profiles_document_shape(api_client, dummy_service):
+    response = api_client.get(f"{API}/profiles")
+    assert response.status_code == 200
+    document = response.json()
+    assert set(document) == {"version", "active_profile_id", "profiles"}
+    assert document["version"] == 1
+    assert document["profiles"]
+    assert document == dummy_service.profiles_document()
+
+
+def test_profile_edits_are_persisted(api_client, dummy_service):
+    document = api_client.get(f"{API}/profiles").json()
+    document["profiles"][0]["name"] = "Mój profil"
+    response = api_client.put(f"{API}/profiles", json=document)
+    assert response.status_code == 200
+    assert response.json() == document
+    assert api_client.get(f"{API}/profiles").json() == document
+
+
+def test_invalid_profile_document_is_rejected_without_changes(api_client):
+    before = api_client.get(f"{API}/profiles").json()
+    document = json.loads(json.dumps(before))
+    document["active_profile_id"] = "missing-profile"
+    response = api_client.put(f"{API}/profiles", json=document)
+    assert response.status_code == 422
+    assert isinstance(response.json()["detail"], list)
+    assert api_client.get(f"{API}/profiles").json() == before
+
+
+def test_profile_save_failure_returns_an_error(api_client, dummy_service, monkeypatch):
+    document = dummy_service.profiles_document()
+
+    def fail(_document):
+        raise OSError("read-only directory")
+
+    monkeypatch.setattr(dummy_service, "replace_profiles", fail)
+    assert api_client.put(f"{API}/profiles", json=document).status_code == 500
+
+
+def test_command_preview_matches_without_pressing_keys(api_client, dummy_service, monkeypatch):
+    document = dummy_service.profiles_document()
+    profile = next(row for row in document["profiles"] if row["id"] == document["active_profile_id"])
+    command = next(row for row in profile["commands"] if row["enabled"])
+
+    def no_input(*_args, **_kwargs):
+        raise AssertionError("Command previews must not generate system input")
+
+    monkeypatch.setattr(dummy_service, "handle_transcript", no_input)
+    response = api_client.post(f"{API}/commands/test", json={"text": command["phrase"]})
+    assert response.status_code == 200
+    preview = response.json()
+    assert preview["matched"] is True
+    assert preview["command"]["id"] == command["id"]
+    assert preview["profile_id"] == profile["id"]
+    assert dummy_service.status()["held_keys"] == []
+
+
+def test_command_preview_requires_a_nonempty_text(api_client):
+    assert api_client.post(f"{API}/commands/test", json={"text": ""}).status_code == 422
+    assert api_client.post(f"{API}/commands/test", json={"text": ["flash"]}).status_code == 422
+
+
+def test_release_all_calls_the_service(api_client, dummy_service, monkeypatch):
+    calls = []
+    monkeypatch.setattr(dummy_service, "release_all", lambda: calls.append(True))
+    assert api_client.post(f"{API}/keys/release").json() == {"released": True}
+    assert calls == [True]
 
 
 # --- logs ---------------------------------------------------------------------
@@ -350,94 +440,22 @@ def test_logs_download_returns_a_zip_with_system_info(api_client):
 # --- updates --------------------------------------------------------------------
 
 
-RELEASE = {
-    "tag_name": "v9.9.9",
-    "assets": [
-        {"name": "Setup.exe", "browser_download_url": "https://example.invalid/Setup.exe"},
-        {"name": "latest.json", "browser_download_url": "https://example.invalid/latest.json"},
-    ],
-}
-MANIFEST = {
-    "version": "9.9.9",
-    "url": "https://example.invalid/LoLVoiceSetup-9.9.9.exe",
-    "sha256": "0" * 64,
-    "notes": "Nowa wersja",
-}
+def test_unconfigured_updates_never_contact_the_old_lol_release_channel(api_client, monkeypatch):
+    def no_network(*_args, **_kwargs):
+        raise AssertionError("The former release channel must not be contacted")
 
-
-class _StubResponse:
-    def __init__(self, payload: dict) -> None:
-        self._payload = payload
-
-    def json(self) -> dict:
-        return self._payload
-
-    def raise_for_status(self) -> None:
-        return None
-
-
-@pytest.fixture
-def github(monkeypatch):
-    """Answers the two GitHub calls the updater makes. Nothing hits the network."""
-    seen: list[str] = []
-
-    def fake_get(url, **_kwargs):
-        seen.append(url)
-        if url.endswith("latest.json"):
-            return _StubResponse(MANIFEST)
-        if "api.github.com" in url:
-            return _StubResponse(RELEASE)
-        raise requests.ConnectionError(f"Blocked in tests: {url}")
-
-    monkeypatch.setattr(requests, "get", fake_get)
-    return seen
-
-
-def test_update_check_against_a_stubbed_github(api_client, github):
-    payload = api_client.get(f"{API}/update/check", params={"force": "true", "token": TOKEN}).json()
+    monkeypatch.setattr(requests, "get", no_network)
+    payload = api_client.get(f"{API}/update/check", params={"force": "true"}).json()
     assert set(payload) == {"current", "latest", "available", "url", "notes"}
-    assert payload["latest"] == "9.9.9"
-    assert payload["available"] is True
-    assert payload["url"] == MANIFEST["url"]
-    assert payload["notes"] == "Nowa wersja"
-    assert any("api.github.com" in url for url in github)
-
-
-def test_update_check_is_cached(api_client, github):
-    api_client.get(f"{API}/update/check", params={"force": "true", "token": TOKEN})
-    calls = len(github)
-    payload = api_client.get(f"{API}/update/check", params={"token": TOKEN}).json()
-    assert len(github) == calls
-    assert payload["latest"] == "9.9.9"
-    assert api_client.get(f"{API}/status").json()["update_available"] is True
-
-
-def test_update_check_survives_an_unreachable_github(api_client, monkeypatch):
-    def fake_get(url, **_kwargs):
-        raise requests.ConnectionError("no route to host")
-
-    monkeypatch.setattr(requests, "get", fake_get)
-    payload = api_client.get(f"{API}/update/check", params={"force": "true", "token": TOKEN}).json()
-    assert payload["available"] is False
     assert payload["latest"] is None
-
-
-def test_update_check_honours_a_skipped_version(api_client, github):
-    api_client.put(f"{API}/settings", json={"skipped_version": "9.9.9"})
-    payload = api_client.get(f"{API}/update/check", params={"force": "true", "token": TOKEN}).json()
-    assert payload["latest"] == "9.9.9"
     assert payload["available"] is False
+    assert payload["url"] is None
+    assert api_client.get(f"{API}/status").json()["update_available"] is False
 
 
-def test_update_install_does_not_start_without_a_real_installer(api_client, github):
+def test_update_install_does_not_start_without_a_release_channel(api_client):
     payload = api_client.post(f"{API}/update/install").json()
-    assert set(payload) >= {"started"}
-    assert payload["started"] is False
-    if sys.platform == "win32":
-        # Na Windows przechodzi do pobierania, ktore conftest blokuje.
-        assert payload["reason"] == "download_failed"
-    else:
-        assert payload["reason"] == "unsupported_platform"
+    assert payload == {"started": False, "reason": "release_channel_not_configured"}
 
 
 # --- quit -------------------------------------------------------------------------
