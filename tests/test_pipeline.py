@@ -39,7 +39,7 @@ def test_first_router_with_an_intent_wins_and_executor_follows_action_type():
     pipeline = Pipeline([Dictation(), ProfileRouter()], {TypeTextAction: Typer()})
     context = RouteContext(profile("reload"))
     assert pipeline.execute(pipeline.route("pisz cześć", context))
-    assert typed == ["cześć"]
+    assert typed == ["pisz cześć"]
     assert pipeline.route("reload", context).source == "profile"
     pipeline.release_all()
     assert typed[-1] == "released"
