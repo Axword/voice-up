@@ -9,10 +9,10 @@ from __future__ import annotations
 import threading
 import time
 from collections.abc import Callable
-from difflib import SequenceMatcher
 from typing import Any
 
 from app import config, engines, profiles, version
+from app.pipeline import Intent, KeyAction, KeyExecutor, Pipeline, ProfileRouter, RouteContext
 from app.config import Settings
 from app.logging_setup import get_logger
 from controller.transcriber import clean_text
@@ -39,6 +39,14 @@ class VoiceService:
         self._last_heard: str | None = None
         self._last_error: str | None = None
         self.update_available = False
+        self._pipeline = Pipeline(
+            routers=[ProfileRouter()],
+            executors={KeyAction: KeyExecutor(lambda: self.key_controller)},
+        )
+
+    @property
+    def pipeline(self) -> Pipeline:
+        return self._pipeline
 
     @property
     def settings(self) -> Settings:
@@ -149,44 +157,18 @@ class VoiceService:
             self.handle_transcript(text)
         return text
 
-    def _match(self, text: str) -> profiles.VoiceCommand | None:
-        normalized = profiles.normalize_phrase(text)
-        candidates = [
-            (command, profiles.normalize_phrase(command.phrase))
-            for command in self.document.active_profile.commands if command.enabled
-        ]
-        for command, phrase in candidates:
-            if phrase == normalized:
-                return command
-
-        threshold = self.settings.matching_threshold
-        if threshold >= 1.0 or sum(char.isalnum() for char in normalized) <= 2:
-            return None
-
-        best: profiles.VoiceCommand | None = None
-        best_score = 0.0
-        tied = False
-        for command, phrase in candidates:
-            # Letter commands remain exact, even at a permissive threshold.
-            if sum(char.isalnum() for char in phrase) <= 2:
-                continue
-            score = SequenceMatcher(None, phrase, normalized, autojunk=False).ratio()
-            if score < threshold or score == 0:
-                continue
-            if score > best_score:
-                best, best_score, tied = command, score, False
-            elif score == best_score:
-                tied = True
-        # Equally good guesses must not depend on the order of commands.
-        return None if tied else best
+    def _route(self, text: str) -> Intent | None:
+        context = RouteContext(self.document.active_profile, self.settings.matching_threshold)
+        return self._pipeline.route(text, context)
 
     def test_command(self, text: str) -> dict:
         """Match a phrase without recording audio or sending any system input."""
         with self._lock:
-            command = self._match(text)
+            intent = self._route(text)
+            command = intent.command if intent else None
             return {
                 "text": text,
-                "matched": command is not None,
+                "matched": intent is not None,
                 "command": command.model_dump() if command else None,
                 "profile_id": self.document.active_profile_id,
             }
@@ -197,34 +179,39 @@ class VoiceService:
             return None
         with self._lock:
             self._last_heard = cleaned
-            command = self._match(text)
+            intent = self._route(text)
+            action = intent.action if intent else None
+            command = intent.command if intent else None
+            keys = list(action.keys) if isinstance(action, KeyAction) else []
             executed = False
-            if command is not None:
+            if intent is not None:
                 try:
-                    executed = self.key_controller.execute(command.id, command.keys, command.mode, command.duration_ms)
+                    executed = self._pipeline.execute(intent)
                 except Exception as exc:
-                    self.key_controller.release_all()
+                    self._pipeline.release_all()
                     self._last_error = str(exc)
                     self._emit_log("error", f"Input action failed: {exc}")
                 if executed:
                     self._last_command = cleaned
                     self._last_error = None
-                    log.info("Executed '%s' -> %s (%s)", cleaned, "+".join(command.keys), command.mode)
+                    log.info("Executed '%s' -> %s via %s", cleaned, intent.label or type(action).__name__, intent.source)
                 else:
                     self._last_error = self._last_error or "Nie można wysłać przycisków do systemu."
             self._emit({
-                "type": "heard", "text": cleaned, "matched": command.keys if command else None,
+                "type": "heard", "text": cleaned, "matched": keys if intent else None,
                 "command_id": command.id if command else None, "executed": executed,
                 "profile_id": self.document.active_profile_id,
                 "profile_name": self.document.active_profile.name,
                 "mode": command.mode if command else None,
                 "duration_ms": command.duration_ms if command else None,
                 "held": bool(command and command.id in getattr(self._key_controller, "held_command_ids", [])),
-                "error": self._last_error if command and not executed else None,
+                "error": self._last_error if intent and not executed else None,
+                "source": intent.source if intent else None,
+                "confidence": intent.confidence if intent else None,
                 "time": time.time(),
             })
             self._emit_status()
-            return command.keys if command and executed else None
+            return keys if intent and executed else None
 
     def release_all(self) -> None:
         with self._lock:
