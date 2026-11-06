@@ -88,8 +88,10 @@ class Pipeline:
     routers: list[Router] = field(default_factory=list)
     executors: dict[type, Executor] = field(default_factory=dict)
 
-    def route(self, text: str, context: RouteContext) -> Intent | None:
+    def route(self, text: str, context: RouteContext, exclude: frozenset[str] = frozenset()) -> Intent | None:
         for router in self.routers:
+            if router.name in exclude:
+                continue
             intent = router.route(text, context)
             if intent is not None:
                 return intent
@@ -151,7 +153,13 @@ class ProfileRouter:
 
 
 class StateExecutor:
+    """Applies mode switches; routers stay free of side effects so previews cannot change state."""
+
+    def __init__(self, handler: Callable[[str], None]) -> None:
+        self._handler = handler
+
     def execute(self, action: Action) -> bool:
+        self._handler(action.state)
         return True
 
     def release_all(self) -> None:

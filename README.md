@@ -14,7 +14,7 @@ Przy aktualizacji nowe profile są dopisywane do istniejącej konfiguracji. Wła
 
 - **Dyktowanie:** „dyktuj" włącza wpisywanie wszystkiego, co powiesz; „koniec dyktowania" je wyłącza (analogicznie `dictate` / `stop dictation`, a także po niemiecku, hiszpańsku, francusku i ukraińsku). Tekst z Whispera jest bez interpunkcji, z wielką pierwszą literą. Zatrzymanie nasłuchu kończy dyktowanie.
 - **Mysz:** „mysz w prawo 200", „kursor w górę", „kliknij", „prawy klik", „podwójny klik", „przewiń w dół" (odpowiedniki angielskie: `mouse right 200`, `click`, `scroll down`). Domyślny krok to 100 px. Komenda z aktywnego profilu ma pierwszeństwo przed wbudowaną frazą myszy.
-- **Profil według okna:** profil z polem `apps` (np. `["outlook.exe"]`) jest używany, gdy to okno ma fokus, o ile ma ten sam język co aktywny profil. Wyłączysz to ustawieniem `auto_profile`. Dołączone profile biurowe: Outlook, Excel, Word i przeglądarka.
+- **Profil według okna:** profil z polem `apps` (np. `["outlook.exe"]`) jest używany, gdy to okno ma fokus, o ile ma ten sam język co aktywny profil. Funkcja jest domyślnie wyłączona, żeby nie podmieniać Twojego profilu; włączysz ją ustawieniem `auto_profile` (np. `PUT /api/v1/settings`). Dołączone profile biurowe: Outlook, Excel, Word i przeglądarka.
 
 ## Komendy
 

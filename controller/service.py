@@ -51,7 +51,7 @@ class VoiceService:
                 KeyAction: KeyExecutor(lambda: self.key_controller),
                 TypeTextAction: TypeExecutor(lambda: self.key_controller),
                 MouseAction: MouseExecutor(lambda: self.key_controller),
-                StateAction: StateExecutor(),
+                StateAction: StateExecutor(self._apply_state),
             },
         )
 
@@ -168,9 +168,14 @@ class VoiceService:
             self.handle_transcript(text)
         return text
 
-    def _route(self, text: str) -> Intent | None:
-        context = RouteContext(self._effective_profile(), self.settings.matching_threshold)
-        return self._pipeline.route(text, context)
+    def _apply_state(self, state: str) -> None:
+        if state in {"dictation_on", "dictation_off"}:
+            self._dictation.active = state == "dictation_on"
+
+    def _route(self, text: str, profile: profiles.Profile, preview: bool = False) -> Intent | None:
+        context = RouteContext(profile, self.settings.matching_threshold)
+        # A preview must neither start dictation nor be swallowed by it.
+        return self._pipeline.route(text, context, frozenset({"dictation"}) if preview else frozenset())
 
     def _effective_profile(self) -> profiles.Profile:
         """The active profile, unless the focused program has its own profile in the same language."""
@@ -188,22 +193,26 @@ class VoiceService:
     def teach_alias(self, text: str, command_id: str) -> dict:
         """Remember that `text` (a mishearing) means a command of the active profile."""
         with self._lock:
-            profile = self.document.active_profile
+            profile = self._effective_profile()
             if not any(command.id == command_id for command in profile.commands):
                 raise KeyError(command_id)
-            aliases.teach(profile.id, text, command_id)
+            aliases.teach(
+                profile.id, text, command_id,
+                frozenset(profiles.normalize_phrase(command.phrase) for command in profile.commands),
+            )
             return {"profile_id": profile.id, "command_id": command_id, "text": text}
 
     def test_command(self, text: str) -> dict:
         """Match a phrase without recording audio or sending any system input."""
         with self._lock:
-            intent = self._route(text)
+            profile = self._effective_profile()
+            intent = self._route(text, profile, preview=True)
             command = intent.command if intent else None
             return {
                 "text": text,
                 "matched": intent is not None,
                 "command": command.model_dump() if command else None,
-                "profile_id": self.document.active_profile_id,
+                "profile_id": profile.id,
             }
 
     def handle_transcript(self, text: str) -> list[str] | None:
@@ -212,7 +221,8 @@ class VoiceService:
             return None
         with self._lock:
             self._last_heard = cleaned
-            intent = self._route(text)
+            profile = self._effective_profile()
+            intent = self._route(text, profile)
             action = intent.action if intent else None
             command = intent.command if intent else None
             keys = list(action.keys) if isinstance(action, KeyAction) else []
@@ -233,8 +243,8 @@ class VoiceService:
             self._emit({
                 "type": "heard", "text": cleaned, "matched": keys if intent else None,
                 "command_id": command.id if command else None, "executed": executed,
-                "profile_id": self.document.active_profile_id,
-                "profile_name": self.document.active_profile.name,
+                "profile_id": profile.id,
+                "profile_name": profile.name,
                 "mode": command.mode if command else None,
                 "duration_ms": command.duration_ms if command else None,
                 "held": bool(command and command.id in getattr(self._key_controller, "held_command_ids", [])),

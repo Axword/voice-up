@@ -4,6 +4,30 @@ from __future__ import annotations
 
 import sys
 
+_api = None
+
+
+def _load():
+    global _api
+    if _api is None:
+        import ctypes
+        from ctypes import wintypes
+
+        user32 = ctypes.WinDLL("user32", use_last_error=True)
+        kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
+        user32.GetForegroundWindow.restype = wintypes.HWND
+        user32.GetWindowThreadProcessId.argtypes = [wintypes.HWND, ctypes.POINTER(wintypes.DWORD)]
+        user32.GetWindowThreadProcessId.restype = wintypes.DWORD
+        kernel32.OpenProcess.argtypes = [wintypes.DWORD, wintypes.BOOL, wintypes.DWORD]
+        kernel32.OpenProcess.restype = wintypes.HANDLE
+        kernel32.QueryFullProcessImageNameW.argtypes = [
+            wintypes.HANDLE, wintypes.DWORD, wintypes.LPWSTR, ctypes.POINTER(wintypes.DWORD),
+        ]
+        kernel32.QueryFullProcessImageNameW.restype = wintypes.BOOL
+        kernel32.CloseHandle.argtypes = [wintypes.HANDLE]
+        _api = (user32, kernel32)
+    return _api
+
 
 def foreground_process() -> str:
     if sys.platform != "win32":
@@ -12,12 +36,11 @@ def foreground_process() -> str:
         import ctypes
         from ctypes import wintypes
 
-        user32, kernel32 = ctypes.windll.user32, ctypes.windll.kernel32
-        kernel32.OpenProcess.restype = wintypes.HANDLE
+        user32, kernel32 = _load()
         hwnd = user32.GetForegroundWindow()
         pid = wintypes.DWORD()
         user32.GetWindowThreadProcessId(hwnd, ctypes.byref(pid))
-        handle = kernel32.OpenProcess(0x1000, False, pid.value)  # QUERY_LIMITED_INFORMATION
+        handle = kernel32.OpenProcess(0x1000, False, pid.value)  # PROCESS_QUERY_LIMITED_INFORMATION
         if not handle:
             return ""
         try:

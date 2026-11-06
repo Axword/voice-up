@@ -30,11 +30,9 @@ class DictationRouter:
         phrase = normalize_phrase(text)
         if not self.active:
             if phrase in START:
-                self.active = True
                 return Intent(StateAction("dictation_on"), self.name, label="dictation on")
             return None
         if phrase in STOP:
-            self.active = False
             return Intent(StateAction("dictation_off"), self.name, label="dictation off")
         typed = text.strip()
         return Intent(TypeTextAction(typed[:1].upper() + typed[1:] + " "), self.name, label="dictation")

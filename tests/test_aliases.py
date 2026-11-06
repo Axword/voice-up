@@ -38,3 +38,10 @@ def test_alias_is_scoped_to_its_profile():
     service = make_service()
     aliases.teach("other-profile", "zapis", "save")
     assert not service.test_command("zapis")["matched"]
+
+
+def test_alias_cannot_shadow_an_existing_phrase():
+    service = make_service()
+    with pytest.raises(ValueError):
+        service.teach_alias("Zapisz", "klik")
+    assert aliases.load() == {}

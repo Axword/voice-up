@@ -32,10 +32,12 @@ def load() -> dict[str, dict[str, str]]:
         return data if isinstance(data, dict) else {}
 
 
-def teach(profile_id: str, heard: str, command_id: str) -> None:
+def teach(profile_id: str, heard: str, command_id: str, existing_phrases: frozenset[str] = frozenset()) -> None:
     phrase = normalize_phrase(heard)
     if not phrase:
         raise ValueError("Pusta fraza.")
+    if phrase in existing_phrases:
+        raise ValueError("Ta fraza jest już komendą w profilu.")
     with _lock:
         data = load()
         entries = data.setdefault(profile_id, {})

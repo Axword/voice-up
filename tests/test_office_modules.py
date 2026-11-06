@@ -82,6 +82,7 @@ def test_focused_program_selects_its_profile_in_the_same_language(monkeypatch):
         profiles.VoiceCommand(id="send-en", phrase="send", keys=["ctrl", "enter"]),
     ])
     service = make_service(outlook, english)
+    service._settings = config.Settings(auto_profile=True)
     monkeypatch.setattr("controller.service.foreground_process", lambda: "outlook.exe")
     assert service.test_command("wyślij")["matched"]
     assert not service.test_command("send")["matched"]
@@ -94,11 +95,36 @@ def test_auto_profile_can_be_disabled(monkeypatch):
         profiles.VoiceCommand(id="send", phrase="wyślij", keys=["ctrl", "enter"]),
     ])
     service = make_service(outlook)
-    service._settings = config.Settings(auto_profile=False)
     monkeypatch.setattr("controller.service.foreground_process", lambda: "outlook.exe")
+    assert config.Settings().auto_profile is False
     assert not service.test_command("wyślij")["matched"]
 
 
 def test_office_library_ships_with_program_names():
     office = [p for p in profiles.catalog_profiles() if p.id.startswith("office-")]
     assert len(office) == 8 and all(p.apps for p in office)
+
+
+def test_previewing_a_phrase_never_changes_dictation_state():
+    service = make_service()
+    assert service.test_command("dyktuj")["matched"] is False
+    assert service.status()["dictating"] is False
+    service.handle_transcript("dyktuj")
+    assert service.test_command("zapisz")["command"]["id"] == "save"  # not swallowed by dictation
+    service.test_command("koniec dyktowania")
+    assert service.status()["dictating"] is True
+
+
+def test_heard_event_and_teaching_use_the_profile_that_is_in_effect(monkeypatch):
+    word = profiles.Profile(id="word", name="Word", apps=["winword.exe"], commands=[
+        profiles.VoiceCommand(id="bold", phrase="pogrub", keys=["ctrl", "b"]),
+    ])
+    service = make_service(word)
+    service._settings = config.Settings(auto_profile=True)
+    events = []
+    service.set_event_sink(events.append)
+    monkeypatch.setattr("controller.service.foreground_process", lambda: "winword.exe")
+    service.teach_alias("pogrup", "bold")
+    service.handle_transcript("pogrup")
+    heard = next(e for e in events if e["type"] == "heard")
+    assert heard["profile_id"] == "word" and heard["command_id"] == "bold" and heard["executed"]
