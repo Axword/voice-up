@@ -43,6 +43,11 @@ class CommandTestRequest(BaseModel):
     text: str = Field(min_length=1, max_length=500)
 
 
+class TeachRequest(BaseModel):
+    text: str = Field(min_length=1, max_length=500)
+    command_id: str = Field(min_length=1, max_length=100)
+
+
 class AudioTestRequest(BaseModel):
     seconds: float = Field(default=3, ge=1, le=10)
 
@@ -400,6 +405,15 @@ def _register_routes(application: FastAPI) -> None:
     @application.post(f"{API_PREFIX}/commands/test")
     def test_command(payload: CommandTestRequest) -> dict:
         return require_service().test_command(payload.text)
+
+    @application.post(f"{API_PREFIX}/commands/teach")
+    def teach_command(payload: TeachRequest) -> dict:
+        try:
+            return require_service().teach_alias(payload.text, payload.command_id)
+        except KeyError as exc:
+            raise HTTPException(status_code=404, detail="Nie ma takiej komendy w aktywnym profilu.") from exc
+        except ValueError as exc:
+            raise HTTPException(status_code=422, detail=str(exc)) from exc
 
     @application.post(f"{API_PREFIX}/keys/release")
     def release_keys() -> dict:

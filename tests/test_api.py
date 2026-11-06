@@ -469,3 +469,12 @@ def test_quit_calls_the_callback(lolvoice_home):
     with TestClient(app) as client:
         client.headers.update({"X-Auth-Token": TOKEN})
         assert client.post(f"{API}/app/quit").json() == {"ok": True}
+
+
+def test_teach_endpoint(api_client, dummy_service):
+    command = dummy_service.profiles_document()["profiles"][0]["commands"][0]
+    ok = api_client.post(f"{API}/commands/teach", json={"text": "mis hearing", "command_id": command["id"]})
+    assert ok.status_code == 200
+    assert dummy_service.test_command("mis hearing")["matched"]
+    missing = api_client.post(f"{API}/commands/teach", json={"text": "x", "command_id": "nope"})
+    assert missing.status_code == 404

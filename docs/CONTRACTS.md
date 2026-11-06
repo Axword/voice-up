@@ -71,7 +71,7 @@ Plik `profile-library-state.json` obok `profiles.json` przechowuje `schema: 1` i
 
 Moduły łączy typowany łańcuch: transkrypt → `Intent` → `Action` → wynik. `Router.route(text, RouteContext)` zwraca `Intent(action, source, confidence)` albo `None`; `Pipeline` pyta routery po kolei i pierwszy wygrywa. Akcje: `KeyAction`, `TypeTextAction`, `MouseAction`, `StateAction`; wykonawca jest wybierany po typie akcji (`Executor.execute`, `release_all`). Domyślna kolejność routerów: dyktowanie, profil (`ProfileRouter`: dokładne dopasowanie, potem podobieństwo), mysz. Nowy moduł (router lokalny, chmurowy, agent) dodaje się do `service.pipeline` bez zmian w reszcie kodu.
 
-`Profile.apps` (lista nazw programów, np. `outlook.exe`) wybiera profil według okna z fokusem w tym samym języku co aktywny profil, gdy `auto_profile` jest włączone. Zdarzenie `heard` zawiera też `source` i `confidence`; status zawiera `dictating`.
+`Profile.apps` (lista nazw programów, np. `outlook.exe`) wybiera profil według okna z fokusem w tym samym języku co aktywny profil, gdy `auto_profile` jest włączone. `app/aliases.py` przechowuje lokalne poprawki użytkownika (`aliases.json`: profil → błędnie usłyszana fraza → id komendy). `AliasRouter` działa przed `ProfileRouter`; `POST /commands/teach` przyjmuje `{text, command_id}` (404 dla nieznanej komendy aktywnego profilu). Zdarzenie `heard` zawiera też `source` i `confidence`; status zawiera `dictating`.
 
 ## VoiceService
 

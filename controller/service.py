@@ -11,7 +11,7 @@ import time
 from collections.abc import Callable
 from typing import Any
 
-from app import config, engines, profiles, version
+from app import aliases, config, engines, profiles, version
 from app.foreground import foreground_process
 from app.office_modules import DictationRouter, MouseExecutor, MouseRouter, TypeExecutor
 from app.pipeline import (
@@ -46,7 +46,7 @@ class VoiceService:
         self.update_available = False
         self._dictation = DictationRouter()
         self._pipeline = Pipeline(
-            routers=[self._dictation, ProfileRouter(), MouseRouter()],
+            routers=[self._dictation, aliases.AliasRouter(), ProfileRouter(), MouseRouter()],
             executors={
                 KeyAction: KeyExecutor(lambda: self.key_controller),
                 TypeTextAction: TypeExecutor(lambda: self.key_controller),
@@ -184,6 +184,15 @@ class VoiceService:
             if profile.language == active.language and program in (name.lower() for name in profile.apps):
                 return profile
         return active
+
+    def teach_alias(self, text: str, command_id: str) -> dict:
+        """Remember that `text` (a mishearing) means a command of the active profile."""
+        with self._lock:
+            profile = self.document.active_profile
+            if not any(command.id == command_id for command in profile.commands):
+                raise KeyError(command_id)
+            aliases.teach(profile.id, text, command_id)
+            return {"profile_id": profile.id, "command_id": command_id, "text": text}
 
     def test_command(self, text: str) -> dict:
         """Match a phrase without recording audio or sending any system input."""
