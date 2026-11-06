@@ -11,7 +11,8 @@ import time
 from collections.abc import Callable
 from typing import Any
 
-from app import aliases, config, engines, modules, profiles, version
+from app import aliases, app_icons, config, engines, modules, profiles, version
+from app.known_apps import apps_for
 from app.foreground import foreground_process
 from app.office_modules import DictationRouter, MouseExecutor, MouseRouter, TypeExecutor
 from app.pipeline import (
@@ -188,10 +189,33 @@ class VoiceService:
         program = foreground_process()
         if not program:
             return active
-        for profile in self.document.profiles:
-            if profile.language == active.language and program in (name.lower() for name in profile.apps):
+        same_language = [p for p in self.document.profiles if p.language == active.language]
+        # Profiles that name their program explicitly beat the built-in mapping.
+        for profile in same_language:
+            if program in (name.lower() for name in profile.apps):
+                return profile
+        for profile in same_language:
+            if not profile.apps and program in apps_for(profile):
                 return profile
         return active
+
+    def installed_profile_ids(self) -> list[str]:
+        """Profiles whose program is installed or running here (its icon could be read)."""
+        from concurrent.futures import ThreadPoolExecutor
+
+        with self._lock:
+            candidates = [(p.id, apps_for(p)) for p in self.document.profiles if apps_for(p)]
+        with ThreadPoolExecutor(max_workers=8) as pool:
+            found = list(pool.map(lambda item: app_icons.icon_for(item[1]) is not None, candidates))
+        return [pid for (pid, _), ok in zip(candidates, found) if ok]
+
+    def profile_icon(self, profile_id: str):
+        """Path of the program icon for a profile, or None."""
+        with self._lock:
+            profile = next((p for p in self.document.profiles if p.id == profile_id), None)
+        if profile is None:
+            return None
+        return app_icons.icon_for(apps_for(profile))
 
     def teach_alias(self, text: str, command_id: str) -> dict:
         """Remember that `text` (a mishearing) means a command of the active profile."""
@@ -405,6 +429,8 @@ class VoiceService:
                 "version": version.get_version(),
                 "mappings_count": sum(command.enabled for command in active.commands),
                 "dictating": self._dictation.active,
+                "effective_profile_id": self._effective_profile().id,
+                "foreground": foreground_process() if self.settings.auto_profile else "",
                 "held_keys": keys.held_keys if keys else [],
                 "held_command_ids": keys.held_command_ids if keys else [],
                 "last_command": self._last_command,

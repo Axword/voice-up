@@ -96,7 +96,7 @@ def test_auto_profile_can_be_disabled(monkeypatch):
     ])
     service = make_service(outlook)
     monkeypatch.setattr("controller.service.foreground_process", lambda: "outlook.exe")
-    assert config.Settings().auto_profile is False
+    service._settings = config.Settings(auto_profile=False)
     assert not service.test_command("wyślij")["matched"]
 
 

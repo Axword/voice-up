@@ -1,4 +1,4 @@
-import type { AudioDevice, Engine, ProfilesDocument, Settings, Status, TestResult } from './types';
+import type { AudioDevice, Engine, ModuleInfo, ProfilesDocument, Settings, Status, TestResult } from './types';
 import { t } from './i18n';
 interface Session { token: string; apiBase: string }
 declare global { interface Window { __LOLVOICE__?: Partial<Session> } }
@@ -33,6 +33,9 @@ async function request<T>(path: string, method = 'GET', body?: unknown): Promise
   return response.json() as Promise<T>;
 }
 export const api = {
+  iconUrl: (profileId: string) => `${session.apiBase}/profiles/${encodeURIComponent(profileId)}/icon?token=${encodeURIComponent(session.token)}`,
+  installedProfiles: () => request<{ ids: string[] }>('/profiles/installed'),
+  modules: () => request<{ modules: ModuleInfo[] }>('/modules'),
   status: () => request<Status>('/status'),
   profiles: () => request<ProfilesDocument>('/profiles'),
   saveProfiles: (document: ProfilesDocument) => request<ProfilesDocument>('/profiles', 'PUT', document),

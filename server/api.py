@@ -20,7 +20,7 @@ from typing import Any
 
 from fastapi import Body, FastAPI, HTTPException, Request, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse, JSONResponse, Response
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field, ValidationError
 
@@ -405,6 +405,17 @@ def _register_routes(application: FastAPI) -> None:
     @application.post(f"{API_PREFIX}/commands/test")
     def test_command(payload: CommandTestRequest) -> dict:
         return require_service().test_command(payload.text)
+
+    @application.get(f"{API_PREFIX}/profiles/installed")
+    def installed_profiles() -> dict:
+        return {"ids": require_service().installed_profile_ids()}
+
+    @application.get(f"{API_PREFIX}/profiles/{{profile_id}}/icon")
+    def profile_icon(profile_id: str) -> Response:
+        icon = require_service().profile_icon(profile_id)
+        if icon is None:
+            raise HTTPException(status_code=404, detail="Brak ikony programu.")
+        return FileResponse(icon, media_type="image/png", headers={"Cache-Control": "private, max-age=3600"})
 
     @application.get(f"{API_PREFIX}/modules")
     def list_modules() -> dict:

@@ -5,7 +5,7 @@ import { LiveActivity } from './components/LiveActivity';
 import type { IconName } from './components/Icon';
 import { api } from './lib/api';
 import { activeProfile, busy, connection, downloads, error, patchSettings, profiles, retryNow, run, saveProfiles, settings, status, view } from './lib/state';
-import type { AudioDevice, CommandMode, Engine, Profile, TestResult, VoiceCommand } from './lib/types';
+import type { AudioDevice, CommandMode, Engine, ModuleInfo, Profile, TestResult, VoiceCommand } from './lib/types';
 import { keyLabel, languageName, languages, locale, t, translateMessage, uiLanguage } from './lib/i18n';
 import type { Language, TranslationKey } from './lib/i18n';
 
@@ -63,7 +63,10 @@ function Modal({title, onClose, children, wide}: {title:string;onClose:()=>void;
   </dialog>;
 }
 function ProfileMark({profile, large}: {profile:Profile;large?:boolean}) {
+  const [iconFailed, setIconFailed] = useState(false);
+  useEffect(() => setIconFailed(false), [profile.id]);
   const label = profile.game.toLowerCase();
+  if (!iconFailed && label!=='keyboard') return <span class={`profile-mark app-icon ${large?'large':''}`}><img src={api.iconUrl(profile.id)} alt="" loading="lazy" onError={()=>setIconFailed(true)}/></span>;
   if (label==='keyboard') return <span class={`profile-mark keyboard ${large?'large':''}`}><Icon name="keyboard" size={large?30:17}/></span>;
   const mark = label.includes('league') ? 'L' : label.includes('minecraft') ? 'M' : label.includes('counter') ? 'CS' : profile.name.slice(0,2).toUpperCase();
   return <span class={`profile-mark ${label.includes('minecraft') ? 'minecraft' : ''} ${large ? 'large' : ''}`}>{mark}</span>;
@@ -84,6 +87,19 @@ export function App() {
   const filteredProfiles = (profiles.value?.profiles??[]).filter(item=>profileLanguage==='all'||item.language===profileLanguage)
     .sort((a,b)=>Number(b.id.startsWith('basic-keyboard'))-Number(a.id.startsWith('basic-keyboard')));
   const online = connection.value === 'online';
+  useEffect(() => {
+    if (!online) return;
+    const timer = setInterval(() => { if (!document.hidden) void api.status().then(next => { status.value = next; }).catch(() => {}); }, 2000);
+    return () => clearInterval(timer);
+  }, [online]);
+  const inUseId = status.value?.effective_profile_id ?? profile?.id;
+  const [installedIds, setInstalledIds] = useState<string[]>([]);
+  useEffect(() => { if (online) void api.installedProfiles().then(r => setInstalledIds(r.ids)).catch(() => {}); }, [online, profiles.value?.profiles.length]);
+  const installedProfiles = filteredProfiles.filter(p => installedIds.includes(p.id));
+  const otherProfiles = filteredProfiles.filter(p => !installedIds.includes(p.id));
+  const profileButton = (p: Profile) => <button key={p.id} title={`${p.name} · ${languageName(p.language)}`} class={`profile-nav-item ${p.id===profile?.id ? 'active' : ''} ${p.id===inUseId ? 'in-use' : ''}`} onClick={()=>void selectProfile(p.id)} disabled={!online || busy.value}>
+    <ProfileMark profile={p}/><span>{profileName(p)}</span><span class="profile-language" title={languageName(p.language)}>{p.language.split('_')[0].toUpperCase()}</span>{p.id===inUseId && <span class="profile-dot" title={t('Teraz używany')}/>}
+  </button>;
   async function selectProfile(nextId: string) {
     if (!profiles.value || busy.value) return;
     if (nextId !== profiles.value.active_profile_id) await saveProfiles({...profiles.value,active_profile_id:nextId});
@@ -117,11 +133,7 @@ export function App() {
       <div class="sidebar-section">
         <div class="sidebar-label"><span>{t("PROFILE GIER")}</span><IconButton icon="plus" label={t("Dodaj profil")} disabled={!online || busy.value} onClick={()=>setProfileEditor('new')}/></div>
         <label class="profile-language-filter"><span>{t('Język profili')}</span><select aria-label={t('Język profili')} value={profileLanguage} onChange={e=>filterProfileLanguage(e.currentTarget.value as Language|'all')}><option value="all">{t('Wszystkie języki')}</option>{languages.map(item=><option key={item.id} value={item.id}>{item.label}</option>)}</select></label>
-        <nav class="profile-nav" aria-label={t("Profile gier")}>{filteredProfiles.map(p =>
-          <button key={p.id} title={`${p.name} · ${languageName(p.language)}`} class={`profile-nav-item ${p.id===profile?.id ? 'active' : ''}`} onClick={()=>void selectProfile(p.id)} disabled={!online || busy.value}>
-            <ProfileMark profile={p}/><span>{profileName(p)}</span><span class="profile-language" title={languageName(p.language)}>{p.language.split('_')[0].toUpperCase()}</span>{p.id===profile?.id && <span class="profile-dot"/>}
-          </button>
-        )}</nav>
+        <nav class="profile-nav" aria-label={t("Profile gier")}>{installedProfiles.length > 0 && <div class="profile-group">{t("Na tym komputerze")}</div>}{installedProfiles.map(profileButton)}{installedProfiles.length > 0 && otherProfiles.length > 0 && <div class="profile-group">{t("Pozostałe profile")}</div>}{otherProfiles.map(profileButton)}</nav>
         <button class="add-profile" onClick={()=>setProfileEditor('new')} disabled={!online || busy.value}><Icon name="plus" size={15}/>{t("Nowy profil")}</button>
       </div>
       <div class="sidebar-bottom">
@@ -187,12 +199,15 @@ function VoicePanel({profile,availableProfiles,onToggle,onSelectProfile,onProfil
     });
   }
   const engineId=cfg?.engine_id??status.value?.engine_id??'';
+  const inUseProfile=profiles.value?.profiles.find(p=>p.id===status.value?.effective_profile_id);
   return <section class={`voice-panel ${status.value?.listening?'listening':''}`} aria-label={t("Sterowanie głosem")}>
     <div class="voice-panel-state">
       <div class="voice-state-label"><span class="listening-indicator"><Icon name="mic" size={21}/></span><strong>{status.value?.listening?t("Nasłuch włączony"):t("Nasłuch wyłączony")}</strong></div>
+      {status.value?.dictating && <span class="dictation-badge"><Icon name="mic" size={13}/>{t('Dyktowanie włączone')}</span>}
       <span class="voice-panel-language">{languageName(profile.language)}</span>
       <Button primary={!status.value?.listening} icon={status.value?.listening?'pause':'play'} disabled={!online||busy.value} onClick={onToggle}>{busy.value?t("Chwila…"):status.value?.listening?t("Zatrzymaj nasłuch"):t("Włącz nasłuch")}</Button>
     </div>
+    {inUseProfile && inUseProfile.id!==profile.id && <div class="voice-auto"><ProfileMark profile={inUseProfile}/><span>{t('Teraz używany: {name}',{name:profileName(inUseProfile)})}</span>{status.value?.foreground && <span class="muted">{status.value.foreground}</span>}</div>}
     <div class="voice-panel-selectors">
       <label><span>{t("Profil")}</span><div class="voice-select-control"><select aria-label={t("Aktywny profil")} value={profile.id} disabled={!online||busy.value} onChange={e=>void onSelectProfile(e.currentTarget.value)}>{!availableProfiles.some(p=>p.id===profile.id)&&<optgroup label={t('Aktywny profil')}><option value={profile.id}>{profileOption(profile)}</option></optgroup>}{availableProfiles.map(p=><option key={p.id} value={p.id}>{profileOption(p)}</option>)}</select><IconButton icon="edit" label={t("Edytuj profil")} disabled={!online||busy.value} onClick={onProfileEdit}/></div></label>
       <label><span>{t("Model")}</span><div class="voice-select-control"><select aria-label={t("Model rozpoznawania")} value={engineId} disabled={!online||busy.value||!engines.length} onChange={e=>void switchEngine(e.currentTarget.value)}>{!engines.length&&<option value={engineId}>{status.value?.engine_name??t("Ładowanie…")}</option>}{engines.map(engine=><option key={engine.id} value={engine.id} disabled={!engine.installed}>{engine.name}{engine.installed?'':` · ${t('niepobrany')}`}</option>)}</select><IconButton icon="settings" label={t("Zarządzaj modelami")} onClick={()=>{view.value='settings';}}/></div></label>
@@ -391,14 +406,20 @@ function SettingsView() {
   const [engines,setEngines]=useState<Engine[]>([]);
   const [audioResult,setAudioResult]=useState('');
   const [audioBusy,setAudioBusy]=useState(false);
+  const [moduleList,setModuleList]=useState<ModuleInfo[]>([]);
   const cfg=settings.value;
   const online=connection.value==='online';
   useEffect(()=>{
     if(!online)return;
     let active=true;
     void Promise.all([api.devices(),api.engines()]).then(([d,e])=>{if(active){setDevices(d.devices);setEngines(e.engines);}}).catch(cause=>{error.value=String(cause);});
+    void api.modules().then(m=>{if(active)setModuleList(m.modules);}).catch(()=>{});
     return ()=>{active=false;};
-  },[online]);
+  },[online,cfg?.disabled_modules]);
+  async function toggleModule(module:ModuleInfo) {
+    const disabled=cfg?.disabled_modules??[];
+    await patchSettings({disabled_modules:module.enabled?[...disabled,module.id]:disabled.filter(id=>id!==module.id)});
+  }
   const completed=Object.entries(downloads.value).filter(([,d])=>d.done||d.cancelled||d.error).map(([key])=>key).join(',');
   useEffect(()=>{
     if(!online||!completed)return;
@@ -446,7 +467,11 @@ function SettingsView() {
         <label class="setting-row"><span>{t('Język interfejsu')}</span><select value={cfg.ui_language} disabled={!online||busy.value} onChange={e=>void patchSettings({ui_language:e.currentTarget.value as Language})}>{languages.map(item=><option key={item.id} value={item.id}>{item.label}</option>)}</select></label>
         <label class="setting-row"><span>{t("Motyw")}</span><select value={cfg.theme} disabled={!online||busy.value} onChange={e=>void patchSettings({theme:e.currentTarget.value as 'light'|'dark'|'system'})}><option value="light">{t("Jasny")}</option><option value="dark">{t("Ciemny")}</option><option value="system">{t("Systemowy")}</option></select></label>
         <div class="setting-row"><span>{t("Uruchamiaj z systemem Windows")}</span><Toggle checked={cfg.start_with_windows} label={t("Uruchamiaj z systemem Windows")} disabled={!online||busy.value} onChange={()=>void patchSettings({start_with_windows:!cfg.start_with_windows})}/></div>
+        <div class="setting-row"><span>{t("Wybieraj profil według aktywnego okna")}</span><Toggle checked={cfg.auto_profile} label={t("Wybieraj profil według aktywnego okna")} disabled={!online||busy.value} onChange={()=>void patchSettings({auto_profile:!cfg.auto_profile})}/></div>
         <div class="setting-row"><span>{t("Włącz nasłuch po uruchomieniu")}</span><Toggle checked={cfg.start_listening_on_launch} label={t("Włącz nasłuch po uruchomieniu")} disabled={!online||busy.value} onChange={()=>void patchSettings({start_listening_on_launch:!cfg.start_listening_on_launch})}/></div>
+      </section>
+      <section class="settings-section"><h2><Icon name="command"/>{t("Moduły")}</h2>
+        {moduleList.map(module=><div class="setting-row" key={module.id}><span>{module.name}{module.core&&<span class="muted"> · {t('Rdzeń aplikacji')}</span>}{module.reason==='policy'||module.reason==='policy-cloud'?<span class="muted"> · {t('Wyłączony przez organizację')}</span>:module.reason==='edition'?<span class="muted"> · {t('Niedostępny w tej edycji')}</span>:null}</span><Toggle checked={module.enabled} label={module.name} disabled={!online||busy.value||module.core||module.reason==='policy'||module.reason==='policy-cloud'||module.reason==='edition'} onChange={()=>void toggleModule(module)}/></div>)}
       </section>
     </div>}
   </>;

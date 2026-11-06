@@ -171,5 +171,15 @@
   "Język komend": "Мова команд",
   "Nie można wysłać przycisków do systemu.": "Не вдалося передати натискання кнопок у систему.",
   "Mikrofon jest niedostępny.": "Мікрофон недоступний.",
-  "Nie udało się zapisać profili.": "Не вдалося зберегти профілі."
+  "Nie udało się zapisać profili.": "Не вдалося зберегти профілі.",
+  "Teraz używany": "Зараз використовується",
+  "Teraz używany: {name}": "Зараз активний: {name}",
+  "Dyktowanie włączone": "Диктування увімкнено",
+  "Wybieraj profil według aktywnego okna": "Обирати профіль за активним вікном",
+  "Moduły": "Модулі",
+  "Rdzeń aplikacji": "Ядро застосунку",
+  "Wyłączony przez organizację": "Вимкнено вашою організацією",
+  "Niedostępny w tej edycji": "Недоступно в цій версії",
+  "Na tym komputerze": "На цьому комп'ютері",
+  "Pozostałe profile": "Інші профілі"
 }

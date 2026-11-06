@@ -171,5 +171,15 @@
   "Język komend": "Idioma de los comandos",
   "Nie można wysłać przycisków do systemu.": "No se pueden enviar pulsaciones al sistema.",
   "Mikrofon jest niedostępny.": "El micrófono no está disponible.",
-  "Nie udało się zapisać profili.": "No se pudieron guardar los perfiles."
+  "Nie udało się zapisać profili.": "No se pudieron guardar los perfiles.",
+  "Teraz używany": "En uso ahora",
+  "Teraz używany: {name}": "En uso ahora: {name}",
+  "Dyktowanie włączone": "Dictado activado",
+  "Wybieraj profil według aktywnego okna": "Elegir el perfil según la ventana activa",
+  "Moduły": "Módulos",
+  "Rdzeń aplikacji": "Núcleo de la app",
+  "Wyłączony przez organizację": "Desactivado por su organización",
+  "Niedostępny w tej edycji": "No incluido en esta edición",
+  "Na tym komputerze": "En este equipo",
+  "Pozostałe profile": "Otros perfiles"
 }

@@ -26,7 +26,7 @@ class Settings(BaseModel):
     theme: Literal["dark", "light", "system"] = "light"
     skipped_version: Optional[str] = None
     check_updates: bool = True
-    auto_profile: bool = False
+    auto_profile: bool = True
     disabled_modules: list[str] = []
 
     model_config = {"extra": "ignore"}

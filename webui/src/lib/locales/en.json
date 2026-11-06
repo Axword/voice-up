@@ -171,5 +171,15 @@
   "Język komend": "Command language",
   "Nie można wysłać przycisków do systemu.": "Cannot send button presses to the system.",
   "Mikrofon jest niedostępny.": "The microphone is unavailable.",
-  "Nie udało się zapisać profili.": "Could not save profiles."
+  "Nie udało się zapisać profili.": "Could not save profiles.",
+  "Teraz używany": "Currently in use",
+  "Teraz używany: {name}": "In use now: {name}",
+  "Dyktowanie włączone": "Dictation on",
+  "Wybieraj profil według aktywnego okna": "Pick the profile by the active window",
+  "Moduły": "Modules",
+  "Rdzeń aplikacji": "App core",
+  "Wyłączony przez organizację": "Disabled by your organization",
+  "Niedostępny w tej edycji": "Not in this edition",
+  "Na tym komputerze": "On this computer",
+  "Pozostałe profile": "Other profiles"
 }

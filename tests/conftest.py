@@ -44,6 +44,8 @@ def lolvoice_home(tmp_path, monkeypatch):
     from app import paths
 
     paths.ensure_dirs()
+    # The focused program on the developer's machine must not change which profile matches.
+    monkeypatch.setattr("controller.service.foreground_process", lambda: "")
     yield home
     _reset_app_state()
 

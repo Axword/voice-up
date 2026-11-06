@@ -171,5 +171,15 @@
   "Język komend": "Langue des commandes",
   "Nie można wysłać przycisków do systemu.": "Impossible d'envoyer les pressions de touches au système.",
   "Mikrofon jest niedostępny.": "Le microphone est indisponible.",
-  "Nie udało się zapisać profili.": "Impossible d'enregistrer les profils."
+  "Nie udało się zapisać profili.": "Impossible d'enregistrer les profils.",
+  "Teraz używany": "Actuellement utilisé",
+  "Teraz używany: {name}": "Utilisé maintenant : {name}",
+  "Dyktowanie włączone": "Dictée activée",
+  "Wybieraj profil według aktywnego okna": "Choisir le profil selon la fenêtre active",
+  "Moduły": "Modules",
+  "Rdzeń aplikacji": "Cœur de l'app",
+  "Wyłączony przez organizację": "Désactivé par votre organisation",
+  "Niedostępny w tej edycji": "Absent de cette édition",
+  "Na tym komputerze": "Sur cet ordinateur",
+  "Pozostałe profile": "Autres profils"
 }

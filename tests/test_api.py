@@ -39,6 +39,8 @@ SETTINGS_KEYS = {
 
 STATUS_KEYS = {
     "dictating",
+    "effective_profile_id",
+    "foreground",
     "listening",
     "active_profile_id",
     "profile_name",
@@ -485,3 +487,16 @@ def test_modules_endpoint(api_client, dummy_service):
     response = api_client.get(f"{API}/modules")
     assert response.status_code == 200
     assert {item["id"] for item in response.json()["modules"]} >= {"profile", "dictation", "mouse", "alias"}
+
+
+def test_installed_and_icon_endpoints(api_client, dummy_service, monkeypatch, tmp_path):
+    png = tmp_path / "icon.png"
+    png.write_bytes(b"\x89PNG\r\n\x1a\n")
+    from app import app_icons
+    monkeypatch.setattr(app_icons, "icon_for", lambda exes: png if "chrome.exe" in exes else None)
+    installed = api_client.get(f"{API}/profiles/installed").json()["ids"]
+    assert "google-chrome" in installed and "vlc" not in installed
+    ok = api_client.get(f"{API}/profiles/google-chrome/icon")
+    assert ok.status_code == 200 and ok.headers["content-type"] == "image/png"
+    assert api_client.get(f"{API}/profiles/vlc/icon").status_code == 404
+    assert api_client.get(f"{API}/profiles/nope/icon").status_code == 404
