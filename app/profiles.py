@@ -12,6 +12,7 @@ from typing import Annotated, Literal
 from pydantic import BaseModel, Field, field_validator, model_validator
 
 from app import paths
+from app.app_icons import valid_exe
 from app.config import Language
 from controls.key_controller import normalize_key
 
@@ -69,6 +70,13 @@ class Profile(BaseModel):
     commands: Annotated[list[VoiceCommand], Field(max_length=500)] = Field(default_factory=list)
 
     model_config = {"extra": "forbid", "str_strip_whitespace": True}
+
+    @field_validator("apps")
+    @classmethod
+    def program_names(cls, values: list[str]) -> list[str]:
+        # Older files may hold names like "notepad"; ignore what cannot be an executable name
+        # instead of making the whole profile document unreadable.
+        return [value for value in values if valid_exe(value)]
 
     @model_validator(mode="after")
     def unique_commands(self) -> Profile:

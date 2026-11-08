@@ -43,7 +43,7 @@ def current_edition() -> Edition:
     try:
         data = json.loads((paths.CONFIG_DIR / "license.json").read_text(encoding="utf-8-sig"))
         edition = data.get("edition")
-        return edition if edition in _RANK else "free"
+        return edition if isinstance(edition, str) and edition in _RANK else "free"
     except (OSError, ValueError, AttributeError):
         return "free"
 

@@ -84,10 +84,12 @@ def test_focused_program_selects_its_profile_in_the_same_language(monkeypatch):
     service = make_service(outlook, english)
     service._settings = config.Settings(auto_profile=True)
     monkeypatch.setattr("controller.service.foreground_process", lambda: "outlook.exe")
-    assert service.test_command("wyślij")["matched"]
-    assert not service.test_command("send")["matched"]
+    service.handle_transcript("wyślij")
+    service.handle_transcript("send")
+    assert service._key_controller.calls == [("keys", ("send", ["ctrl", "enter"], "click", 3000))]
     monkeypatch.setattr("controller.service.foreground_process", lambda: "notepad.exe")
-    assert not service.test_command("wyślij")["matched"]
+    service.handle_transcript("wyślij")
+    assert len(service._key_controller.calls) == 1
 
 
 def test_auto_profile_can_be_disabled(monkeypatch):
@@ -97,7 +99,8 @@ def test_auto_profile_can_be_disabled(monkeypatch):
     service = make_service(outlook)
     monkeypatch.setattr("controller.service.foreground_process", lambda: "outlook.exe")
     service._settings = config.Settings(auto_profile=False)
-    assert not service.test_command("wyślij")["matched"]
+    service.handle_transcript("wyślij")
+    assert service._key_controller.calls == []
 
 
 def test_office_library_ships_with_program_names():
@@ -124,7 +127,7 @@ def test_heard_event_and_teaching_use_the_profile_that_is_in_effect(monkeypatch)
     events = []
     service.set_event_sink(events.append)
     monkeypatch.setattr("controller.service.foreground_process", lambda: "winword.exe")
-    service.teach_alias("pogrup", "bold")
+    service.teach_alias("pogrup", "bold", "word")
     service.handle_transcript("pogrup")
     heard = next(e for e in events if e["type"] == "heard")
     assert heard["profile_id"] == "word" and heard["command_id"] == "bold" and heard["executed"]

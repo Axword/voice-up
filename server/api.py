@@ -40,12 +40,13 @@ _service_lock = threading.Lock()
 
 
 class CommandTestRequest(BaseModel):
-    text: str = Field(min_length=1, max_length=500)
+    text: str = Field(min_length=1, max_length=200)
 
 
 class TeachRequest(BaseModel):
-    text: str = Field(min_length=1, max_length=500)
+    text: str = Field(min_length=1, max_length=200)
     command_id: str = Field(min_length=1, max_length=100)
+    profile_id: str | None = Field(default=None, max_length=100)
 
 
 class AudioTestRequest(BaseModel):
@@ -167,6 +168,41 @@ def _is_loopback(request_client: Any | None) -> bool:
     return False
 
 
+LOOPBACK_NAMES = frozenset({"127.0.0.1", "localhost", "::1"})
+
+
+def _hostname(value: str) -> str:
+    """Host without port, for `host:port`, `[::1]:port` and bare names."""
+    value = value.strip().lower()
+    if value.startswith("["):
+        return value[1:].split("]", 1)[0]
+    return value.rsplit(":", 1)[0] if value.count(":") == 1 else value
+
+
+def _browser_origin_ok(headers: Any, client: Any | None) -> bool:
+    """Reject DNS-rebinding and cross-site pages: Host and Origin must name this machine.
+
+    In-process test transports have no client and are exempt, as in `_is_loopback`.
+    """
+    if client is None:
+        return True
+    host = headers.get("host")
+    if host is not None and _hostname(host) not in LOOPBACK_NAMES:
+        return False
+    origin = headers.get("origin")
+    if origin is not None and origin != "null":
+        from urllib.parse import urlsplit
+
+        if (urlsplit(origin).hostname or "") not in LOOPBACK_NAMES:
+            return False
+    return True
+
+
+def _token_matches(given: str, expected: str) -> bool:
+    # compare_digest raises on non-ASCII str, and the query string is attacker-controlled.
+    return secrets.compare_digest(given.encode("utf-8"), expected.encode("utf-8"))
+
+
 def _token_of(request: Request) -> str:
     header = request.headers.get(TOKEN_HEADER)
     if header:
@@ -225,16 +261,22 @@ def create_app(port: int | None = None, token: str | None = None, on_quit: Calla
 
     @application.middleware("http")
     async def guard(request: Request, call_next):  # type: ignore[no-untyped-def]
-        if not _is_loopback(request.client):
+        if not _is_loopback(request.client) or not _browser_origin_ok(request.headers, request.client):
             log.warning("Rejected a request from %s", getattr(request.client, "host", "unknown"))
             return JSONResponse({"detail": "Forbidden"}, status_code=403)
         path = request.url.path
         if path.startswith(API_PREFIX) and request.method != "OPTIONS":
             expected = application.state.token or ""
             given = _token_of(request)
-            if not expected or not secrets.compare_digest(given, expected):
+            if not expected or not _token_matches(given, expected):
                 return JSONResponse({"detail": "Unauthorized"}, status_code=401)
-        return await call_next(request)
+        response = await call_next(request)
+        # The panel must not be framed by another site, and the page that carries the token is never cached.
+        response.headers["X-Frame-Options"] = "DENY"
+        response.headers["Content-Security-Policy"] = "frame-ancestors 'none'"
+        if path == "/":
+            response.headers["Cache-Control"] = "no-store"
+        return response
 
     widened = trusted_hosts() - LOOPBACK_HOSTS
     if widened:
@@ -424,11 +466,13 @@ def _register_routes(application: FastAPI) -> None:
     @application.post(f"{API_PREFIX}/commands/teach")
     def teach_command(payload: TeachRequest) -> dict:
         try:
-            return require_service().teach_alias(payload.text, payload.command_id)
+            return require_service().teach_alias(payload.text, payload.command_id, payload.profile_id)
         except KeyError as exc:
             raise HTTPException(status_code=404, detail="Nie ma takiej komendy w aktywnym profilu.") from exc
         except ValueError as exc:
             raise HTTPException(status_code=422, detail=str(exc)) from exc
+        except OSError as exc:
+            raise HTTPException(status_code=503, detail="Nie można odczytać zapisanych poprawek.") from exc
 
     @application.post(f"{API_PREFIX}/keys/release")
     def release_keys() -> dict:
@@ -490,12 +534,12 @@ def _register_routes(application: FastAPI) -> None:
 
     @application.websocket("/ws/status")
     async def status_socket(websocket: WebSocket) -> None:
-        if not _is_loopback(websocket.client):
+        if not _is_loopback(websocket.client) or not _browser_origin_ok(websocket.headers, websocket.client):
             await websocket.close(code=4403)
             return
         expected = application.state.token or ""
         given = websocket.query_params.get("token", "") or websocket.headers.get(TOKEN_HEADER, "")
-        if not expected or not secrets.compare_digest(given, expected):
+        if not expected or not _token_matches(given, expected):
             await websocket.close(code=4401)
             return
         await ws.status_endpoint(websocket)

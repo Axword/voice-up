@@ -50,7 +50,7 @@ class Hub:
         log.info("Panel connected, %s client(s)", len(self._clients))
         if self._ticker is None or self._ticker.done():
             self._ticker = asyncio.create_task(self._status_loop())
-        await self._send(websocket, self._status_frame())
+        await self._send(websocket, await asyncio.to_thread(self._status_frame))
 
     def disconnect(self, websocket: WebSocket) -> None:
         self._clients.discard(websocket)
@@ -104,7 +104,8 @@ class Hub:
                 await asyncio.sleep(STATUS_INTERVAL_SECONDS)
                 if not self._clients:
                     break
-                await self.broadcast_async(self._status_frame())
+                # status() takes the service lock; keep that wait off the event loop.
+                await self.broadcast_async(await asyncio.to_thread(self._status_frame))
         except asyncio.CancelledError:
             raise
         except Exception as exc:

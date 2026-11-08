@@ -44,6 +44,17 @@ def lolvoice_home(tmp_path, monkeypatch):
     from app import paths
 
     paths.ensure_dirs()
+    # The API only answers requests addressed to this machine (anti DNS-rebinding), so test
+    # clients talk to 127.0.0.1 instead of Starlette's default "testserver" host.
+    from fastapi.testclient import TestClient
+
+    original_init = TestClient.__init__
+
+    def init(self, *args, **kwargs):
+        kwargs.setdefault("base_url", "http://127.0.0.1")
+        original_init(self, *args, **kwargs)
+
+    monkeypatch.setattr(TestClient, "__init__", init)
     # The focused program on the developer's machine must not change which profile matches.
     monkeypatch.setattr("controller.service.foreground_process", lambda: "")
     yield home

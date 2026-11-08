@@ -126,20 +126,20 @@ def test_profile_endpoints_require_authentication(api_app, path):
 
 def test_socket_rejects_an_invalid_token(api_app):
     with TestClient(api_app) as client:
-        with pytest.raises(WebSocketDisconnect) as error, client.websocket_connect("/ws/status?token=wrong"):
+        with pytest.raises(WebSocketDisconnect) as error, client.websocket_connect("/ws/status?token=wrong", headers={"host": "127.0.0.1"}):
             pass
         assert error.value.code == 4401
 
 
 def test_socket_rejects_a_non_loopback_client(api_app):
     with TestClient(api_app, client=("203.0.113.7", 4444)) as client:
-        with pytest.raises(WebSocketDisconnect) as error, client.websocket_connect(f"/ws/status?token={TOKEN}"):
+        with pytest.raises(WebSocketDisconnect) as error, client.websocket_connect(f"/ws/status?token={TOKEN}", headers={"host": "127.0.0.1"}):
             pass
         assert error.value.code == 4403
 
 
 def test_authenticated_socket_receives_the_status(api_app):
-    with TestClient(api_app) as client, client.websocket_connect(f"/ws/status?token={TOKEN}") as socket:
+    with TestClient(api_app) as client, client.websocket_connect(f"/ws/status?token={TOKEN}", headers={"host": "127.0.0.1"}) as socket:
         frame = socket.receive_json()
         assert frame["type"] == "status"
         assert set(frame) >= STATUS_KEYS
@@ -500,3 +500,43 @@ def test_installed_and_icon_endpoints(api_client, dummy_service, monkeypatch, tm
     assert ok.status_code == 200 and ok.headers["content-type"] == "image/png"
     assert api_client.get(f"{API}/profiles/vlc/icon").status_code == 404
     assert api_client.get(f"{API}/profiles/nope/icon").status_code == 404
+
+
+def test_requests_addressed_to_another_host_are_refused(api_app):
+    """DNS rebinding: a page on evil.example resolving to 127.0.0.1 must not read the token."""
+    with TestClient(api_app) as client:
+        page = client.get("/", headers={"host": "evil.example:21337"})
+        assert page.status_code == 403 and TOKEN not in page.text
+        assert client.get(f"{API}/status", headers={"X-Auth-Token": TOKEN, "host": "evil.example"}).status_code == 403
+        assert client.get(f"{API}/status", headers={"X-Auth-Token": TOKEN, "host": "localhost:5173"}).status_code == 200
+
+
+def test_cross_site_origin_is_refused_and_foreign_sockets_too(api_app):
+    with TestClient(api_app) as client:
+        refused = client.post(f"{API}/keys/release", headers={"X-Auth-Token": TOKEN, "origin": "https://evil.example"})
+        assert refused.status_code == 403
+        allowed = client.post(f"{API}/keys/release", headers={"X-Auth-Token": TOKEN, "origin": "http://localhost:5173"})
+        assert allowed.status_code == 200
+        with pytest.raises(WebSocketDisconnect) as error, client.websocket_connect(
+            f"/ws/status?token={TOKEN}", headers={"host": "127.0.0.1", "origin": "https://evil.example"}
+        ):
+            pass
+        assert error.value.code == 4403
+
+
+def test_non_ascii_token_is_unauthorized_not_a_server_error(api_app):
+    with TestClient(api_app) as client:
+        assert client.get(f"{API}/status?token=%C3%A9").status_code == 401
+        with pytest.raises(WebSocketDisconnect) as error, client.websocket_connect(
+            "/ws/status?token=%C3%A9", headers={"host": "127.0.0.1"}
+        ):
+            pass
+        assert error.value.code == 4401
+
+
+def test_panel_page_is_not_cached_or_frameable(api_app):
+    with TestClient(api_app) as client:
+        page = client.get("/")
+        assert page.headers["cache-control"] == "no-store"
+        assert page.headers["x-frame-options"] == "DENY"
+

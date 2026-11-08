@@ -26,6 +26,8 @@ from controls.key_controller import KeyController
 
 log = get_logger("service")
 EventSink = Callable[[dict], None]
+INSTALLED_TTL = 60.0
+MAX_ICON_LOOKUPS = 60
 TranscriberFn = Callable[[bytes], str]
 
 
@@ -45,6 +47,9 @@ class VoiceService:
         self._last_heard: str | None = None
         self._last_error: str | None = None
         self.update_available = False
+        self._installed_lock = threading.Lock()
+        self._last_profile_id: str | None = None
+        self._installed_cache: tuple[float, list[str]] | None = None
         self._dictation = DictationRouter()
         self._pipeline = Pipeline(
             routers=[self._dictation, aliases.AliasRouter(), ProfileRouter(), MouseRouter()],
@@ -177,6 +182,8 @@ class VoiceService:
         context = RouteContext(profile, self.settings.matching_threshold)
         # A preview must neither start dictation nor be swallowed by it.
         exclude = modules.inactive_ids(self.settings.disabled_modules)
+        if "dictation" in exclude:
+            self._dictation.active = False
         if preview:
             exclude |= {"dictation"}
         return self._pipeline.route(text, context, exclude)
@@ -188,6 +195,8 @@ class VoiceService:
             return active
         program = foreground_process()
         if not program:
+            return active
+        if program in apps_for(active):
             return active
         same_language = [p for p in self.document.profiles if p.language == active.language]
         # Profiles that name their program explicitly beat the built-in mapping.
@@ -203,11 +212,19 @@ class VoiceService:
         """Profiles whose program is installed or running here (its icon could be read)."""
         from concurrent.futures import ThreadPoolExecutor
 
-        with self._lock:
-            candidates = [(p.id, apps_for(p)) for p in self.document.profiles if apps_for(p)]
-        with ThreadPoolExecutor(max_workers=8) as pool:
-            found = list(pool.map(lambda item: app_icons.icon_for(item[1]) is not None, candidates))
-        return [pid for (pid, _), ok in zip(candidates, found) if ok]
+        with self._installed_lock:
+            cached = self._installed_cache
+            if cached is not None and time.monotonic() - cached[0] < INSTALLED_TTL:
+                return list(cached[1])
+            with self._lock:
+                profile_apps = [(p.id, apps_for(p)) for p in self.document.profiles if apps_for(p)]
+            # Profile files can name many programs; look each one up once and only so many.
+            programs = list(dict.fromkeys(exe for _, exes in profile_apps for exe in exes))[:MAX_ICON_LOOKUPS]
+            with ThreadPoolExecutor(max_workers=8) as pool:
+                found = dict(zip(programs, pool.map(lambda exe: app_icons.icon_for((exe,)) is not None, programs)))
+            ids = [pid for pid, exes in profile_apps if any(found.get(exe) for exe in exes)]
+            self._installed_cache = (time.monotonic(), ids)
+            return list(ids)
 
     def profile_icon(self, profile_id: str):
         """Path of the program icon for a profile, or None."""
@@ -217,11 +234,16 @@ class VoiceService:
             return None
         return app_icons.icon_for(apps_for(profile))
 
-    def teach_alias(self, text: str, command_id: str) -> dict:
-        """Remember that `text` (a mishearing) means a command of the active profile."""
+    def teach_alias(self, text: str, command_id: str, profile_id: str | None = None) -> dict:
+        """Remember that `text` (a mishearing) means a command of a profile.
+
+        Defaults to the profile selected in the panel, not the one a focused program may have
+        switched to; the `heard` event names the profile that actually matched, so pass that id.
+        """
         with self._lock:
-            profile = self._effective_profile()
-            if not any(command.id == command_id for command in profile.commands):
+            profile = next((p for p in self.document.profiles if p.id == profile_id), None) \
+                if profile_id else self.document.active_profile
+            if profile is None or not any(command.id == command_id for command in profile.commands):
                 raise KeyError(command_id)
             aliases.teach(
                 profile.id, text, command_id,
@@ -232,7 +254,8 @@ class VoiceService:
     def test_command(self, text: str) -> dict:
         """Match a phrase without recording audio or sending any system input."""
         with self._lock:
-            profile = self._effective_profile()
+            # The panel previews the profile it shows, even while another program has the focus.
+            profile = self.document.active_profile
             intent = self._route(text, profile, preview=True)
             command = intent.command if intent else None
             return {
@@ -249,6 +272,10 @@ class VoiceService:
         with self._lock:
             self._last_heard = cleaned
             profile = self._effective_profile()
+            if self._last_profile_id is not None and profile.id != self._last_profile_id \
+                    and self._key_controller is not None:
+                self._key_controller.release_all()
+            self._last_profile_id = profile.id
             intent = self._route(text, profile)
             action = intent.action if intent else None
             command = intent.command if intent else None
@@ -264,7 +291,9 @@ class VoiceService:
                 if executed:
                     self._last_command = cleaned
                     self._last_error = None
-                    log.info("Executed '%s' -> %s via %s", cleaned, intent.label or type(action).__name__, intent.source)
+                    # Dictated text is private: log what ran, not what was said.
+                    shown = "(dictation)" if intent.source == "dictation" else cleaned
+                    log.info("Executed '%s' -> %s via %s", shown, intent.label if intent.source != "dictation" else "typed text", intent.source)
                 else:
                     self._last_error = self._last_error or "Nie można wysłać przycisków do systemu."
             self._emit({
@@ -311,19 +340,25 @@ class VoiceService:
             with self._lock:
                 if self.listening:
                     return True
-                try:
+            started, error = False, None
+            try:
+                with self._lock:
                     # Validate persisted profiles before starting the microphone.
                     _ = self.document
                     self._synchronize_profile_language()
-                    controller = self._ensure_controller()
-                    self._listening = bool(controller.start_listening() and controller.is_listening)
-                    self._last_error = None if self._listening else "Mikrofon jest niedostępny."
-                except Exception as exc:
-                    self._listening = False
-                    self._last_error = str(exc)
-                    if self._key_controller is not None:
-                        self._key_controller.release_all()
-                    self._emit_log("error", f"Could not start listening: {exc}")
+                # Loading the speech model and opening the stream take seconds; the service lock
+                # stays free meanwhile so status calls and the panel keep answering.
+                controller = self._ensure_controller()
+                started = bool(controller.start_listening() and controller.is_listening)
+                error = None if started else "Mikrofon jest niedostępny."
+            except Exception as exc:
+                error = str(exc)
+                self._emit_log("error", f"Could not start listening: {exc}")
+            with self._lock:
+                self._listening = started
+                self._last_error = error
+                if error and self._key_controller is not None:
+                    self._key_controller.release_all()
             self._emit_status()
             return self._listening
 

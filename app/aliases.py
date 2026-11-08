@@ -20,16 +20,28 @@ def _file():
     return paths.CONFIG_DIR / "aliases.json"
 
 
-def load() -> dict[str, dict[str, str]]:
+def load(strict: bool = False) -> dict[str, dict[str, str]]:
+    """Saved corrections. With `strict`, an unreadable file raises instead of looking empty, so a
+    transient lock by an antivirus can never lead to the file being rewritten without its content."""
     with _lock:
         target = _file()
         if not target.is_file():
             return {}
         try:
             data = json.loads(target.read_text(encoding="utf-8-sig"))
-        except (OSError, ValueError):
+        except OSError:
+            if strict:
+                raise
             return {}
-        return data if isinstance(data, dict) else {}
+        except ValueError:
+            return {}
+        if not isinstance(data, dict):
+            return {}
+        # A hand-edited or damaged file must not break every utterance: keep only well-formed entries.
+        return {
+            profile_id: {str(heard): command for heard, command in entries.items() if isinstance(command, str)}
+            for profile_id, entries in data.items() if isinstance(entries, dict)
+        }
 
 
 def teach(profile_id: str, heard: str, command_id: str, existing_phrases: frozenset[str] = frozenset()) -> None:
@@ -39,7 +51,7 @@ def teach(profile_id: str, heard: str, command_id: str, existing_phrases: frozen
     if phrase in existing_phrases:
         raise ValueError("Ta fraza jest już komendą w profilu.")
     with _lock:
-        data = load()
+        data = load(strict=True)
         entries = data.setdefault(profile_id, {})
         if phrase not in entries and len(entries) >= MAX_ALIASES_PER_PROFILE:
             raise ValueError("Za dużo zapamiętanych poprawek w tym profilu.")
@@ -61,6 +73,10 @@ class AliasRouter:
             return None
         command = next((c for c in context.profile.commands if c.id == command_id and c.enabled), None)
         if command is None:
+            return None
+        # A phrase that became a real command later is that command, not the old correction.
+        heard = normalize_phrase(text)
+        if any(normalize_phrase(c.phrase) == heard for c in context.profile.commands if c.enabled):
             return None
         action = KeyAction(command.id, tuple(command.keys), command.mode, command.duration_ms)
         return Intent(action, self.name, 1.0, command, label=text)

@@ -2,13 +2,14 @@
 
 Location: %PROGRAMDATA%/AxwordVoice/policy.json, or the path in VOICE_CONTROL_POLICY.
 Keys: `cloud_enabled` (false blocks every module that talks to the internet) and
-`disabled_modules` (ids that users cannot enable). A missing or invalid file means no restrictions.
+`disabled_modules` (ids that users cannot enable). A missing file means no restrictions; an unreadable one keeps cloud modules off.
 """
 
 from __future__ import annotations
 
 import json
 import os
+import sys
 from pathlib import Path
 
 from pydantic import BaseModel, Field, ValidationError
@@ -26,7 +27,9 @@ class Policy(BaseModel):
 
 
 def policy_file() -> Path:
-    override = os.environ.get("VOICE_CONTROL_POLICY")
+    # A user-level environment variable would let any user point the policy elsewhere, so the
+    # shipped (frozen) application ignores it.
+    override = None if getattr(sys, "frozen", False) else os.environ.get("VOICE_CONTROL_POLICY")
     if override:
         return Path(override)
     return Path(os.environ.get("PROGRAMDATA", r"C:\ProgramData")) / "AxwordVoice" / "policy.json"
@@ -39,6 +42,7 @@ def load() -> Policy:
             return Policy()
         return Policy.model_validate(json.loads(target.read_text(encoding="utf-8-sig")))
     except (OSError, ValueError, ValidationError) as exc:
-        # An unreadable policy must not lock users out of the local core.
-        log.warning("Ignoring invalid policy file %s: %s", target, exc)
-        return Policy()
+        # The local core keeps working, but an administrator's file that cannot be read must not
+        # silently re-enable cloud modules.
+        log.warning("Invalid policy file %s, cloud modules stay off: %s", target, exc)
+        return Policy(cloud_enabled=False)

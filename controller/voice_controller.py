@@ -132,6 +132,8 @@ class VoiceController:
 
         self.SILENCE_CHUNKS_THRESHOLD = 3
         self.MIN_SPEECH_CHUNKS = 2
+        # Music or a hot microphone must not grow one utterance without bound (8 s of 20 ms chunks).
+        self.MAX_SPEECH_CHUNKS = 400
 
         self.transcriber = transcriber or Transcriber()
         self.on_text = on_text
@@ -209,6 +211,14 @@ class VoiceController:
         try:
             audio_bytes = indata.tobytes()
             is_speech = self.vad.is_speech(audio_bytes, self.SAMPLE_RATE)
+
+            if self.triggered and len(self.speech_buffer) >= self.MAX_SPEECH_CHUNKS:
+                if not self.audio_queue.full():
+                    self.audio_queue.put_nowait(b"".join(self.speech_buffer))
+                self.speech_buffer.clear()
+                self.triggered = False
+                self.silence_counter = 0
+                self.speech_counter = 0
 
             if self.triggered:
                 self.speech_buffer.append(audio_bytes)

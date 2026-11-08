@@ -8,6 +8,7 @@ faster_whisper, numpy) siedza w metodach, zeby modul dal sie zaimportowac w CI.
 from __future__ import annotations
 
 import re
+import threading
 import zlib
 from typing import Any
 
@@ -15,13 +16,19 @@ from app import engines
 from app.logging_setup import get_logger
 
 log = get_logger("transcriber")
+_decode_lock = threading.Lock()
 
 _CLEAN_PATTERN = re.compile(r"[^\w\sąćęłńóśźż]")
 
 
 def clean_text(text: str) -> str:
-    """Male litery, bez interpunkcji, bez bialych znakow na brzegach."""
-    return _CLEAN_PATTERN.sub("", (text or "").lower().strip()).strip()
+    """Male litery, bez interpunkcji, pojedyncze spacje.
+
+    Interpunkcja staje sie spacja, tak jak w profiles.normalize_phrase, wiec "e-mail" pasuje do
+    komendy "e mail", a "3,5" nie zamienia sie w "35". Znaki nowej linii i tabulatory znikaja,
+    wiec dyktowanie nigdy nie wcisnie Enter ani Tab.
+    """
+    return " ".join(_CLEAN_PATTERN.sub(" ", (text or "").lower()).split())
 
 
 # Whisper decoding loops ("wydaje sie ze to jest to ze to jest ...") on silence or unreadable audio.
@@ -30,7 +37,14 @@ MAX_WORDS_PER_SECOND = 6.0
 MAX_COMPRESSION_RATIO = 2.4  # the same limit Whisper itself uses for its fallback
 
 
+# Phrases Whisper invents from noise (subtitle credits it saw in training), seen in real use.
+KNOWN_ARTEFACTS = ("dziękuję za oglądanie", "dzięki za oglądanie", "thanks for watching",
+                   "thank you for watching", "napisy stworzone przez")
+
+
 def is_hallucination(text: str, seconds: float) -> bool:
+    if text.startswith(KNOWN_ARTEFACTS):
+        return True
     words = text.split()
     if len(words) < 4:
         return False
@@ -147,6 +161,18 @@ class Transcriber:
             self.load()
         lang = whisper_language(language)
 
+        # One decode at a time: a panel edit or microphone test must not run a second
+        # transcription on the same model while the live one is still going.
+        with _decode_lock:
+            text = self._decode(audio, lang)
+        cleaned = clean_text(text)
+        seconds = len(audio) / 16000
+        if is_hallucination(cleaned, seconds):
+            log.warning("Dropped a looping transcript (%d chars for %.1f s of audio)", len(cleaned), seconds)
+            return ""
+        return cleaned
+
+    def _decode(self, audio, lang: str) -> str:
         if self.backend == "pywhispercpp":
             result = self.model.transcribe(audio, language=lang)
             segments = result[0] if isinstance(result, tuple) else result
@@ -166,10 +192,4 @@ class Transcriber:
             text = "".join(segment.text for segment in segments)
         else:
             raise RuntimeError("Transcriber not loaded")
-
-        cleaned = clean_text(text)
-        seconds = len(audio) / 16000
-        if is_hallucination(cleaned, seconds):
-            log.warning("Dropped a looping transcript (%d chars for %.1f s of audio)", len(cleaned), seconds)
-            return ""
-        return cleaned
+        return text

@@ -6,7 +6,7 @@ Aplikacja działa lokalnie: Python rozpoznaje mowę i steruje wejściami systemo
 
 `app.paths` wskazuje katalogi konfiguracji, modeli, logów i danych. `LOLVOICE_HOME` przekierowuje je do jednego katalogu, m.in. w testach i wydaniu portable. Zachowanie tej zmiennej i nazwy danych zapewnia zgodność z wcześniejszym wydaniem.
 
-`app.config.Settings` zawiera: `auto_profile`, `language`, `ui_language`, `engine_id`, `matching_threshold`, `audio_device`, `start_with_windows`, `start_listening_on_launch`, `theme`, `skipped_version`, `check_updates`. Domyślny motyw to `light`. Starsze pola dotyczące bohaterów, zaklęć, liter i sekwencji są ignorowane przy migracji.
+`app.config.Settings` zawiera: `auto_profile`, `disabled_modules`, `language`, `ui_language`, `engine_id`, `matching_threshold`, `audio_device`, `start_with_windows`, `start_listening_on_launch`, `theme`, `skipped_version`, `check_updates`. Domyślny motyw to `light`. Starsze pola dotyczące bohaterów, zaklęć, liter i sekwencji są ignorowane przy migracji.
 
 Profile są oddzielnym dokumentem JSON. Każdy profil identyfikuje grę i zawiera niezależne komendy:
 
@@ -61,7 +61,7 @@ Tryby: `click` naciska i puszcza zestaw przycisków, `timed` puszcza go po `dura
 
 ### Początkowa biblioteka i migracja
 
-Pełny katalog dostarczają cztery tablice JSON w `data/`: `profile-library-core.json`, `profile-library-games.json`, `profile-library-sim.json` i `profile-library-baseline.json`. Nowe dane użytkownika otrzymują cały katalog. Kolejność profili w plikach pozostaje kolejnością początkową. Panel sortuje profil podstawowej klawiatury na początek i filtruje listę według języka, zapamiętując filtr w przeglądarce. Profil podstawowy zawiera pojedyncze kliknięcia klawiszy oraz osobne komendy z fonetycznymi nazwami liter i cyfr.
+Pełny katalog dostarcza pięć tablic JSON w `data/`: `profile-library-core.json`, `profile-library-games.json`, `profile-library-sim.json`, `profile-library-baseline.json` i `profile-library-office.json`. Nowe dane użytkownika otrzymują cały katalog. Kolejność profili w plikach pozostaje kolejnością początkową. Panel sortuje profil podstawowej klawiatury na początek i filtruje listę według języka, zapamiętując filtr w przeglądarce. Profil podstawowy zawiera pojedyncze kliknięcia klawiszy oraz osobne komendy z fonetycznymi nazwami liter i cyfr.
 
 `app.profiles.synchronize_library(document)` dopisuje wyłącznie brakujące profile o identyfikatorach katalogowych, których ta instalacja wcześniej nie widziała. Nie zmienia istniejących profili, komend, kolejności ani `active_profile_id`. Pierwsze rozszerzenie istniejącego dokumentu zachowuje jego dokładną kopię w `profiles.before-library.json`.
 
@@ -132,6 +132,12 @@ Nieprawidłowy token daje HTTP 401, niedopuszczony adres HTTP 403, a niedostępn
 ## WebSocket
 
 `/ws/status` wymaga tego samego tokenu i dozwolonego adresu klienta. Ramki mają `type`: `status`, `heard`, `download`, `log`, `update`. Status zawiera te same pola co REST. `heard` opisuje rozpoznany tekst i dopasowane klawisze; podgląd `/commands/test` nie generuje wejść systemowych.
+
+## Bezpieczeństwo panelu
+
+Panel odpowiada tylko na żądania zaadresowane do tego komputera: nagłówek `Host` musi wskazywać `127.0.0.1`, `localhost` lub `::1` (dowolny port), a `Origin`, jeśli jest, musi mieć taką samą nazwę (ochrona przed DNS rebinding i obcymi stronami; dotyczy też `/ws/status`). Odpowiedzi mają `X-Frame-Options: DENY`, a strona z tokenem `Cache-Control: no-store`. Token nie trafia do adresów: przeglądarka otwiera `/`, a ikony są pobierane z nagłówkiem. Tekst dyktowania nie jest zapisywany w logach.
+
+Wczytywanie ustawień pomija wartości, których ta wersja nie akceptuje (np. dawny kod języka), zamiast przerywać start. Polityka (`policy.json`), której nie da się odczytać, wyłącza moduły chmurowe. `Profile.apps` ignoruje wpisy, które nie są nazwą pliku `.exe`.
 
 ## Panel
 

@@ -124,8 +124,9 @@ def start_session(port: int | None = None, token: str | None = None) -> RuntimeI
     return write_runtime(chosen_port, token or generate_token())
 
 
-def panel_url(info: RuntimeInfo | None = None, with_token: bool = True) -> str:
-    """URL the browser should open. Includes the token so nothing is copied by hand."""
+def panel_url(info: RuntimeInfo | None = None, with_token: bool = False) -> str:
+    """URL the browser should open. The panel gets its token from the page itself, so none is put
+    in the URL (it would end up in history, sync and access logs)."""
     target = info or current() or read_runtime()
     if target is None:
         return f"http://{HOST}:{PREFERRED_PORT}/"

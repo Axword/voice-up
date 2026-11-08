@@ -29,7 +29,8 @@ def test_old_profile_without_apps_still_switches_by_program(monkeypatch):
     service = make_service(chrome)
     service._settings = config.Settings(auto_profile=True)
     monkeypatch.setattr("controller.service.foreground_process", lambda: "chrome.exe")
-    assert service.test_command("nowa karta")["matched"]
+    service.handle_transcript("nowa karta")
+    assert service._key_controller.calls == [("keys", ("c0", ["r"], "click", 3000))]
     assert service.status()["effective_profile_id"] == "google-chrome"
 
 
@@ -67,3 +68,28 @@ def test_icon_cache_lives_under_the_app_cache_directory():
     from app import paths
 
     assert Path(app_icons._cache_file("Chrome.exe")).parent.parent == paths.CACHE_DIR
+
+
+def test_concurrent_lookups_of_one_program_extract_it_once(monkeypatch):
+    import threading
+    import time
+
+    calls = []
+
+    def slow_extract(exe, target):
+        calls.append(exe)
+        time.sleep(0.2)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(b"png")
+        return True
+
+    monkeypatch.setattr(app_icons, "_extract", slow_extract)
+    monkeypatch.setattr(app_icons.sys, "platform", "win32")
+    app_icons._misses.clear()
+    results = []
+    threads = [threading.Thread(target=lambda: results.append(app_icons.icon_for(("Chrome.exe",)))) for _ in range(8)]
+    for thread in threads:
+        thread.start()
+    for thread in threads:
+        thread.join()
+    assert len(calls) == 1 and all(results)

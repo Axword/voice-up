@@ -63,10 +63,15 @@ function Modal({title, onClose, children, wide}: {title:string;onClose:()=>void;
   </dialog>;
 }
 function ProfileMark({profile, large}: {profile:Profile;large?:boolean}) {
-  const [iconFailed, setIconFailed] = useState(false);
-  useEffect(() => setIconFailed(false), [profile.id]);
+  const [iconUrl, setIconUrl] = useState<string | null | undefined>(undefined);
+  useEffect(() => {
+    let current = true;
+    setIconUrl(undefined);
+    void api.iconBlobUrl(profile.id).then(url => { if (current) setIconUrl(url); });
+    return () => { current = false; };
+  }, [profile.id]);
   const label = profile.game.toLowerCase();
-  if (!iconFailed && label!=='keyboard') return <span class={`profile-mark app-icon ${large?'large':''}`}><img src={api.iconUrl(profile.id)} alt="" loading="lazy" onError={()=>setIconFailed(true)}/></span>;
+  if (iconUrl && label!=='keyboard') return <span class={`profile-mark app-icon ${large?'large':''}`}><img src={iconUrl} alt=""/></span>;
   if (label==='keyboard') return <span class={`profile-mark keyboard ${large?'large':''}`}><Icon name="keyboard" size={large?30:17}/></span>;
   const mark = label.includes('league') ? 'L' : label.includes('minecraft') ? 'M' : label.includes('counter') ? 'CS' : profile.name.slice(0,2).toUpperCase();
   return <span class={`profile-mark ${label.includes('minecraft') ? 'minecraft' : ''} ${large ? 'large' : ''}`}>{mark}</span>;
@@ -87,11 +92,6 @@ export function App() {
   const filteredProfiles = (profiles.value?.profiles??[]).filter(item=>profileLanguage==='all'||item.language===profileLanguage)
     .sort((a,b)=>Number(b.id.startsWith('basic-keyboard'))-Number(a.id.startsWith('basic-keyboard')));
   const online = connection.value === 'online';
-  useEffect(() => {
-    if (!online) return;
-    const timer = setInterval(() => { if (!document.hidden) void api.status().then(next => { status.value = next; }).catch(() => {}); }, 2000);
-    return () => clearInterval(timer);
-  }, [online]);
   const inUseId = status.value?.effective_profile_id ?? profile?.id;
   const [installedIds, setInstalledIds] = useState<string[]>([]);
   useEffect(() => { if (online) void api.installedProfiles().then(r => setInstalledIds(r.ids)).catch(() => {}); }, [online, profiles.value?.profiles.length]);

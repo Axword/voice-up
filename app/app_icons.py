@@ -6,9 +6,12 @@ a running process of the same name. Nothing is read or sent anywhere else.
 
 from __future__ import annotations
 
+import os
 import re
 import subprocess
 import sys
+import tempfile
+import threading
 import time
 from pathlib import Path
 
@@ -20,6 +23,9 @@ log = get_logger("icons")
 _EXE = re.compile(r"[\w .\-]{1,100}\.exe", re.IGNORECASE)
 _MISS_TTL = 300.0
 _misses: dict[str, float] = {}
+_locks: dict[str, threading.Lock] = {}
+_locks_guard = threading.Lock()
+_script_lock = threading.Lock()
 
 _SCRIPT = r"""
 param([string]$exe, [string]$out)
@@ -55,23 +61,46 @@ def icon_for(exes: tuple[str, ...]) -> Path | None:
     for exe in exes:
         if not valid_exe(exe):
             continue
-        target = _cache_file(exe)
+        target = _cache_file(exe.lower())
         if target.is_file():
             return target
-        if time.monotonic() - _misses.get(exe, -_MISS_TTL) < _MISS_TTL:
-            continue
-        if _extract(exe, target):
-            return target
-        _misses[exe] = time.monotonic()
+        with _exe_lock(exe.lower()):
+            # Another thread may have finished the same extraction while this one waited.
+            if target.is_file():
+                return target
+            if time.monotonic() - _misses.get(exe.lower(), -_MISS_TTL) < _MISS_TTL:
+                continue
+            if _extract(exe, target):
+                return target
+            _misses[exe.lower()] = time.monotonic()
     return None
+
+
+def _exe_lock(exe: str) -> threading.Lock:
+    with _locks_guard:
+        return _locks.setdefault(exe, threading.Lock())
+
+
+def _script_path() -> Path:
+    """The PowerShell script, written once per process (concurrent writers raced on it before)."""
+    target = paths.CACHE_DIR / "icons" / "extract.ps1"
+    with _script_lock:
+        if not target.is_file() or target.read_text(encoding="utf-8") != _SCRIPT:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            handle, name = tempfile.mkstemp(dir=target.parent, suffix=".tmp")
+            with os.fdopen(handle, "w", encoding="utf-8") as stream:
+                stream.write(_SCRIPT)
+            Path(name).replace(target)
+    return target
 
 
 def _extract(exe: str, target: Path) -> bool:
     try:
         target.parent.mkdir(parents=True, exist_ok=True)
-        script = target.parent / "extract.ps1"
-        script.write_text(_SCRIPT, encoding="utf-8")
-        partial = target.with_suffix(".tmp")
+        script = _script_path()
+        handle, name = tempfile.mkstemp(dir=target.parent, suffix=".tmp")
+        os.close(handle)
+        partial = Path(name)
         result = subprocess.run(
             ["powershell.exe", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass",
              "-File", str(script), exe, str(partial)],

@@ -3,11 +3,12 @@
 from __future__ import annotations
 
 import json
+import logging
 import threading
 from pathlib import Path
 from typing import Annotated, Any, Literal, Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ValidationError
 
 from app import paths
 
@@ -27,12 +28,12 @@ class Settings(BaseModel):
     skipped_version: Optional[str] = None
     check_updates: bool = True
     auto_profile: bool = True
-    disabled_modules: list[str] = []
+    disabled_modules: Annotated[list[Annotated[str, Field(max_length=64)]], Field(max_length=50)] = []
 
     model_config = {"extra": "ignore"}
 
 
-_lock = threading.Lock()
+_lock = threading.RLock()
 _cached: Optional[Settings] = None
 
 LEGACY_FILES = (Path("config/config.json"), Path("config.json"))
@@ -50,6 +51,21 @@ def _migrate_legacy(target: Path) -> dict[str, Any]:
     return {}
 
 
+def _lenient(raw: dict[str, Any]) -> Settings:
+    """Settings from a file that may hold values this version does not accept (an old language
+    code, a hand-edited theme): drop just those keys and keep the rest, rather than failing startup."""
+    for _ in range(len(raw) + 1):
+        try:
+            return Settings(**raw)
+        except ValidationError as exc:
+            bad = {str(error["loc"][0]) for error in exc.errors() if error["loc"]}
+            if not bad & raw.keys():
+                break
+            logging.getLogger("lolvoice.config").warning("Ignoring invalid settings: %s", ", ".join(sorted(bad)))
+            raw = {key: value for key, value in raw.items() if key not in bad}
+    return Settings()
+
+
 def load(force: bool = False) -> Settings:
     global _cached
     with _lock:
@@ -65,7 +81,7 @@ def load(force: bool = False) -> Settings:
             raw = _migrate_legacy(paths.CONFIG_FILE)
         if not isinstance(raw, dict):
             raw = {}
-        _cached = Settings(**raw) if raw else Settings()
+        _cached = _lenient(raw)
         if not paths.CONFIG_FILE.is_file():
             _write(_cached)
         return _cached
@@ -87,10 +103,11 @@ def save(settings: Settings) -> Settings:
 
 
 def update(patch: dict[str, Any]) -> Settings:
-    current = load()
-    nullable = ("audio_device", "skipped_version")
-    changes = {k: v for k, v in patch.items() if v is not None or k in nullable}
-    return save(Settings(**{**current.model_dump(), **changes}))
+    with _lock:  # read-modify-write: concurrent PUTs must not lose each other's changes
+        current = load()
+        nullable = ("audio_device", "skipped_version")
+        changes = {k: v for k, v in patch.items() if v is not None or k in nullable}
+        return save(Settings(**{**current.model_dump(), **changes}))
 
 
 def reset_cache() -> None:

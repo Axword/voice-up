@@ -32,8 +32,21 @@ async function request<T>(path: string, method = 'GET', body?: unknown): Promise
   }
   return response.json() as Promise<T>;
 }
+const icons = new Map<string, Promise<string | null>>();
 export const api = {
-  iconUrl: (profileId: string) => `${session.apiBase}/profiles/${encodeURIComponent(profileId)}/icon?token=${encodeURIComponent(session.token)}`,
+  // Fetched with the token header and shown from a blob URL, so the token never appears in a URL.
+  iconBlobUrl: async (profileId: string): Promise<string | null> => {
+    const cached = icons.get(profileId);
+    if (cached) return cached;
+    const pending = (async () => {
+      try {
+        const response = await fetch(`${session.apiBase}/profiles/${encodeURIComponent(profileId)}/icon`, { headers: { 'X-Auth-Token': session.token } });
+        return response.ok ? URL.createObjectURL(await response.blob()) : null;
+      } catch { return null; }
+    })();
+    icons.set(profileId, pending);
+    return pending;
+  },
   installedProfiles: () => request<{ ids: string[] }>('/profiles/installed'),
   modules: () => request<{ modules: ModuleInfo[] }>('/modules'),
   status: () => request<Status>('/status'),

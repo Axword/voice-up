@@ -106,6 +106,9 @@ class Pipeline:
             executor.release_all()
 
 
+MAX_FUZZY_LENGTH = 200
+
+
 def _alnum(value: str) -> int:
     return sum(char.isalnum() for char in value)
 
@@ -127,17 +130,24 @@ class ProfileRouter:
             if phrase == normalized:
                 return self._intent(command, 1.0)
 
-        if context.threshold >= 1.0 or _alnum(normalized) <= 2:
+        # A long transcript is not a command; skipping it also bounds the cost of the scan below.
+        if context.threshold >= 1.0 or _alnum(normalized) <= 2 or len(normalized) > MAX_FUZZY_LENGTH:
             return None
 
         best: VoiceCommand | None = None
         best_score = 0.0
         tied = False
+        matcher = SequenceMatcher(None, autojunk=False)
+        matcher.set_seq2(normalized)
         for command, phrase in candidates:
             # Letter commands remain exact, even at a permissive threshold.
             if _alnum(phrase) <= 2:
                 continue
-            score = SequenceMatcher(None, phrase, normalized, autojunk=False).ratio()
+            matcher.set_seq1(phrase)
+            # The cheap upper bounds reject most candidates without the full comparison.
+            if matcher.real_quick_ratio() < context.threshold or matcher.quick_ratio() < context.threshold:
+                continue
+            score = matcher.ratio()
             if score < context.threshold or score == 0:
                 continue
             if score > best_score:
