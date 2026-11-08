@@ -83,6 +83,8 @@ python main.py --no-tray --no-browser --port 21337
 
 Panel jest dostępny pod `http://127.0.0.1:21337`. Zatrzymanie serwera: `Ctrl+C`.
 
+Wygląd panelu (kolory, typografia, komponenty) opisuje [DESIGN.md](DESIGN.md); wartości są w `webui/src/styles/tokens.css`.
+
 Profile można edytować w panelu oraz importować i eksportować jako JSON. Tekstowy edytor JSON obsługuje cały dokument: wszystkie profile, ich komendy i wybór aktywnego profilu. Ustawienia i profile są w `%APPDATA%\LoLVoice`, a modele i logi w `%LOCALAPPDATA%\LoLVoice`. Dawne katalogi pozostają dla zgodności z pobranymi modelami. Zmienna `VOICE_CONTROL_HOME` przenosi wszystkie dane do wskazanego folderu; wcześniejsza `LOLVOICE_HOME` nadal działa.
 
 ## Sprawdzenie i budowanie

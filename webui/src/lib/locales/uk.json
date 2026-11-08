@@ -26,7 +26,6 @@
   "Komendy głosowe": "Голосові команди",
   "Aktywność": "Активність",
   "Ustawienia": "Налаштування",
-  "PROFILE GIER": "ПРОФІЛІ",
   "Dodaj profil": "Додати профіль",
   "Profile gier": "Профілі",
   "Nowy profil": "Новий профіль",
@@ -35,8 +34,6 @@
   "Brak połączenia z lokalną aplikacją Voice Control.": "Не вдалося з’єднатися з локальним застосунком Voice Control.",
   "Połącz ponownie": "З’єднатися знову",
   "Zamknij komunikat": "Закрити повідомлення",
-  "USTAWIENIA": "НАЛАШТУВАННЯ",
-  "AKTYWNOŚĆ": "АКТИВНІСТЬ",
   "Chwila…": "Зачекайте…",
   "Zatrzymaj nasłuch": "Зупинити прослуховування",
   "Włącz nasłuch": "Почати прослуховування",
@@ -65,10 +62,6 @@
   "Przełącznik": "Перемикач",
   "Szukaj komendy": "Пошук команди",
   "Szukaj komendy…": "Пошук команди…",
-  "POWIEDZ": "СКАЖІТЬ",
-  "PRZYCISKI": "КНОПКИ",
-  "TRYB DZIAŁANIA": "РЕЖИМ ДІЇ",
-  "AKTYWNA": "УВІМКНЕНО",
   "Przycisk jest trzymany": "Кнопка утримується",
   "Tryb: {phrase}": "Режим: {phrase}",
   "Przytrzymaj przez {duration}": "Утримувати протягом {duration}",
@@ -181,5 +174,8 @@
   "Wyłączony przez organizację": "Вимкнено вашою організацією",
   "Niedostępny w tej edycji": "Недоступно в цій версії",
   "Na tym komputerze": "На цьому комп'ютері",
-  "Pozostałe profile": "Інші профілі"
+  "Pozostałe profile": "Інші профілі",
+  "Profile": "Профілі",
+  "Aktywna": "Увімкнено",
+  "Przejdź do treści": "Перейти до вмісту"
 }

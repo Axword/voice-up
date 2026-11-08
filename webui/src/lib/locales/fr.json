@@ -26,7 +26,6 @@
   "Komendy głosowe": "Commandes vocales",
   "Aktywność": "Activité",
   "Ustawienia": "Paramètres",
-  "PROFILE GIER": "PROFILS",
   "Dodaj profil": "Ajouter un profil",
   "Profile gier": "Profils",
   "Nowy profil": "Nouveau profil",
@@ -35,8 +34,6 @@
   "Brak połączenia z lokalną aplikacją Voice Control.": "Impossible de se connecter à l'application locale Voice Control.",
   "Połącz ponownie": "Reconnecter",
   "Zamknij komunikat": "Fermer le message",
-  "USTAWIENIA": "PARAMÈTRES",
-  "AKTYWNOŚĆ": "ACTIVITÉ",
   "Chwila…": "Veuillez patienter…",
   "Zatrzymaj nasłuch": "Arrêter l'écoute",
   "Włącz nasłuch": "Démarrer l'écoute",
@@ -65,10 +62,6 @@
   "Przełącznik": "Bascule",
   "Szukaj komendy": "Rechercher une commande",
   "Szukaj komendy…": "Rechercher une commande…",
-  "POWIEDZ": "DIRE",
-  "PRZYCISKI": "TOUCHES",
-  "TRYB DZIAŁANIA": "MODE D'ACTION",
-  "AKTYWNA": "ACTIVÉE",
   "Przycisk jest trzymany": "La touche est maintenue",
   "Tryb: {phrase}": "Mode : {phrase}",
   "Przytrzymaj przez {duration}": "Maintenir pendant {duration}",
@@ -181,5 +174,8 @@
   "Wyłączony przez organizację": "Désactivé par votre organisation",
   "Niedostępny w tej edycji": "Absent de cette édition",
   "Na tym komputerze": "Sur cet ordinateur",
-  "Pozostałe profile": "Autres profils"
+  "Pozostałe profile": "Autres profils",
+  "Profile": "Profils",
+  "Aktywna": "Activée",
+  "Przejdź do treści": "Aller au contenu"
 }

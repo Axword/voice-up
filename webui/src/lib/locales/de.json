@@ -26,7 +26,6 @@
   "Komendy głosowe": "Sprachbefehle",
   "Aktywność": "Aktivität",
   "Ustawienia": "Einstellungen",
-  "PROFILE GIER": "PROFILE",
   "Dodaj profil": "Profil hinzufügen",
   "Profile gier": "Profile",
   "Nowy profil": "Neues Profil",
@@ -35,8 +34,6 @@
   "Brak połączenia z lokalną aplikacją Voice Control.": "Keine Verbindung zur lokalen Voice Control-App.",
   "Połącz ponownie": "Erneut verbinden",
   "Zamknij komunikat": "Meldung schließen",
-  "USTAWIENIA": "EINSTELLUNGEN",
-  "AKTYWNOŚĆ": "AKTIVITÄT",
   "Chwila…": "Bitte warten…",
   "Zatrzymaj nasłuch": "Spracherkennung stoppen",
   "Włącz nasłuch": "Spracherkennung starten",
@@ -65,10 +62,6 @@
   "Przełącznik": "Umschalten",
   "Szukaj komendy": "Befehle suchen",
   "Szukaj komendy…": "Befehle suchen…",
-  "POWIEDZ": "SPRICH",
-  "PRZYCISKI": "TASTEN",
-  "TRYB DZIAŁANIA": "AKTIONSMODUS",
-  "AKTYWNA": "AKTIV",
   "Przycisk jest trzymany": "Taste wird gedrückt gehalten",
   "Tryb: {phrase}": "Modus: {phrase}",
   "Przytrzymaj przez {duration}": "Für {duration} gedrückt halten",
@@ -181,5 +174,8 @@
   "Wyłączony przez organizację": "Von Ihrer Organisation deaktiviert",
   "Niedostępny w tej edycji": "In dieser Edition nicht enthalten",
   "Na tym komputerze": "Auf diesem Computer",
-  "Pozostałe profile": "Weitere Profile"
+  "Pozostałe profile": "Weitere Profile",
+  "Profile": "Profile",
+  "Aktywna": "Aktiv",
+  "Przejdź do treści": "Zum Inhalt springen"
 }

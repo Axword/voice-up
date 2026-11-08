@@ -26,7 +26,6 @@
   "Komendy głosowe": "Comandos de voz",
   "Aktywność": "Actividad",
   "Ustawienia": "Ajustes",
-  "PROFILE GIER": "PERFILES",
   "Dodaj profil": "Añadir perfil",
   "Profile gier": "Perfiles",
   "Nowy profil": "Nuevo perfil",
@@ -35,8 +34,6 @@
   "Brak połączenia z lokalną aplikacją Voice Control.": "No hay conexión con la aplicación local Voice Control.",
   "Połącz ponownie": "Volver a conectar",
   "Zamknij komunikat": "Cerrar mensaje",
-  "USTAWIENIA": "AJUSTES",
-  "AKTYWNOŚĆ": "ACTIVIDAD",
   "Chwila…": "Espera un momento…",
   "Zatrzymaj nasłuch": "Detener la escucha",
   "Włącz nasłuch": "Iniciar la escucha",
@@ -65,10 +62,6 @@
   "Przełącznik": "Alternar",
   "Szukaj komendy": "Buscar comandos",
   "Szukaj komendy…": "Buscar comandos…",
-  "POWIEDZ": "DI",
-  "PRZYCISKI": "BOTONES",
-  "TRYB DZIAŁANIA": "MODO DE ACCIÓN",
-  "AKTYWNA": "ACTIVO",
   "Przycisk jest trzymany": "El botón se mantiene pulsado",
   "Tryb: {phrase}": "Modo: {phrase}",
   "Przytrzymaj przez {duration}": "Mantener pulsado durante {duration}",
@@ -181,5 +174,8 @@
   "Wyłączony przez organizację": "Desactivado por su organización",
   "Niedostępny w tej edycji": "No incluido en esta edición",
   "Na tym komputerze": "En este equipo",
-  "Pozostałe profile": "Otros perfiles"
+  "Pozostałe profile": "Otros perfiles",
+  "Profile": "Perfiles",
+  "Aktywna": "Activo",
+  "Przejdź do treści": "Saltar al contenido"
 }
