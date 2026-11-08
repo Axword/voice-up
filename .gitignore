@@ -36,3 +36,4 @@ launch.bat
 launch.sh
 
 .test-state/
+.codex/
