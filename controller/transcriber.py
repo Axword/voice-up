@@ -8,6 +8,7 @@ faster_whisper, numpy) siedza w metodach, zeby modul dal sie zaimportowac w CI.
 from __future__ import annotations
 
 import re
+import zlib
 from typing import Any
 
 from app import engines
@@ -21,6 +22,22 @@ _CLEAN_PATTERN = re.compile(r"[^\w\sąćęłńóśźż]")
 def clean_text(text: str) -> str:
     """Male litery, bez interpunkcji, bez bialych znakow na brzegach."""
     return _CLEAN_PATTERN.sub("", (text or "").lower().strip()).strip()
+
+
+# Whisper decoding loops ("wydaje sie ze to jest to ze to jest ...") on silence or unreadable audio.
+# With dictation on, such text would be typed into the focused window.
+MAX_WORDS_PER_SECOND = 6.0
+MAX_COMPRESSION_RATIO = 2.4  # the same limit Whisper itself uses for its fallback
+
+
+def is_hallucination(text: str, seconds: float) -> bool:
+    words = text.split()
+    if len(words) < 4:
+        return False
+    if len(words) > MAX_WORDS_PER_SECOND * max(seconds, 1.0):
+        return True
+    raw = text.encode("utf-8")
+    return len(raw) >= 40 and len(raw) / len(zlib.compress(raw)) > MAX_COMPRESSION_RATIO
 
 
 def whisper_language(language: str) -> str:
@@ -150,4 +167,9 @@ class Transcriber:
         else:
             raise RuntimeError("Transcriber not loaded")
 
-        return clean_text(text)
+        cleaned = clean_text(text)
+        seconds = len(audio) / 16000
+        if is_hallucination(cleaned, seconds):
+            log.warning("Dropped a looping transcript (%d chars for %.1f s of audio)", len(cleaned), seconds)
+            return ""
+        return cleaned
