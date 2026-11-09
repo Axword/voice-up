@@ -6,7 +6,7 @@ uvicorn>=0.27
 websockets>=12.0
 pydantic>=2.6
 # System certificate store for TLS, so downloads work behind AV or proxy MITM
-truststore>=0.9
+truststore>=0.10.5
 
 # Tray icon
 pystray>=0.19
