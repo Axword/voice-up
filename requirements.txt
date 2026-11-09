@@ -21,7 +21,7 @@ webrtcvad>=2.0.10
 # (CTranslate2) covers machines where Smart App Control blocks pywhispercpp
 # and provides the CUDA engines.
 pywhispercpp>=1.2.0
-faster-whisper>=1.1
+faster-whisper>=1.2.1
 # webrtcvad imports pkg_resources: gone from fresh venvs since Python 3.12,
 # removed from setuptools 81+, and in 71..80 pkg_resources pulls vendored
 # jaraco in a way PyInstaller cannot freeze. 68..70 is self-contained.
