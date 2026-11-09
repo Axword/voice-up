@@ -114,8 +114,9 @@ export function App() {
     });
   }
   return <div class="app-shell">
+    <a class="skip-link" href="#main">{t("Przejdź do treści")}</a>
     <header class="topbar">
-      <a class="brand" href="https://axword.pl/" target="_blank" rel="noopener noreferrer">Axword<span>/</span><span class="brand-product">Voice Control</span></a>
+      <a class="brand" href="https://axword.pl/" target="_blank" rel="noopener noreferrer"><span class="brand-mark"><Icon name="mic" size={15}/></span>Voice Control<span class="brand-by">Axword</span></a>
       <div class="topbar-actions">
         <select class="language-select" aria-label={t('Język interfejsu')} value={settings.value?.ui_language??'pl_PL'} disabled={!online||busy.value} onChange={e=>void patchSettings({ui_language:e.currentTarget.value as Language})}>{languages.map(language=><option key={language.id} value={language.id}>{language.label}</option>)}</select>
         <span class={`connection-label ${online ? 'connected' : ''}`}><i/>{online ? t("Połączono lokalnie") : connection.value === 'connecting' ? t("Łączenie…") : t("Brak połączenia")}</span>
@@ -126,12 +127,12 @@ export function App() {
     </header>
     <aside class="sidebar">
       <nav aria-label={t("Panel")}>
-        <button class={`nav-item ${view.value === 'commands' ? 'selected' : ''}`} onClick={()=>{view.value='commands';}}><Icon name="command"/>{t("Komendy głosowe")}</button>
-        <button class={`nav-item ${view.value === 'activity' ? 'selected' : ''}`} onClick={()=>{view.value='activity';}}><Icon name="activity"/>{t("Aktywność")}</button>
-        <button class={`nav-item ${view.value === 'settings' ? 'selected' : ''}`} onClick={()=>{view.value='settings';}}><Icon name="settings"/>{t("Ustawienia")}</button>
+        <button class={`nav-item ${view.value === 'commands' ? 'selected' : ''}`} aria-current={view.value === 'commands' ? 'page' : undefined} onClick={()=>{view.value='commands';}}><Icon name="command"/>{t("Komendy głosowe")}</button>
+        <button class={`nav-item ${view.value === 'activity' ? 'selected' : ''}`} aria-current={view.value === 'activity' ? 'page' : undefined} onClick={()=>{view.value='activity';}}><Icon name="activity"/>{t("Aktywność")}</button>
+        <button class={`nav-item ${view.value === 'settings' ? 'selected' : ''}`} aria-current={view.value === 'settings' ? 'page' : undefined} onClick={()=>{view.value='settings';}}><Icon name="settings"/>{t("Ustawienia")}</button>
       </nav>
       <div class="sidebar-section">
-        <div class="sidebar-label"><span>{t("PROFILE GIER")}</span><IconButton icon="plus" label={t("Dodaj profil")} disabled={!online || busy.value} onClick={()=>setProfileEditor('new')}/></div>
+        <div class="sidebar-label"><span>{t("Profile")}</span><IconButton icon="plus" label={t("Dodaj profil")} disabled={!online || busy.value} onClick={()=>setProfileEditor('new')}/></div>
         <label class="profile-language-filter"><span>{t('Język profili')}</span><select aria-label={t('Język profili')} value={profileLanguage} onChange={e=>filterProfileLanguage(e.currentTarget.value as Language|'all')}><option value="all">{t('Wszystkie języki')}</option>{languages.map(item=><option key={item.id} value={item.id}>{item.label}</option>)}</select></label>
         <nav class="profile-nav" aria-label={t("Profile gier")}>{installedProfiles.length > 0 && <div class="profile-group">{t("Na tym komputerze")}</div>}{installedProfiles.map(profileButton)}{installedProfiles.length > 0 && otherProfiles.length > 0 && <div class="profile-group">{t("Pozostałe profile")}</div>}{otherProfiles.map(profileButton)}</nav>
         <button class="add-profile" onClick={()=>setProfileEditor('new')} disabled={!online || busy.value}><Icon name="plus" size={15}/>{t("Nowy profil")}</button>
@@ -145,7 +146,7 @@ export function App() {
     <main id="main" class={view.value==='commands' ? 'dashboard-main' : ''}>
       {!online && <div class="notice"><Icon name="refresh" size={17}/><span>{connection.value==='connecting' ? t("Łączenie z aplikacją…") : t("Brak połączenia z lokalną aplikacją Voice Control.")}</span><Button quiet onClick={retryNow}>{t("Połącz ponownie")}</Button></div>}
       {error.value && <div class="notice error" role="alert"><span>{translateMessage(error.value)}</span><IconButton icon="close" label={t("Zamknij komunikat")} onClick={()=>{error.value='';}}/></div>}
-      {view.value!=='commands' && <div class="page-top"><span class="eyebrow">VOICE CONTROL <span>/</span> {view.value==='settings' ? t("USTAWIENIA") : t("AKTYWNOŚĆ")}</span>
+      {view.value!=='commands' && <div class="page-top"><h1>{view.value==='settings' ? t("Ustawienia") : t("Aktywność")}</h1>
         <Button icon={status.value?.listening ? 'pause' : 'mic'} primary={!status.value?.listening} disabled={!online || busy.value || !profile} onClick={()=>void listen()}>
           {busy.value ? t("Chwila…") : status.value?.listening ? t("Zatrzymaj nasłuch") : t("Włącz nasłuch")}
         </Button>
@@ -202,9 +203,8 @@ function VoicePanel({profile,availableProfiles,onToggle,onSelectProfile,onProfil
   const inUseProfile=profiles.value?.profiles.find(p=>p.id===status.value?.effective_profile_id);
   return <section class={`voice-panel ${status.value?.listening?'listening':''}`} aria-label={t("Sterowanie głosem")}>
     <div class="voice-panel-state">
-      <div class="voice-state-label"><span class="listening-indicator"><Icon name="mic" size={21}/></span><strong>{status.value?.listening?t("Nasłuch włączony"):t("Nasłuch wyłączony")}</strong></div>
-      {status.value?.dictating && <span class="dictation-badge"><Icon name="mic" size={13}/>{t('Dyktowanie włączone')}</span>}
-      <span class="voice-panel-language">{languageName(profile.language)}</span>
+      <span class="listening-indicator"><Icon name="mic" size={22}/></span>
+      <div class="voice-state-text" role="status"><strong>{status.value?.listening?t("Nasłuch włączony"):t("Nasłuch wyłączony")}</strong><span class="voice-panel-language">{languageName(profile.language)}{status.value?.dictating && <span class="dictation-badge"><Icon name="mic" size={13}/>{t('Dyktowanie włączone')}</span>}</span></div>
       <Button primary={!status.value?.listening} icon={status.value?.listening?'pause':'play'} disabled={!online||busy.value} onClick={onToggle}>{busy.value?t("Chwila…"):status.value?.listening?t("Zatrzymaj nasłuch"):t("Włącz nasłuch")}</Button>
     </div>
     {inUseProfile && inUseProfile.id!==profile.id && <div class="voice-auto"><ProfileMark profile={inUseProfile}/><span>{t('Teraz używany: {name}',{name:profileName(inUseProfile)})}</span>{status.value?.foreground && <span class="muted">{status.value.foreground}</span>}</div>}
@@ -244,13 +244,13 @@ function Commands({profile,onAdd,onEdit,onJson}: {profile:Profile;onAdd:()=>void
       <div class="section-heading"><h2>{profile.name}</h2><div class="section-actions"><Button icon="code" onClick={onJson} disabled={!online}>JSON</Button><Button primary icon="plus" onClick={onAdd} disabled={busy.value || !online}>{t("Dodaj komendę")}</Button></div></div>
       <div class="command-toolbar">
         <div class="filters" role="group" aria-label={t("Filtr trybu")}>
-          <button class={filter==='all' ? 'active' : ''} onClick={()=>setFilter('all')}>{t("Wszystkie")}</button>
-          {modes.map(m=><button key={m.id} class={filter===m.id ? 'active' : ''} onClick={()=>setFilter(m.id)}><Icon name={m.icon} size={14}/>{m.id==='click' ? t("Kliknięcie") : m.id==='timed' ? t("3 sekundy") : t("Przełącznik")}</button>)}
+          <button class={filter==='all' ? 'active' : ''} aria-pressed={filter==='all'} onClick={()=>setFilter('all')}>{t("Wszystkie")}</button>
+          {modes.map(m=><button key={m.id} class={filter===m.id ? 'active' : ''} aria-pressed={filter===m.id} onClick={()=>setFilter(m.id)}><Icon name={m.icon} size={14}/>{m.id==='click' ? t("Kliknięcie") : m.id==='timed' ? t("3 sekundy") : t("Przełącznik")}</button>)}
         </div>
         <label class="search"><Icon name="search" size={16}/><input aria-label={t("Szukaj komendy")} placeholder={t("Szukaj komendy…")} value={query} onInput={e=>setQuery(e.currentTarget.value)}/></label>
       </div>
       <div class="command-table">
-        <div class="table-labels"><span>{t("POWIEDZ")}</span><span/><span>{t("PRZYCISKI")}</span><span>{t("TRYB DZIAŁANIA")}</span><span>{t("AKTYWNA")}</span><span/></div>
+        <div class="table-labels"><span>{t("Powiedz")}</span><span/><span>{t("Przyciski")}</span><span>{t("Tryb działania")}</span><span>{t("Aktywna")}</span><span/></div>
         {items.map(c=><div key={c.id} class={`command-row ${!c.enabled ? 'disabled' : ''} ${held.includes(c.id) ? 'holding' : ''} ${result?.command?.id===c.id ? 'matched' : ''}`}>
           <button class="phrase" onClick={()=>onEdit(c)} disabled={!online || busy.value}><span class="quote">“</span>{c.phrase}<span class="quote">”</span>{held.includes(c.id) && <span class="holding-dot" title={t("Przycisk jest trzymany")}/>}</button>
           <span class="command-arrow"><Icon name="arrow" size={18}/></span>
@@ -444,7 +444,6 @@ function SettingsView() {
     }
   }
   return <>
-    <div class="plain-heading"><h1>{t("Ustawienia")}</h1></div>
     {!cfg ? <p class="muted">{t("Oczekiwanie na ustawienia aplikacji…")}</p> : <div class="settings-content">
       <section class="settings-section"><h2><Icon name="mic"/>{t("Mikrofon i rozpoznawanie")}</h2>
         <label class="setting-row"><span>{t("Mikrofon")}</span><select value={cfg.audio_device??''} disabled={!online||busy.value||audioBusy||status.value?.listening} onChange={e=>void patchSettings({audio_device:e.currentTarget.value||null})}><option value="">{t("Domyślny mikrofon systemowy")}</option>{devices.map(d=><option key={d.id} value={d.id}>{d.name}</option>)}{cfg.audio_device&&!devices.some(d=>d.id===cfg.audio_device)&&<option value={cfg.audio_device}>{cfg.audio_device} ({t('niedostępny')})</option>}</select></label>

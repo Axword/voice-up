@@ -1,12 +1,36 @@
+/* Design tokens. Roles and values are described in DESIGN.md at the repository root. */
 :root, :root[data-theme='light'] {
-  --bg:#f5f6f4; --panel:#fff; --panel-2:#edf1ec; --text:#202821; --muted:#58645a;
-  --line:#dce2db; --accent:#226246; --accent-soft:#e4eee7; --on-accent:#fff;
-  --danger:#a03d36; --danger-soft:#fbefed; --shadow:0 16px 60px #20282122;
-  --font:Arial,Helvetica,system-ui,sans-serif;
-  --mono:ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',monospace;
+  color-scheme: light;
+  --bg:#f3f3f3; --layer:#fff; --layer-alt:#f9f9f9; --layer-hover:#f5f5f5;
+  --fill:#0000000a; --fill-hover:#00000012; --fill-press:#0000000d;
+  --text:#1a1a1a; --muted:#5c5c5c;
+  --stroke:#e5e5e5; --stroke-strong:#8a8a8a;
+  --accent:#005fb8; --accent-hover:#1a6fc4; --accent-press:#00509a; --on-accent:#fff; --accent-soft:#e8f1fb;
+  --ok:#0f7b0f; --ok-soft:#dff6dd; --on-ok:#fff;
+  --danger:#c42b1c; --danger-soft:#fde7e9;
+  --focus:#005fb8;
+  --shadow-flyout:0 8px 16px #00000024,0 0 2px #0000001f;
+  --scrim:#00000066;
+  --chevron:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none' stroke='%235c5c5c' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='m2.5 4.5 3.5 3.5 3.5-3.5'/></svg>");
 }
 :root[data-theme='dark'] {
-  --bg:#151b17; --panel:#1a221d; --panel-2:#202b24; --text:#e3e9e4; --muted:#99aa9d;
-  --line:#334338; --accent:#8ac4a0; --accent-soft:#263f2e; --on-accent:#15271c;
-  --danger:#ee9a8f; --danger-soft:#3c2926; --shadow:0 16px 60px #0007;
+  color-scheme: dark;
+  --bg:#202020; --layer:#2b2b2b; --layer-alt:#272727; --layer-hover:#323232;
+  --fill:#ffffff0f; --fill-hover:#ffffff17; --fill-press:#ffffff0a;
+  --text:#f5f5f5; --muted:#b3b3b3;
+  --stroke:#3a3a3a; --stroke-strong:#9a9a9a;
+  --accent:#60cdff; --accent-hover:#78d5ff; --accent-press:#4cb9eb; --on-accent:#00243b; --accent-soft:#1d3a4c;
+  --ok:#6ccb5f; --ok-soft:#263a22; --on-ok:#0b2a08;
+  --danger:#ff99a4; --danger-soft:#442726;
+  --focus:#60cdff;
+  --shadow-flyout:0 8px 16px #00000066,0 0 2px #00000066;
+  --scrim:#000000a6;
+  --chevron:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none' stroke='%23b3b3b3' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='m2.5 4.5 3.5 3.5 3.5-3.5'/></svg>");
+}
+:root {
+  --font:'Segoe UI Variable Text','Segoe UI Variable','Segoe UI',system-ui,-apple-system,sans-serif;
+  --font-display:'Segoe UI Variable Display','Segoe UI Variable Text','Segoe UI',system-ui,sans-serif;
+  --mono:'Cascadia Mono',Consolas,ui-monospace,'Liberation Mono',monospace;
+  --r-1:4px; --r-2:8px;
+  --ease:cubic-bezier(.16,1,.3,1);
 }

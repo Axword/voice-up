@@ -26,7 +26,6 @@
   "Komendy głosowe": "Voice commands",
   "Aktywność": "Activity",
   "Ustawienia": "Settings",
-  "PROFILE GIER": "PROFILES",
   "Dodaj profil": "Add profile",
   "Profile gier": "Profiles",
   "Nowy profil": "New profile",
@@ -35,8 +34,6 @@
   "Brak połączenia z lokalną aplikacją Voice Control.": "Cannot connect to the local Voice Control app.",
   "Połącz ponownie": "Reconnect",
   "Zamknij komunikat": "Dismiss message",
-  "USTAWIENIA": "SETTINGS",
-  "AKTYWNOŚĆ": "ACTIVITY",
   "Chwila…": "Please wait…",
   "Zatrzymaj nasłuch": "Stop listening",
   "Włącz nasłuch": "Start listening",
@@ -65,10 +62,6 @@
   "Przełącznik": "Toggle",
   "Szukaj komendy": "Search commands",
   "Szukaj komendy…": "Search commands…",
-  "POWIEDZ": "SAY",
-  "PRZYCISKI": "BUTTONS",
-  "TRYB DZIAŁANIA": "ACTION MODE",
-  "AKTYWNA": "ENABLED",
   "Przycisk jest trzymany": "Button is held",
   "Tryb: {phrase}": "Mode: {phrase}",
   "Przytrzymaj przez {duration}": "Hold for {duration}",
@@ -181,5 +174,8 @@
   "Wyłączony przez organizację": "Disabled by your organization",
   "Niedostępny w tej edycji": "Not in this edition",
   "Na tym komputerze": "On this computer",
-  "Pozostałe profile": "Other profiles"
+  "Pozostałe profile": "Other profiles",
+  "Profile": "Profiles",
+  "Aktywna": "Enabled",
+  "Przejdź do treści": "Skip to content"
 }

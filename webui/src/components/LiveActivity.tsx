@@ -28,7 +28,7 @@ export function LiveActivity({compact=false}: {compact?:boolean}={}) {
     await run(async()=>{await api.release();status.value=await api.status();});
   }
   return <section class={`live-activity ${compact?'live-activity--compact':''}`}>
-    <header class="live-activity-head"><h2>{t("Aktywność")}</h2><button type="button" class="live-activity-clear" disabled={!items.length} onClick={()=>{heard.value=[];}}>{t("Wyczyść")}</button></header>
+    <header class="live-activity-head"><h2>{compact?t("Aktywność"):t("Rozpoznane komendy")}</h2><button type="button" class="live-activity-clear" disabled={!items.length} onClick={()=>{heard.value=[];}}>{t("Wyczyść")}</button></header>
     {held.length>0&&<div class="live-activity-held"><Keys keys={held}/><button type="button" class="live-activity-release" disabled={busy.value||connection.value!=='online'} onClick={()=>void release()}><Icon name="release" size={14}/>{t("Zwolnij przyciski")}</button></div>}
     <div class="live-activity-feed" role="log" aria-live="polite" aria-label={t("Rozpoznane komendy")}>
       {items.length?items.map((item,index)=><div class={`live-activity-item ${item.error?'live-activity-item--error':''}`} key={`${item.at}-${index}`}>
